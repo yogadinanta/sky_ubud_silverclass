@@ -543,72 +543,28 @@
 
 
     <!-- =========================================================================
-         STUDIO LOCATION & CONTACT MAP
+         VISIT OUR WORKSHOP / LOCATION MAP
          ========================================================================= -->
-    <section class="section" id="location" style="background: linear-gradient(180deg, var(--bg-surface-1) 0%, var(--bg-base) 100%);">
+    <section class="location-section" id="location">
         <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center;">
-                
-                <div>
-                    <span class="section-tag">Find Our Studio</span>
-                    <h2 class="section-title">
-                        Located on <span class="sky-gradient-text">Jl. Jembawan, Ubud</span>
-                    </h2>
-
-                    <p style="color: var(--silver-300); font-size: 1.05rem; margin-bottom: 1.75rem; line-height: 1.8;">
-                        Our silver class is located right in Ubud's cultural heart on Jl. Jembawan, surrounded by peaceful tropical greenery and traditional Balinese architecture.
-                    </p>
-
-                    <div style="margin-bottom: 2.2rem;">
-                        <div style="display: flex; gap: 1rem; margin-bottom: 1.1rem; align-items: flex-start;">
-                            <div class="icon-circle" style="width: 44px; height: 44px; margin-bottom: 0; flex-shrink: 0;">
-                                <i class="fa-solid fa-location-dot" style="font-size: 1.15rem;"></i>
-                            </div>
-                            <div>
-                                <h4 style="font-size: 1rem; color: #ffffff; margin-bottom: 0.2rem;">Studio Address</h4>
-                                <p style="font-size: 0.9rem; color: var(--silver-400);">{{ $settings['address'] ?? 'Jl. Jembawan, Ubud, Bali' }}</p>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; gap: 1rem; margin-bottom: 1.1rem; align-items: flex-start;">
-                            <div class="icon-circle" style="width: 44px; height: 44px; margin-bottom: 0; flex-shrink: 0;">
-                                <i class="fa-solid fa-clock" style="font-size: 1.15rem;"></i>
-                            </div>
-                            <div>
-                                <h4 style="font-size: 1rem; color: #ffffff; margin-bottom: 0.2rem;">Opening Hours</h4>
-                                <p style="font-size: 0.9rem; color: var(--silver-400);">{{ $settings['opening_hours'] ?? 'Daily: 09:00 AM – 07:00 PM' }}</p>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; gap: 1rem; align-items: flex-start;">
-                            <div class="icon-circle" style="width: 44px; height: 44px; margin-bottom: 0; flex-shrink: 0; background: rgba(37, 211, 102, 0.15); border-color: rgba(37, 211, 102, 0.35); color: #25D366;">
-                                <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i>
-                            </div>
-                            <div>
-                                <h4 style="font-size: 1rem; color: #ffffff; margin-bottom: 0.2rem;">Direct WhatsApp Reservation</h4>
-                                <p style="font-size: 0.9rem; color: var(--silver-400);">{{ $settings['whatsapp_display'] ?? '+62 812-3456-7890' }}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="https://maps.google.com/maps?q=Jl.+Jembawan,+Ubud,+Bali" target="_blank" class="btn-primary">
-                        <i class="fa-solid fa-diamond-turn-right"></i>
-                        <span>Open in Google Maps</span>
-                    </a>
+            <div class="location-header">
+                <div class="location-badge-wrap">
+                    <span class="location-badge-text">LOCATION</span>
+                    <span class="location-badge-line"></span>
                 </div>
+                <h2 class="location-title">Visit Our Workshop</h2>
+            </div>
 
-                <div class="glass-panel" style="padding: 0.85rem; overflow: hidden; height: 380px;">
-                    <iframe 
-                        src="https://maps.google.com/maps?q=Jl.+Jembawan,+Ubud,+Bali&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0; border-radius: var(--radius-lg);" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-
+            <div class="location-map-card">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d132381.7316933275!2d115.21685333147833!3d-8.538906103397036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23def608af5b3%3A0xf0ecf62059e6b4e4!2sSky%20Ubud%20Silver%20Class!5e0!3m2!1sid!2sid!4v1789894743092!5m2!1sid!2sid" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
             </div>
         </div>
     </section>

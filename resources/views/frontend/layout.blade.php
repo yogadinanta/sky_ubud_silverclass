@@ -1819,6 +1819,81 @@
         }
 
         /* =========================================================================
+           VISIT OUR WORKSHOP / LOCATION MAP SECTION
+           ========================================================================= */
+        .location-section {
+            background: #ffffff;
+            color: #1e293b;
+            padding: 6rem 0 6.5rem 0;
+            position: relative;
+        }
+
+        .location-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .location-badge-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #1347ce;
+            font-family: var(--font-subheading);
+        }
+
+        .location-badge-line {
+            width: 28px;
+            height: 2.5px;
+            background: #1347ce;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .location-title {
+            font-family: var(--font-subheading);
+            font-size: clamp(2.2rem, 3.8vw, 3rem);
+            font-weight: 800;
+            line-height: 1.18;
+            color: #0d1b3e;
+            letter-spacing: -0.015em;
+            margin: 0;
+        }
+
+        .location-map-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 12px 35px -8px rgba(0, 0, 0, 0.08);
+            height: 480px;
+            width: 100%;
+            position: relative;
+        }
+
+        .location-map-card iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        @media (max-width: 640px) {
+            .location-map-card {
+                height: 380px;
+                border-radius: 14px;
+            }
+        }
+
+        /* =========================================================================
            CLEAN WHITE LUXURY FOOTER (MATCHING USER'S DESIGN)
            ========================================================================= */
         .footer {
