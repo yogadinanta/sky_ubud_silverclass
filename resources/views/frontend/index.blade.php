@@ -399,42 +399,112 @@
 
 
     <!-- =========================================================================
-         TESTIMONIALS & GUEST STORIES
+         TESTIMONIALS & GUEST STORIES (REVIEWS FROM REAL PEOPLE)
          ========================================================================= -->
-    <section class="section" id="stories" style="background: var(--bg-surface-1);">
+    <section class="testi-section" id="stories">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Guest Experiences</span>
-                <h2 class="section-title">
-                    Stories Crafted at <span class="sky-gradient-text">SKY Ubud</span>
-                </h2>
-                <p class="section-desc">
-                    Read what travelers from around the globe say about their time in our Jl. Jembawan workshop.
-                </p>
+            
+            <!-- Top Header & Social Proof Rating Bar -->
+            <div class="testi-header-row">
+                <div class="testi-badge-wrap">
+                    <span class="testi-badge-text">TESTIMONIALS</span>
+                    <span class="testi-badge-line"></span>
+                </div>
+                <h2 class="testi-section-title">What Our Customers Say</h2>
+                
+                <div class="testi-rating-badge">
+                    <span class="testi-rating-score">5.0 / 5</span>
+                    <div class="testi-stars-trust">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="testi-rating-brand">TripAdvisor & Google Reviews</span>
+                    <span class="testi-rating-count">Based on 500+ verified guest reviews</span>
+                </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem;">
-                @foreach($testimonials as $t)
-                    <div class="glass-panel" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            <div style="color: #fbbf24; font-size: 0.95rem; margin-bottom: 1rem;">
-                                {!! str_repeat('⭐', $t->rating) !!}
-                            </div>
-                            <p style="color: var(--silver-300); font-size: 0.94rem; font-style: italic; line-height: 1.7; margin-bottom: 1.5rem;">
-                                "{{ $t->review }}"
-                            </p>
-                        </div>
-                        <div style="border-top: 1px solid var(--border-subtle); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
-                            <div>
-                                <h4 style="font-size: 0.95rem; color: #ffffff; font-weight: 700;">{{ $t->customer_name }}</h4>
-                                <span style="font-size: 0.8rem; color: var(--silver-500);">{{ $t->country_or_city }}</span>
-                            </div>
-                            <span class="badge-pill" style="margin-bottom: 0; font-size: 0.72rem; padding: 0.2rem 0.65rem;">
-                                {{ $t->item_crafted }}
-                            </span>
-                        </div>
+            <!-- Two-Column Showcase: Left Sidebar + Right Slider -->
+            <div class="testi-showcase-grid">
+                
+                <!-- Left Sidebar: Quote Icon + Title + Progress & Arrow Controls -->
+                <div class="testi-left-sidebar">
+                    <div class="testi-quote-icon">
+                        <svg width="46" height="36" viewBox="0 0 46 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5 36C4.7 36 0 31.26 0 25.41C0 15.34 7.35 4.3 19.18 0L21.22 3.44C13.06 6.45 10.22 13.33 10.22 18.06C11.45 18.06 13.08 18.06 15.13 19.35C18.52 21.5 20.46 25.37 20.46 29.24C20.46 33.04 17.52 36 13.92 36H10.5ZM35.04 36C29.24 36 24.54 31.26 24.54 25.41C24.54 15.34 31.89 4.3 43.72 0L45.76 3.44C37.6 6.45 34.76 13.33 34.76 18.06C35.99 18.06 37.62 18.06 39.67 19.35C43.06 21.5 45 25.37 45 29.24C45 33.04 42.06 36 38.46 36H35.04Z" fill="#94A3B8"/>
+                        </svg>
                     </div>
-                @endforeach
+
+                    <h3 class="testi-sidebar-heading">
+                        What our customers are saying
+                    </h3>
+
+                    <p class="testi-sidebar-desc">
+                        Cherished memories and authentic stories shared by travelers from around the world who crafted their signature silver jewelry at our Ubud studio.
+                    </p>
+
+                    <!-- Interactive Slider Controls -->
+                    <div class="testi-controls-wrap">
+                        <button type="button" class="testi-arrow-btn" id="testiPrevBtn" aria-label="Previous Testimonials">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <div class="testi-progress-track">
+                            <div class="testi-progress-thumb" id="testiProgressThumb"></div>
+                        </div>
+                        <button type="button" class="testi-arrow-btn" id="testiNextBtn" aria-label="Next Testimonials">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Side: Speech-Bubble Testimonial Cards Slider -->
+                <div class="testi-slider-viewport" id="testiViewport">
+                    <div class="testi-cards-track" id="testiTrack">
+                        @foreach($testimonials as $t)
+                            <div class="testi-card-item">
+                                <!-- Speech Bubble Box -->
+                                <div class="testi-bubble-card">
+                                    <p class="testi-quote-text">
+                                        "{{ $t->review }}"
+                                    </p>
+                                    
+                                    <div class="testi-card-stars">
+                                        @for($i = 0; $i < ($t->rating ?? 5); $i++)
+                                            <i class="fa-solid fa-star"></i>
+                                        @endfor
+                                    </div>
+                                    <div class="testi-bubble-tail"></div>
+                                </div>
+
+                                <!-- Customer Profile Row -->
+                                <div class="testi-author-row">
+                                    <div class="testi-avatar-box">
+                                        @if($t->photo)
+                                            <img src="{{ asset($t->photo) }}" alt="{{ $t->customer_name }}" loading="lazy">
+                                        @else
+                                            <div class="testi-avatar-initials">
+                                                {{ strtoupper(substr($t->customer_name, 0, 2)) }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="testi-author-info">
+                                        <h4 class="testi-author-name">{{ $t->customer_name }}</h4>
+                                        <div class="testi-author-meta">
+                                            <span>{{ $t->country_or_city }}</span>
+                                            @if($t->item_crafted)
+                                                <span class="testi-meta-dot">•</span>
+                                                <span class="testi-crafted-tag">{{ $t->item_crafted }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>

@@ -1055,6 +1055,372 @@
             }
         }
 
+        /* =========================================================================
+           TESTIMONIALS SECTION (REVIEWS FROM REAL PEOPLE)
+           ========================================================================= */
+        .testi-section {
+            background: #ffffff;
+            color: #1e293b;
+            padding: 6.5rem 0 7rem 0;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid #eef2f6;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .testi-header-row {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3.5rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .testi-badge-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #1347ce;
+            font-family: var(--font-subheading);
+        }
+
+        .testi-badge-line {
+            width: 28px;
+            height: 2.5px;
+            background: #1347ce;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .testi-section-title {
+            font-family: var(--font-subheading);
+            font-size: clamp(2.2rem, 3.8vw, 3rem);
+            font-weight: 800;
+            line-height: 1.18;
+            color: #0d1b3e;
+            letter-spacing: -0.015em;
+            margin: 0;
+        }
+
+        .testi-rating-badge {
+            display: inline-flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.65rem;
+            margin-top: 0.4rem;
+            font-size: 0.94rem;
+            color: #475569;
+            font-family: var(--font-subheading);
+        }
+
+        .testi-rating-score {
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .testi-stars-trust {
+            display: inline-flex;
+            gap: 2.5px;
+            color: #00b67a;
+            font-size: 0.95rem;
+        }
+
+        .testi-rating-brand {
+            font-weight: 700;
+            color: #0d1b3e;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .testi-rating-count {
+            color: #64748b;
+        }
+
+        /* 2-Column Showcase Grid: Left Info & Controls + Right Slider */
+        .testi-showcase-grid {
+            display: grid;
+            grid-template-columns: 290px 1fr;
+            gap: 3.5rem;
+            align-items: flex-start;
+        }
+
+        .testi-left-sidebar {
+            display: flex;
+            flex-direction: column;
+            padding-top: 0.5rem;
+        }
+
+        .testi-quote-icon {
+            margin-bottom: 1.25rem;
+            line-height: 1;
+            display: inline-flex;
+        }
+
+        .testi-sidebar-heading {
+            font-family: var(--font-subheading);
+            font-size: clamp(1.65rem, 2.4vw, 2.1rem);
+            font-weight: 800;
+            line-height: 1.25;
+            color: #0d1b3e;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.85rem;
+        }
+
+        .testi-sidebar-desc {
+            font-size: 0.92rem;
+            color: #64748b;
+            line-height: 1.65;
+            margin-bottom: 2.2rem;
+        }
+
+        /* Slider Controls */
+        .testi-controls-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .testi-arrow-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            color: #0d1b3e;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .testi-arrow-btn:hover {
+            background: #1347ce;
+            border-color: #1347ce;
+            color: #ffffff;
+            transform: scale(1.06);
+            box-shadow: 0 6px 16px rgba(19, 71, 206, 0.25);
+        }
+
+        .testi-arrow-btn:active {
+            transform: scale(0.96);
+        }
+
+        .testi-progress-track {
+            flex: 1;
+            max-width: 140px;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 9999px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testi-progress-thumb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 35%;
+            background: #1347ce;
+            border-radius: 9999px;
+            transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s ease;
+        }
+
+        /* Testimonials Slider Viewport */
+        .testi-slider-viewport {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 0.5rem 0.5rem 2.2rem 0.5rem;
+            margin: -0.5rem -0.5rem -2.2rem -0.5rem;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .testi-slider-viewport:active {
+            cursor: grabbing;
+        }
+
+        .testi-slider-viewport::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testi-cards-track {
+            display: flex;
+            gap: 1.6rem;
+            align-items: stretch;
+            width: max-content;
+        }
+
+        .testi-card-item {
+            width: 340px;
+            flex: 0 0 340px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+        }
+
+        /* Speech Bubble Card */
+        .testi-bubble-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 22px;
+            padding: 1.85rem 1.65rem;
+            box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 235px;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .testi-bubble-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 38px -8px rgba(19, 71, 206, 0.12);
+            border-color: rgba(19, 71, 206, 0.28);
+        }
+
+        .testi-bubble-tail {
+            position: absolute;
+            bottom: -9px;
+            left: 36px;
+            width: 17px;
+            height: 17px;
+            background: #ffffff;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            transform: rotate(45deg);
+            transition: border-color 0.3s ease;
+        }
+
+        .testi-bubble-card:hover .testi-bubble-tail {
+            border-color: rgba(19, 71, 206, 0.28);
+        }
+
+        .testi-quote-text {
+            font-size: 0.94rem;
+            color: #334155;
+            line-height: 1.7;
+            margin: 0 0 1.25rem 0;
+            font-weight: 400;
+        }
+
+        .testi-card-stars {
+            display: flex;
+            gap: 3.5px;
+            color: #00b67a;
+            font-size: 0.95rem;
+            margin-top: auto;
+        }
+
+        /* Customer Author Meta */
+        .testi-author-row {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding-left: 0.75rem;
+        }
+
+        .testi-avatar-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #1347ce 0%, #38bdf8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .testi-avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .testi-avatar-initials {
+            color: #ffffff;
+            font-family: var(--font-subheading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .testi-author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testi-author-name {
+            font-family: var(--font-subheading);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0d1b3e;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .testi-author-meta {
+            font-size: 0.8rem;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            flex-wrap: wrap;
+        }
+
+        .testi-meta-dot {
+            color: #cbd5e1;
+        }
+
+        .testi-crafted-tag {
+            color: #1347ce;
+            font-weight: 600;
+        }
+
+        @media (max-width: 992px) {
+            .testi-showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .testi-left-sidebar {
+                padding-top: 0;
+            }
+
+            .testi-sidebar-desc {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .testi-card-item {
+                width: 290px;
+                flex: 0 0 290px;
+            }
+
+            .testi-bubble-card {
+                padding: 1.5rem 1.35rem;
+                min-height: 215px;
+            }
+        }
+
         /* Journey Steps */
         .journey-grid {
             display: grid;
@@ -2033,6 +2399,74 @@
             }
 
             startTimer();
+        })();
+
+        // Interactive Testimonials Carousel & Progress Track
+        (function() {
+            const testiViewport = document.getElementById('testiViewport');
+            const testiPrevBtn = document.getElementById('testiPrevBtn');
+            const testiNextBtn = document.getElementById('testiNextBtn');
+            const testiProgressThumb = document.getElementById('testiProgressThumb');
+
+            if (!testiViewport) return;
+
+            function updateTestiProgress() {
+                if (!testiProgressThumb) return;
+                const scrollLeft = testiViewport.scrollLeft;
+                const maxScroll = testiViewport.scrollWidth - testiViewport.clientWidth;
+                if (maxScroll <= 0) {
+                    testiProgressThumb.style.left = '0%';
+                    testiProgressThumb.style.width = '100%';
+                    return;
+                }
+                const ratio = Math.max(0, Math.min(1, scrollLeft / maxScroll));
+                const thumbWidth = 35; // 35%
+                const maxLeft = 100 - thumbWidth;
+                testiProgressThumb.style.width = thumbWidth + '%';
+                testiProgressThumb.style.left = (ratio * maxLeft) + '%';
+            }
+
+            testiViewport.addEventListener('scroll', updateTestiProgress, { passive: true });
+
+            if (testiPrevBtn) {
+                testiPrevBtn.addEventListener('click', () => {
+                    const scrollAmount = window.innerWidth < 640 ? 300 : 360;
+                    testiViewport.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+            }
+
+            if (testiNextBtn) {
+                testiNextBtn.addEventListener('click', () => {
+                    const scrollAmount = window.innerWidth < 640 ? 300 : 360;
+                    testiViewport.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+            }
+
+            // Drag to scroll
+            let isDown = false;
+            let startX;
+            let scrollLeftPos;
+
+            testiViewport.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - testiViewport.offsetLeft;
+                scrollLeftPos = testiViewport.scrollLeft;
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDown = false;
+            });
+
+            testiViewport.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - testiViewport.offsetLeft;
+                const walk = (x - startX) * 1.6;
+                testiViewport.scrollLeft = scrollLeftPos - walk;
+            });
+
+            window.addEventListener('resize', updateTestiProgress);
+            setTimeout(updateTestiProgress, 100);
         })();
     </script>
 </body>

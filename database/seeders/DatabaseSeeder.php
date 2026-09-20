@@ -199,12 +199,28 @@ class DatabaseSeeder extends Seeder
         // 4. Testimonials
         $testimonials = [
             [
+                'customer_name' => 'Ryan Almeida',
+                'country_or_city' => 'Sydney, Australia',
+                'rating' => 5,
+                'review' => 'Absolutely one of the best activities we did in Ubud! The silversmith patiently guided us through melting, hammering, and polishing our pure silver bands. Highly recommended for couples!',
+                'item_crafted' => 'Custom Hammered Silver Ring',
+                'sort_order' => 1,
+            ],
+            [
+                'customer_name' => 'Blossom Menezes',
+                'country_or_city' => 'London, United Kingdom',
+                'rating' => 5,
+                'review' => 'Such a therapeutic and creative morning surrounded by Bali lush nature. I created a delicate silver butterfly pendant that I wear every single day. Incredible value and master craftsmanship.',
+                'item_crafted' => 'Sterling Silver Butterfly Pendant',
+                'sort_order' => 2,
+            ],
+            [
                 'customer_name' => 'Sarah & David Jenkins',
                 'country_or_city' => 'Melbourne, Australia',
                 'rating' => 5,
                 'review' => 'The highlight of our 2 weeks in Bali! We made each other custom wedding-band style silver rings with Balinese wave carvings. The instructor Wayan was so patient and knowledgeable. Absolutely unforgettable.',
                 'item_crafted' => 'Couple Matching Wave Rings',
-                'sort_order' => 1,
+                'sort_order' => 3,
             ],
             [
                 'customer_name' => 'Elena Rostova',
@@ -212,7 +228,7 @@ class DatabaseSeeder extends Seeder
                 'rating' => 5,
                 'review' => 'A magical experience in Ubud. As a solo traveler, I felt so welcomed. I made an intricate lotus flower pendant with pure silver. Every time I wear it, I remember the peaceful breeze of Jl. Jembawan.',
                 'item_crafted' => 'Sterling Silver Lotus Pendant',
-                'sort_order' => 2,
+                'sort_order' => 4,
             ],
             [
                 'customer_name' => 'The Miller Family',
@@ -220,15 +236,15 @@ class DatabaseSeeder extends Seeder
                 'rating' => 5,
                 'review' => 'Our kids (ages 11 & 14) loved every second of shaping the silver with the mini hammers and torches under safe guidance. Best souvenir we have ever taken home from our family vacation!',
                 'item_crafted' => '4 Custom Silver Bracelets & Rings',
-                'sort_order' => 3,
+                'sort_order' => 5,
             ],
             [
                 'customer_name' => 'Kenji & Mei Takahashi',
                 'country_or_city' => 'Tokyo, Japan',
                 'rating' => 5,
-                'review' => 'Outstanding craftsmanship and beautiful open workshop. The silver is very high quality and shiny. Excellent value for money in Ubud!',
+                'review' => 'Outstanding craftsmanship and beautiful open workshop. The silver is very high quality and shiny. Excellent guidance in English and a memory to treasure forever.',
                 'item_crafted' => 'Balinese Filigree Cuff Bracelet',
-                'sort_order' => 4,
+                'sort_order' => 6,
             ],
         ];
 
