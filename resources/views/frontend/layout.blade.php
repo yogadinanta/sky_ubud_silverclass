@@ -1764,10 +1764,14 @@
             margin: 0;
         }
 
+        .packages-blue-section .container {
+            max-width: 1440px;
+        }
+
         .packages-blue-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.15rem;
             align-items: stretch;
         }
 
@@ -1789,7 +1793,7 @@
         }
 
         .pkg-card-img-wrap {
-            height: 195px;
+            height: 175px;
             overflow: hidden;
             position: relative;
             background: #e2e8f0;
@@ -1808,7 +1812,7 @@
         }
 
         .pkg-card-body {
-            padding: 1.5rem 1.35rem 1.6rem 1.35rem;
+            padding: 1.35rem 1.1rem 1.45rem 1.1rem;
             display: flex;
             flex-direction: column;
             flex: 1;
@@ -1816,12 +1820,12 @@
         }
 
         .pkg-card-top-info {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.15rem;
         }
 
         .pkg-card-name {
             font-family: var(--font-subheading);
-            font-size: 1.18rem;
+            font-size: 1.08rem;
             font-weight: 800;
             color: #0d1b3e;
             text-align: center;
@@ -1831,41 +1835,41 @@
 
         .pkg-card-price-lbl {
             font-family: var(--font-subheading);
-            font-size: 0.98rem;
+            font-size: 0.92rem;
             font-weight: 800;
             color: #1347ce;
             text-align: center;
-            margin-bottom: 0.9rem;
+            margin-bottom: 0.85rem;
         }
 
         .pkg-card-desc-text {
-            font-size: 0.84rem;
+            font-size: 0.81rem;
             color: #475569;
-            line-height: 1.6;
-            margin-bottom: 1.15rem;
+            line-height: 1.55;
+            margin-bottom: 1.1rem;
         }
 
         .pkg-card-checklist {
             list-style: none;
             padding: 0;
-            margin: 0 0 1.5rem 0;
+            margin: 0 0 1.35rem 0;
             display: flex;
             flex-direction: column;
-            gap: 0.55rem;
+            gap: 0.5rem;
         }
 
         .pkg-card-checklist li {
             display: flex;
             align-items: flex-start;
-            gap: 0.55rem;
-            font-size: 0.82rem;
+            gap: 0.5rem;
+            font-size: 0.79rem;
             color: #334155;
             line-height: 1.45;
         }
 
         .pkg-card-checklist li i {
             color: #1347ce;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             margin-top: 0.15rem;
             flex-shrink: 0;
         }
@@ -1874,10 +1878,10 @@
             background: #1347ce;
             color: #ffffff !important;
             font-family: var(--font-subheading);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 0.04em;
-            padding: 0.8rem 1rem;
+            padding: 0.75rem 0.85rem;
             border-radius: 8px;
             border: none;
             display: flex;
@@ -1895,14 +1899,21 @@
             box-shadow: 0 4px 14px rgba(19, 71, 206, 0.35);
         }
 
-        @media (max-width: 1100px) {
+        @media (max-width: 1280px) {
             .packages-blue-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.25rem;
             }
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 860px) {
+            .packages-blue-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.15rem;
+            }
+        }
+
+        @media (max-width: 600px) {
             .packages-blue-grid {
                 grid-template-columns: 1fr;
             }
