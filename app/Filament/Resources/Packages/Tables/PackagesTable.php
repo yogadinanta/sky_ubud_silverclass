@@ -59,6 +59,7 @@ class PackagesTable
                     DeleteBulkAction::make(),
                 ]),
             ])
+            ->reorderable('sort_order')
             ->defaultSort('sort_order', 'asc');
     }
 }
