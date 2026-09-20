@@ -2290,6 +2290,7 @@
             box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.06);
             background: #f1f5f9;
             position: relative;
+            cursor: pointer;
         }
 
         .gallery-card-half {
@@ -2299,6 +2300,7 @@
             box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.06);
             background: #f1f5f9;
             position: relative;
+            cursor: pointer;
         }
 
         .gallery-img {
@@ -2311,7 +2313,56 @@
 
         .gallery-card-tall:hover .gallery-img,
         .gallery-card-half:hover .gallery-img {
-            transform: scale(1.06);
+            transform: scale(1.08);
+        }
+
+        /* Gallery Hover Caption Overlay */
+        .gallery-caption-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(13, 27, 62, 0.94) 0%, rgba(13, 27, 62, 0.5) 45%, rgba(13, 27, 62, 0) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.35rem 1.15rem;
+            opacity: 0;
+            transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .gallery-card-tall:hover .gallery-caption-overlay,
+        .gallery-card-half:hover .gallery-caption-overlay {
+            opacity: 1;
+        }
+
+        .gallery-caption-tag {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #38bdf8;
+            margin-bottom: 0.2rem;
+            transform: translateY(8px);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-caption-title {
+            font-family: var(--font-subheading);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.3;
+            margin: 0;
+            transform: translateY(8px);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.04s;
+        }
+
+        .gallery-card-tall:hover .gallery-caption-tag,
+        .gallery-card-tall:hover .gallery-caption-title,
+        .gallery-card-half:hover .gallery-caption-tag,
+        .gallery-card-half:hover .gallery-caption-title {
+            transform: translateY(0);
         }
 
         @media (max-width: 1100px) {

@@ -40,6 +40,10 @@
                 <div class="gallery-col">
                     <div class="gallery-card-tall">
                         <img src="{{ asset('images/artisan_rolling_mill.jpg') }}" alt="Silversmith Artisan Guidance Ubud" class="gallery-img" loading="lazy">
+                        <div class="gallery-caption-overlay">
+                            <span class="gallery-caption-tag">Workshop Process</span>
+                            <h4 class="gallery-caption-title">Artisan Rolling Mill & Guidance</h4>
+                        </div>
                     </div>
                 </div>
 
@@ -47,16 +51,28 @@
                 <div class="gallery-col">
                     <div class="gallery-card-tall">
                         <img src="{{ asset('images/butterfly_ring_ricefield.jpg') }}" alt="Balinese Silver Studio Window" class="gallery-img" loading="lazy">
+                        <div class="gallery-caption-overlay">
+                            <span class="gallery-caption-tag">Handmade Creation</span>
+                            <h4 class="gallery-caption-title">Sterling Silver Butterfly Ring</h4>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Col 3: 2 Stacked Cards -->
                 <div class="gallery-col">
                     <div class="gallery-card-half">
-                        <img src="{{ asset('images/silver_rings_showcase.png') }}" alt="Silver Butterfly Ring in Ubud" class="gallery-img" loading="lazy">
+                        <img src="{{ asset('images/bespoke_silver_rings.jpg') }}" alt="Hammered 925 Pure Silver Rings" class="gallery-img" loading="lazy">
+                        <div class="gallery-caption-overlay">
+                            <span class="gallery-caption-tag">Bespoke Jewelry</span>
+                            <h4 class="gallery-caption-title">Hammered 925 Silver Bands</h4>
+                        </div>
                     </div>
                     <div class="gallery-card-half">
                         <img src="{{ asset('images/happy_creators_rings.jpg') }}" alt="Silver Jewelry Workshop Creator" class="gallery-img" loading="lazy">
+                        <div class="gallery-caption-overlay">
+                            <span class="gallery-caption-tag">Guest Moments</span>
+                            <h4 class="gallery-caption-title">Smiling Jewelry Creators</h4>
+                        </div>
                     </div>
                 </div>
 
@@ -64,6 +80,10 @@
                 <div class="gallery-col">
                     <div class="gallery-card-tall">
                         <img src="{{ asset('images/happy_participants.jpg') }}" alt="Happy Creators at Silver Workshop" class="gallery-img" loading="lazy">
+                        <div class="gallery-caption-overlay">
+                            <span class="gallery-caption-tag">Workshop Experience</span>
+                            <h4 class="gallery-caption-title">Hands-on Silversmithing Session</h4>
+                        </div>
                     </div>
                 </div>
 
@@ -71,9 +91,17 @@
                 <div class="gallery-col">
                     <div class="gallery-card-half">
                         <img src="{{ asset('images/hero_silver_craft.jpg') }}" alt="Designing Silver Jewelry Together" class="gallery-img" loading="lazy">
+                        <div class="gallery-caption-overlay">
+                            <span class="gallery-caption-tag">Master Craft</span>
+                            <h4 class="gallery-caption-title">Traditional Soldering & Shaping</h4>
+                        </div>
                     </div>
                     <div class="gallery-card-half">
                         <img src="{{ asset('images/silver_creations_trio.jpg') }}" alt="Happy Participants in Ubud Silver Workshop" class="gallery-img" loading="lazy">
+                        <div class="gallery-caption-overlay">
+                            <span class="gallery-caption-tag">Take Home Memory</span>
+                            <h4 class="gallery-caption-title">Cherished Ubud Masterpieces</h4>
+                        </div>
                     </div>
                 </div>
 
