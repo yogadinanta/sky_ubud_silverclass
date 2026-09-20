@@ -49,9 +49,17 @@
                     Join our fun and hands-on silver jewelry making class in the heart of Ubud, Bali. Create your own unique ring, bracelet, or pendant and take home a beautiful, tangible memory from paradise!
                 </p>
 
-                <button class="btn-hero-reserve" onclick="openBookingModal()" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
+                <a href="https://api.whatsapp.com/send/?phone={{ $settings['whatsapp_number'] ?? '6285941018703' }}&text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to reserve a spot for a silver jewelry class.') }}" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-hero-reserve" 
+                   data-aos="zoom-in" 
+                   data-aos-duration="700" 
+                   data-aos-delay="300"
+                   style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;"
+                   aria-label="Reserve Your Spot Now on WhatsApp">
                     <span>Reserve Your Spot Now</span>
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -88,15 +96,12 @@
                         Travel memories are special. But some memories become even more meaningful when you can wear them.
                     </p>
 
-                    <p class="about-desc">
-                        Choose your own simple design, work with pure silver, and experience the traditional process of creating jewelry with guidance from our experienced silversmith.
-                    </p>
-
-                    <div class="about-quote-box">
-                        <p class="about-quote-text">
-                            "Your finished piece is not just something you bought in Bali."
+                    <div class="about-highlight-box">
+                        <p>
+                            Imagine returning from Bali not with a ring you simply bought in a shop, but one shaped with your own hands, guided step-by-step by skilled Balinese silversmiths.
                         </p>
-                        <p class="about-quote-sub">
+                        <p>
+                            It is not just a souvenir.
                             It is something you created.
                         </p>
                     </div>
@@ -112,7 +117,11 @@
                         </div>
                     </div>
 
-                    <a href="javascript:void(0)" onclick="openBookingModal()" class="about-cta-link">
+                    <a href="https://api.whatsapp.com/send/?phone={{ $settings['whatsapp_number'] ?? '6285941018703' }}&text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to reserve a spot for a silver jewelry workshop.') }}" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="about-cta-link"
+                       aria-label="Reserve Your Spot on WhatsApp">
                         <span>Reserve Your Spot</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -263,10 +272,15 @@
                                 </ul>
                             </div>
 
-                            <button type="button" class="btn-pkg-blue" onclick="openBookingModal({{ $package->id }})">
+                            <a href="https://api.whatsapp.com/send/?phone={{ $settings['whatsapp_number'] ?? '6285941018703' }}&text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to book the ' . $package->name . ' (' . $package->price_label . ').') }}" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="btn-pkg-blue"
+                               style="text-decoration: none; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;"
+                               aria-label="Book {{ $package->name }} on WhatsApp">
                                 <i class="fa-brands fa-whatsapp"></i>
                                 <span>BOOK NOW</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 @endforeach

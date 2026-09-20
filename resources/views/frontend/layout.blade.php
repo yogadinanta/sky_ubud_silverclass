@@ -3129,9 +3129,14 @@
             </ul>
 
             <div class="nav-actions" style="display: flex; align-items: center; gap: 0.85rem;">
-                <button class="btn-nav-book" onclick="openBookingModal()">
+                <a href="https://api.whatsapp.com/send/?phone={{ $settings['whatsapp_number'] ?? '6285941018703' }}&text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to join a silver making workshop.') }}" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-nav-book"
+                   style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;"
+                   aria-label="Join Workshop on WhatsApp">
                     <span>JOIN WORKSHOP</span>
-                </button>
+                </a>
                 <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -3263,10 +3268,10 @@
                     <h4 class="footer-col-title">Our Workshop</h4>
                     <div class="footer-accent-line"></div>
                     <ul class="footer-links">
-                        <li><a href="#packages" onclick="openBookingModal(1)">Single Package</a></li>
-                        <li><a href="#packages" onclick="openBookingModal(2)">Couple Package</a></li>
-                        <li><a href="#packages" onclick="openBookingModal(3)">Family Package</a></li>
-                        <li><a href="#packages" onclick="openBookingModal(4)">Group Package</a></li>
+                        <li><a href="https://api.whatsapp.com/send/?phone={{ $settings['whatsapp_number'] ?? '6285941018703' }}&text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to book the Single Package.') }}" target="_blank" rel="noopener noreferrer">Single Package</a></li>
+                        <li><a href="https://api.whatsapp.com/send/?phone={{ $settings['whatsapp_number'] ?? '6285941018703' }}&text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to book the Couple Package.') }}" target="_blank" rel="noopener noreferrer">Couple Package</a></li>
+                        <li><a href="https://api.whatsapp.com/send/?phone={{ $settings['whatsapp_number'] ?? '6285941018703' }}&text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to book the Family Package.') }}" target="_blank" rel="noopener noreferrer">Family Package</a></li>
+                        <li><a href="https://api.whatsapp.com/send/?phone={{ $settings['whatsapp_number'] ?? '6285941018703' }}&text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to book the Group Package.') }}" target="_blank" rel="noopener noreferrer">Group Package</a></li>
                     </ul>
                 </div>
 
@@ -3336,101 +3341,6 @@
                 navMenu.classList.remove('open');
             });
         });
-
-        // FAQ Accordion
-        function toggleFaq(btn) {
-            const item = btn.closest('.faq-item');
-            const isActive = item.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
-            if (!isActive) {
-                item.classList.add('active');
-            }
-        }
-
-        // Booking Modal
-        function openBookingModal(packageId = null) {
-            const modal = document.getElementById('bookingModal');
-            modal.classList.add('open');
-            if (packageId) {
-                const sel = document.getElementById('pkgSelect');
-                sel.value = packageId;
-                updatePriceCalculator();
-            }
-        }
-
-        function closeBookingModal() {
-            document.getElementById('bookingModal').classList.remove('open');
-        }
-
-        document.getElementById('bookingModal').addEventListener('click', (e) => {
-            if (e.target.id === 'bookingModal') {
-                closeBookingModal();
-            }
-        });
-
-        // Price Calculator
-        function updatePriceCalculator() {
-            const sel = document.getElementById('pkgSelect');
-            const opt = sel.options[sel.selectedIndex];
-            const basePrice = parseInt(opt.dataset.price || 500000);
-            const slug = opt.dataset.slug || 'single';
-            const minGuests = parseInt(opt.dataset.min || 1);
-            
-            const numInput = document.getElementById('numPeople');
-            let guests = parseInt(numInput.value || 1);
-            if (guests < minGuests && (slug === 'group' || slug === 'couple' || slug === 'family')) {
-                numInput.min = minGuests;
-            } else {
-                numInput.min = 1;
-            }
-
-            let total = basePrice;
-            if (slug === 'single') {
-                total = basePrice * Math.max(1, guests);
-            } else if (slug === 'group') {
-                total = basePrice * Math.max(minGuests, guests);
-            }
-
-            document.getElementById('priceDisplay').textContent = 'IDR ' + total.toLocaleString('id-ID');
-        }
-
-        // Booking Submit
-        async function handleBookingSubmit(e) {
-            e.preventDefault();
-            const btn = document.getElementById('submitBtn');
-            const originalHtml = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Reserving...';
-            btn.disabled = true;
-
-            const form = document.getElementById('reservationForm');
-            const formData = new FormData(form);
-
-            try {
-                const response = await fetch('{{ route("booking.store") }}', {
-                    method: 'POST',
-                    headers: { 'Accept': 'application/json' },
-                    body: formData
-                });
-
-                const data = await response.json();
-                if (data.success && data.whatsapp_url) {
-                    btn.innerHTML = '<i class="fa-solid fa-check"></i> Redirecting to WhatsApp...';
-                    window.open(data.whatsapp_url, '_blank');
-                    setTimeout(() => {
-                        closeBookingModal();
-                        btn.innerHTML = originalHtml;
-                        btn.disabled = false;
-                        alert('🎉 Thank you! Your booking code is ' + data.booking_code + '. We have opened WhatsApp to confirm your slot.');
-                    }, 400);
-                } else {
-                    alert('Please check your inputs and try again.');
-                    btn.innerHTML = originalHtml;
-                    btn.disabled = false;
-                }
-            } catch (err) {
-                form.submit();
-            }
-        }
 
         // Full-Bleed Hero Background Slider Logic
         (function initHeroBgSlider() {
