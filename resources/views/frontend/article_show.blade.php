@@ -11,31 +11,31 @@
 
 @section('seo_schema')
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{ url('/article/' . $article->slug) }}"
-    },
-    "headline": "{{ addslashes($article->title) }}",
-    "description": "{{ addslashes($article->meta_description ?? $article->excerpt) }}",
-    "image": "{{ asset($article->image ?? 'images/happy_participants.jpg') }}",
-    "author": {
-        "@type": "Organization",
-        "name": "{{ $article->author ?? 'Star Ubud Silver Class' }}"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "Star Ubud Silver Class",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "{{ asset('images/sky_silver_logo.jpg') }}"
-        }
-    },
-    "datePublished": "{{ $article->published_at ? $article->published_at->toIso8601String() : now()->toIso8601String() }}",
-    "dateModified": "{{ $article->updated_at->toIso8601String() }}"
-}
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'Article',
+    'mainEntityOfPage' => [
+        '@type' => 'WebPage',
+        '@id' => url('/article/' . $article->slug)
+    ],
+    'headline' => $article->title,
+    'description' => $article->meta_description ?? $article->excerpt,
+    'image' => asset($article->image ?? 'images/happy_participants.jpg'),
+    'author' => [
+        '@type' => 'Organization',
+        'name' => $article->author ?? 'Star Ubud Silver Class'
+    ],
+    'publisher' => [
+        '@type' => 'Organization',
+        'name' => 'Star Ubud Silver Class',
+        'logo' => [
+            '@type' => 'ImageObject',
+            'url' => asset('images/sky_silver_logo.jpg')
+        ]
+    ],
+    'datePublished' => $article->published_at ? $article->published_at->toIso8601String() : now()->toIso8601String(),
+    'dateModified' => $article->updated_at->toIso8601String()
+], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) !!}
 </script>
 @endsection
 
