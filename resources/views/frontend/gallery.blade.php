@@ -1,7 +1,7 @@
 @extends('frontend.layout')
 
-@section('title', 'Gallery of Moments & Creations | Star Ubud Silver Class')
-@section('meta_description', 'Explore our photo gallery featuring genuine silversmith moments, handcrafted rings, pendants, and smiling participants at Star Ubud Silver Class.')
+@section('title', 'Gallery of Moments & Creations | SKY Ubud Silver Class')
+@section('meta_description', 'Explore our photo gallery featuring genuine silversmith moments, handcrafted rings, pendants, and smiling participants at SKY Ubud Silver Class.')
 
 @section('content')
 

@@ -1,8 +1,8 @@
 @extends('frontend.layout')
 
-@section('title', ($article->meta_title ?? $article->title) . ' | Star Ubud Silver Class')
+@section('title', ($article->meta_title ?? $article->title) . ' | SKY Ubud Silver Class')
 @section('meta_description', $article->meta_description ?? $article->excerpt)
-@section('meta_keywords', $article->meta_keywords ?? 'silver class ubud, silver jewelry making bali, jewelry workshop ubud, star ubud silver class')
+@section('meta_keywords', $article->meta_keywords ?? 'silver class ubud, silver jewelry making bali, jewelry workshop ubud, sky ubud silver class')
 @section('canonical', url('/article/' . $article->slug))
 @section('og_title', $article->meta_title ?? $article->title)
 @section('og_description', $article->meta_description ?? $article->excerpt)
@@ -23,19 +23,19 @@
     'image' => $article->image_url,
     'author' => [
         '@type' => 'Organization',
-        'name' => $article->author ?? 'Star Ubud Silver Class'
+        'name' => $article->author ?? 'SKY Ubud Silver Class'
     ],
     'publisher' => [
         '@type' => 'Organization',
-        'name' => 'Star Ubud Silver Class',
+        'name' => 'SKY Ubud Silver Class',
         'logo' => [
             '@type' => 'ImageObject',
-            'url' => asset('images/sky_silver_logo.jpg')
+            'url' => asset('images/sky_silver_logo.webp')
         ]
     ],
-    'datePublished' => $article->published_at ? $article->published_at->toIso8601String() : now()->toIso8601String(),
+    'datePublished' => optional($article->published_at)->toIso8601String() ?? now()->toIso8601String(),
     'dateModified' => $article->updated_at->toIso8601String()
-], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) !!}
+], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>
 @endsection
 

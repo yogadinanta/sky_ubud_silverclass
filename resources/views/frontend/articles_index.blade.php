@@ -1,6 +1,6 @@
 @extends('frontend.layout')
 
-@section('title', 'Articles & Bali Crafting Guides | Star Ubud Silver Class')
+@section('title', 'Articles & Bali Crafting Guides | SKY Ubud Silver Class')
 @section('meta_description', 'Read our latest guides, silversmith tips, and stories about jewelry making workshops in Ubud Bali.')
 @section('meta_keywords', 'bali silver blog, ubud silver class articles, jewelry making guides ubud')
 @section('canonical', url('/articles'))
