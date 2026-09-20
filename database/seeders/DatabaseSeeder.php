@@ -139,6 +139,31 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        $custom = Package::updateOrCreate(
+            ['slug' => 'custom'],
+            [
+                'name' => 'Custom Package',
+                'price' => 500000,
+                'price_label' => 'Rp500.000/Person (Custom)',
+                'min_persons' => 1,
+                'silver_grams' => '1–5 grams of pure silver per person',
+                'duration' => '1–2 hours',
+                'tagline' => 'Flexible group size tailored to your needs.',
+                'description' => 'Custom jewelry workshop experience tailored to any number of participants. Set your group size with personalized silversmith guidance.',
+                'inclusions' => [
+                    'Pure silver 1–5 grams per person',
+                    'Dedicated master silversmith guidance',
+                    'Complimentary mineral water, coffee or tea',
+                    'Handcrafted silver jewelry to take home',
+                    'Full workshop session (1–2 hours)',
+                ],
+                'badge' => 'Custom Choice',
+                'is_featured' => false,
+                'sort_order' => 5,
+                'is_active' => true,
+            ]
+        );
+
         // 3. Testimonials
         $testimonials = [
             [
@@ -371,6 +396,7 @@ class DatabaseSeeder extends Seeder
             ['key' => 'instagram', 'label' => 'Instagram URL', 'value' => 'https://instagram.com/skyubudsilverclass', 'group' => 'social'],
             ['key' => 'opening_hours', 'label' => 'Studio Hours', 'value' => 'Daily: 09:00 AM – 07:00 PM', 'group' => 'general'],
             ['key' => 'domain_name', 'label' => 'Official Domain', 'value' => 'ubudbestsilverclass.com', 'group' => 'general'],
+            ['key' => 'custom_price_per_person', 'label' => 'Custom Package Price Per Person (IDR)', 'value' => '500000', 'group' => 'pricing'],
         ];
 
         foreach ($settings as $s) {

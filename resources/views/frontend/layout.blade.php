@@ -3189,7 +3189,7 @@
                     <input type="text" id="custName" name="customer_name" class="form-modern-input" placeholder="Enter your name" required>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.95rem;" class="form-modern-group">
+                <div style="display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 0.85rem;" class="form-modern-group">
                     <div>
                         <label class="form-modern-label" for="pkgSelect">Package</label>
                         <select id="pkgSelect" name="package_id" class="form-modern-select" onchange="updatePriceCalculator()" required>
@@ -3208,10 +3208,16 @@
                     </div>
 
                     <div>
-                        <label class="form-modern-label">Total Price</label>
-                        <div class="form-modern-price-display" id="priceDisplay">
-                            Rp 500.000 / Person
-                        </div>
+                        <label class="form-modern-label" for="numPeople">Persons</label>
+                        <input type="number" id="numPeople" name="num_people" class="form-modern-input" min="1" max="50" value="1" oninput="updatePriceCalculator()" required>
+                    </div>
+                </div>
+
+                <div class="form-modern-group">
+                    <label class="form-modern-label">Total Price</label>
+                    <div class="form-modern-price-display" id="priceDisplay" style="display: flex; align-items: center; justify-content: space-between;">
+                        <span id="priceDisplayText" style="font-weight: 800; color: #1e3a8a;">Rp 500.000</span>
+                        <span id="pricePerPersonSub" style="font-size: 0.8rem; font-weight: 600; color: #64748b;">(1 Person)</span>
                     </div>
                 </div>
 
@@ -3222,10 +3228,11 @@
 
                 <div class="form-modern-group">
                     <label class="form-modern-label" for="specialReq">Notes (Optional)</label>
-                    <textarea id="specialReq" name="special_requests" class="form-modern-textarea" rows="3" placeholder="Special requests..."></textarea>
+                    <textarea id="specialReq" name="special_requests" class="form-modern-textarea" rows="2" placeholder="Special requests, design preferences, etc..."></textarea>
                 </div>
 
                 <button type="submit" id="submitBtn" class="btn-modern-submit">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.15rem;"></i>
                     <span>Send to WhatsApp</span>
                 </button>
             </form>
@@ -3507,10 +3514,14 @@
             setTimeout(updateTestiProgress, 100);
         })();
 
-        // Booking Modal Global Functions
+        // Booking Modal Global Functions & Price Calculator
+        var customPricePerPerson = {{ (int) ($settings['custom_price_per_person'] ?? 500000) }};
+
         window.openBookingModal = function(pkgId = null) {
             var modal = document.getElementById('bookingModal');
             var select = document.getElementById('pkgSelect');
+            var numInput = document.getElementById('numPeople');
+            
             if (pkgId && select) {
                 for (var i = 0; i < select.options.length; i++) {
                     if (select.options[i].value == pkgId) {
@@ -3519,6 +3530,15 @@
                     }
                 }
             }
+
+            if (select && select.selectedIndex >= 0 && numInput) {
+                var opt = select.options[select.selectedIndex];
+                var min = parseInt(opt.getAttribute('data-min')) || 1;
+                var slug = opt.getAttribute('data-slug') || '';
+                numInput.value = min;
+                numInput.min = slug === 'group' ? 6 : 1;
+            }
+
             updatePriceCalculator();
             if (modal) {
                 modal.classList.add('open');
@@ -3542,16 +3562,52 @@
 
         function updatePriceCalculator() {
             var select = document.getElementById('pkgSelect');
-            var priceDisplay = document.getElementById('priceDisplay');
+            var numInput = document.getElementById('numPeople');
+            var priceDisplay = document.getElementById('priceDisplayText') || document.getElementById('priceDisplay');
+            var priceSub = document.getElementById('pricePerPersonSub');
             if (!select || !priceDisplay) return;
+
+            var num = numInput ? (parseInt(numInput.value) || 1) : 1;
+            if (num < 1) num = 1;
+
             if (select.selectedIndex >= 0 && select.options[select.selectedIndex]) {
                 var opt = select.options[select.selectedIndex];
-                var label = opt.getAttribute('data-label');
-                if (!label) {
-                    var price = opt.getAttribute('data-price');
-                    label = price ? ('Rp ' + Number(price).toLocaleString('id-ID')) : 'Rp 500.000 / Person';
+                var slug = opt.getAttribute('data-slug') || '';
+                var rawPrice = parseFloat(opt.getAttribute('data-price')) || customPricePerPerson;
+
+                var total = 0;
+                var subText = '';
+
+                if (slug === 'custom') {
+                    total = customPricePerPerson * num;
+                    subText = `(Rp ${customPricePerPerson.toLocaleString('id-ID')} × ${num} Person${num > 1 ? 's' : ''})`;
+                } else if (slug === 'single') {
+                    total = rawPrice * num;
+                    subText = num > 1 ? `(Rp ${rawPrice.toLocaleString('id-ID')} × ${num} Persons)` : '(1 Person)';
+                } else if (slug === 'group') {
+                    if (num < 6) {
+                        num = 6;
+                        if (numInput) numInput.value = 6;
+                    }
+                    total = rawPrice * num;
+                    subText = `(Rp ${rawPrice.toLocaleString('id-ID')} × ${num} Persons, Min. 6)`;
+                } else if (slug === 'couple') {
+                    var coupleSets = Math.max(1, Math.ceil(num / 2));
+                    total = rawPrice * coupleSets;
+                    subText = coupleSets > 1 ? `(${coupleSets * 2} Persons - ${coupleSets} Couple Sets)` : '(2 Persons)';
+                } else if (slug === 'family') {
+                    var familySets = Math.max(1, Math.ceil(num / 4));
+                    total = rawPrice * familySets;
+                    subText = familySets > 1 ? `(${familySets * 4} Persons - ${familySets} Family Sets)` : '(4 Persons)';
+                } else {
+                    total = rawPrice * num;
+                    subText = `(${num} Person${num > 1 ? 's' : ''})`;
                 }
-                priceDisplay.textContent = label;
+
+                priceDisplay.textContent = 'Rp ' + Number(total).toLocaleString('id-ID');
+                if (priceSub) {
+                    priceSub.textContent = subText;
+                }
             }
         }
 
@@ -3560,18 +3616,25 @@
             var form = event.target || document.getElementById('reservationForm');
             var name = (form.customer_name ? form.customer_name.value : '').trim();
             var select = document.getElementById('pkgSelect');
+            var numInput = document.getElementById('numPeople');
+            var num = numInput ? (parseInt(numInput.value) || 1) : 1;
+
             var pkgName = 'Silver Class';
+            var slug = '';
             if (select && select.selectedIndex >= 0 && select.options[select.selectedIndex]) {
                 var opt = select.options[select.selectedIndex];
                 pkgName = opt.getAttribute('data-name') || opt.text.trim();
+                slug = opt.getAttribute('data-slug') || '';
             }
             var date = form.booking_date ? form.booking_date.value : '';
             var notes = (form.special_requests ? form.special_requests.value : '').trim();
-            var priceDisplay = document.getElementById('priceDisplay') ? document.getElementById('priceDisplay').textContent.trim() : '';
+            var priceDisplay = document.getElementById('priceDisplayText') ? document.getElementById('priceDisplayText').textContent.trim() : (document.getElementById('priceDisplay') ? document.getElementById('priceDisplay').textContent.trim() : '');
 
-            var waText = `Hello SKY Ubud Silver Class!\n\nI would like to book a silver jewelry workshop session:\n- *Name:* ${name}\n- *Package:* ${pkgName}\n- *Price:* ${priceDisplay}\n- *Date:* ${date}${notes ? `\n- *Notes:* ${notes}` : ''}\n\nPlease confirm availability. Thank you!`;
+            var rateNote = slug === 'custom' ? `\n- *Rate per Person:* Rp ${customPricePerPerson.toLocaleString('id-ID')}` : '';
 
-            var waNumber = "{{ $settings['whatsapp_number'] ?? '6285941018703' }}";
+            var waText = `Hello SKY Ubud Silver Class!\n\nI would like to book a silver jewelry workshop session:\n- *Name:* ${name}\n- *Package:* ${pkgName}\n- *Participants:* ${num} Person(s)${rateNote}\n- *Total Price:* ${priceDisplay}\n- *Booking Date:* ${date}${notes ? `\n- *Notes:* ${notes}` : ''}\n\nPlease confirm availability. Thank you!`;
+
+            var waNumber = "{{ $settings['whatsapp_number'] ?? '6281234567890' }}";
             window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`, '_blank');
             window.closeBookingModal();
         }
