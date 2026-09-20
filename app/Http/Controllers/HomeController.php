@@ -24,4 +24,15 @@ class HomeController extends Controller
             ->view('frontend.index', compact('packages', 'articles', 'faqs', 'testimonials', 'galleries', 'settings'))
             ->header('Cache-Control', 'public, max-age=600, stale-while-revalidate=3600');
     }
+
+    public function gallery()
+    {
+        $packages = Package::where('is_active', true)->orderBy('sort_order', 'asc')->get();
+        $galleries = Gallery::where('is_featured', true)->orderBy('sort_order', 'asc')->get();
+        $settings = SiteSetting::all()->pluck('value', 'key');
+
+        return response()
+            ->view('frontend.gallery', compact('packages', 'galleries', 'settings'))
+            ->header('Cache-Control', 'public, max-age=600, stale-while-revalidate=3600');
+    }
 }

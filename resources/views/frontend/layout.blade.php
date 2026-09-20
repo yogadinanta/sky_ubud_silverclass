@@ -2216,6 +2216,122 @@
         }
 
         /* =========================================================================
+           GALLERY SECTION (GALLERY OF MOMENTS & CREATIONS)
+           ========================================================================= */
+        .gallery-section {
+            background: #ffffff;
+            color: #1e293b;
+            padding: 6.5rem 0 7rem 0;
+            position: relative;
+        }
+
+        .gallery-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3.5rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .gallery-badge-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #1347ce;
+            font-family: var(--font-subheading);
+        }
+
+        .gallery-badge-line {
+            width: 28px;
+            height: 2.5px;
+            background: #1347ce;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .gallery-title {
+            font-family: var(--font-subheading);
+            font-size: clamp(2.2rem, 3.8vw, 3rem);
+            font-weight: 800;
+            line-height: 1.18;
+            color: #0d1b3e;
+            letter-spacing: -0.015em;
+            margin: 0;
+        }
+
+        /* 5-Column Bento Grid */
+        .gallery-bento-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
+            align-items: stretch;
+        }
+
+        .gallery-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .gallery-card-tall {
+            height: 480px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.06);
+            background: #f1f5f9;
+            position: relative;
+        }
+
+        .gallery-card-half {
+            height: 232px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.06);
+            background: #f1f5f9;
+            position: relative;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-card-tall:hover .gallery-img,
+        .gallery-card-half:hover .gallery-img {
+            transform: scale(1.06);
+        }
+
+        @media (max-width: 1100px) {
+            .gallery-bento-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .gallery-bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.85rem;
+            }
+
+            .gallery-card-tall {
+                height: 280px;
+            }
+
+            .gallery-card-half {
+                height: 135px;
+            }
+        }
+
+        /* =========================================================================
            VISIT OUR WORKSHOP / LOCATION MAP SECTION
            ========================================================================= */
         .location-section {
@@ -2541,6 +2657,63 @@
                 padding: 0.85rem;
                 bottom: 1.25rem;
                 right: 1.25rem;
+        /* =========================================================================
+           INNER PAGE HERO BANNER (MATCHING SCREENSHOT)
+           ========================================================================= */
+        .page-hero-banner {
+            position: relative;
+            padding: 9rem 0 5rem 0;
+            background-color: #0d1b3e;
+            background-image: linear-gradient(180deg, rgba(13, 27, 62, 0.72) 0%, rgba(13, 27, 62, 0.88) 100%), url('{{ asset('images/hero_silver_craft.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 0.75rem;
+        }
+
+        .page-breadcrumb a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .page-breadcrumb a:hover {
+            color: #ffffff;
+        }
+
+        .page-breadcrumb-current {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .page-hero-title {
+            font-family: var(--font-subheading);
+            font-size: clamp(2.6rem, 5vw, 3.8rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .page-hero-banner {
+                padding: 7.5rem 0 4rem 0;
             }
         }
     </style>
@@ -2560,11 +2733,11 @@
             </a>
 
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">HOME</a></li>
-                <li><a href="#philosophy" class="nav-link">OUR WORKSHOP</a></li>
-                <li><a href="#packages" class="nav-link">ARTICLES</a></li>
-                <li><a href="#creations" class="nav-link">GALLERY</a></li>
-                <li><a href="#location" class="nav-link">CONTACT US</a></li>
+                <li><a href="{{ url('/') }}#home" class="nav-link">HOME</a></li>
+                <li><a href="{{ url('/') }}#packages" class="nav-link">OUR WORKSHOP</a></li>
+                <li><a href="{{ url('/') }}#articles" class="nav-link">ARTICLES</a></li>
+                <li><a href="{{ url('/gallery') }}" class="nav-link">GALLERY</a></li>
+                <li><a href="{{ url('/') }}#location" class="nav-link">CONTACT US</a></li>
             </ul>
 
             <div class="nav-actions" style="display: flex; align-items: center; gap: 0.85rem;">

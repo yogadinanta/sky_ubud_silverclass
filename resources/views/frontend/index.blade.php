@@ -135,82 +135,58 @@
 
 
     <!-- =========================================================================
-         WHAT WILL YOU CREATE? (PIECES SHOWCASE)
+         GALLERY SECTION (GALLERY OF MOMENTS & CREATIONS)
          ========================================================================= -->
-    <section class="section" id="creations" style="background: linear-gradient(180deg, var(--bg-surface-1) 0%, var(--bg-surface-2) 100%);">
+    <section class="gallery-section" id="gallery">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">What Will You Create?</span>
-                <h2 class="section-title">
-                    Choose a Piece That <span class="silver-gradient-text">Tells Your Story</span>
-                </h2>
-                <p class="section-desc">
-                    Your design. Your hands. Your masterpiece.
-                </p>
+            <div class="gallery-header">
+                <div class="gallery-badge-wrap">
+                    <span class="gallery-badge-text">GALLERY</span>
+                    <span class="gallery-badge-line"></span>
+                </div>
+                <h2 class="gallery-title">Gallery of Moments & Creations</h2>
             </div>
 
-            <div class="pieces-grid">
+            <div class="gallery-bento-grid">
                 
-                <!-- Silver Ring -->
-                <div class="piece-card">
-                    <div class="piece-img-wrap">
-                        <img src="{{ asset('images/silver_rings_showcase.png') }}" alt="Silver Ring Making Ubud" width="400" height="235" loading="lazy" decoding="async">
-                    </div>
-                    <div class="piece-body">
-                        <div>
-                            <div class="badge-pill" style="margin-bottom: 0.85rem; font-size: 0.74rem;">
-                                <i class="fa-solid fa-ring"></i> Timeless Daily Wear
-                            </div>
-                            <h3 class="piece-title">SILVER RING</h3>
-                            <p class="piece-desc">
-                                A simple design, a personal meaning, and a piece you can wear every day. From hammered minimalist bands to gemstone settings and custom Balinese textures.
-                            </p>
-                        </div>
-                        <button class="btn-outline" style="width: 100%; font-size: 0.88rem;" onclick="openBookingModal()">
-                            <span>Craft a Silver Ring</span>
-                        </button>
+                <!-- Col 1: Tall Card -->
+                <div class="gallery-col">
+                    <div class="gallery-card-tall">
+                        <img src="{{ asset('images/artisan_rolling_mill.jpg') }}" alt="Silversmith Artisan Guidance Ubud" class="gallery-img" loading="lazy">
                     </div>
                 </div>
 
-                <!-- Silver Bracelet -->
-                <div class="piece-card">
-                    <div class="piece-img-wrap">
-                        <img src="{{ asset('images/artisan_rolling_mill.jpg') }}" alt="Silver Workshop Making in Ubud" width="400" height="235" loading="lazy" decoding="async">
-                    </div>
-                    <div class="piece-body">
-                        <div>
-                            <div class="badge-pill badge-pill-gold" style="margin-bottom: 0.85rem; font-size: 0.74rem;">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i> Artisan Experience
-                            </div>
-                            <h3 class="piece-title">SILVER BRACELET</h3>
-                            <p class="piece-desc">
-                                Create a unique cuff or chain bracelet that reminds you of your time in Bali. Shaped with rolling mills, elegant curves, hammered facets, and custom textures.
-                            </p>
-                        </div>
-                        <button class="btn-outline" style="width: 100%; font-size: 0.88rem;" onclick="openBookingModal()">
-                            <span>Craft a Silver Bracelet</span>
-                        </button>
+                <!-- Col 2: Tall Card -->
+                <div class="gallery-col">
+                    <div class="gallery-card-tall">
+                        <img src="{{ asset('images/butterfly_ring_ricefield.jpg') }}" alt="Balinese Silver Studio Window" class="gallery-img" loading="lazy">
                     </div>
                 </div>
 
-                <!-- Silver Pendant -->
-                <div class="piece-card">
-                    <div class="piece-img-wrap">
-                        <img src="{{ asset('images/butterfly_ring_ricefield.jpg') }}" alt="Silver Pendant and Butterfly Jewelry Making Ubud" width="400" height="235" loading="lazy" decoding="async">
+                <!-- Col 3: 2 Stacked Cards -->
+                <div class="gallery-col">
+                    <div class="gallery-card-half">
+                        <img src="{{ asset('images/silver_rings_showcase.png') }}" alt="Silver Butterfly Ring in Ubud" class="gallery-img" loading="lazy">
                     </div>
-                    <div class="piece-body">
-                        <div>
-                            <div class="badge-pill" style="margin-bottom: 0.85rem; font-size: 0.74rem;">
-                                <i class="fa-solid fa-sun"></i> Sacred & Symbolic
-                            </div>
-                            <h3 class="piece-title">SILVER PENDANT</h3>
-                            <p class="piece-desc">
-                                Turn an idea, symbol, celestial sky motif, or special memory into a meaningful necklace piece of jewelry close to your heart.
-                            </p>
-                        </div>
-                        <button class="btn-outline" style="width: 100%; font-size: 0.88rem;" onclick="openBookingModal()">
-                            <span>Craft a Silver Pendant</span>
-                        </button>
+                    <div class="gallery-card-half">
+                        <img src="{{ asset('images/happy_creators_rings.jpg') }}" alt="Silver Jewelry Workshop Creator" class="gallery-img" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Col 4: Tall Card -->
+                <div class="gallery-col">
+                    <div class="gallery-card-tall">
+                        <img src="{{ asset('images/happy_participants.jpg') }}" alt="Happy Creators at Silver Workshop" class="gallery-img" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Col 5: 2 Stacked Cards -->
+                <div class="gallery-col">
+                    <div class="gallery-card-half">
+                        <img src="{{ asset('images/hero_silver_craft.jpg') }}" alt="Designing Silver Jewelry Together" class="gallery-img" loading="lazy">
+                    </div>
+                    <div class="gallery-card-half">
+                        <img src="{{ asset('images/silver_creations_trio.jpg') }}" alt="Happy Participants in Ubud Silver Workshop" class="gallery-img" loading="lazy">
                     </div>
                 </div>
 
