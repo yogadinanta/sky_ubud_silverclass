@@ -49,17 +49,15 @@
                     Join our fun and hands-on silver jewelry making class in the heart of Ubud, Bali. Create your own unique ring, bracelet, or pendant and take home a beautiful, tangible memory from paradise!
                 </p>
 
-                <a href="https://api.whatsapp.com/send/?phone={{ $settings['whatsapp_number'] ?? '6285941018703' }}&text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to reserve a spot for a silver jewelry class.') }}" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="btn-hero-reserve" 
-                   data-aos="zoom-in" 
-                   data-aos-duration="700" 
-                   data-aos-delay="300"
-                   style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;"
-                   aria-label="Reserve Your Spot Now on WhatsApp">
+                <button type="button" 
+                        class="btn-hero-reserve" 
+                        onclick="openBookingModal()"
+                        data-aos="zoom-in" 
+                        data-aos-duration="700" 
+                        data-aos-delay="300"
+                        aria-label="Reserve Your Spot Now">
                     <span>Reserve Your Spot Now</span>
-                </a>
+                </button>
             </div>
         </div>
     </section>
@@ -117,14 +115,14 @@
                         </div>
                     </div>
 
-                    <a href="https://api.whatsapp.com/send/?phone={{ $settings['whatsapp_number'] ?? '6285941018703' }}&text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to reserve a spot for a silver jewelry workshop.') }}" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="about-cta-link"
-                       aria-label="Reserve Your Spot on WhatsApp">
+                    <button type="button" 
+                            class="about-cta-link"
+                            onclick="openBookingModal()"
+                            style="background: none; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;"
+                            aria-label="Reserve Your Spot">
                         <span>Reserve Your Spot</span>
                         <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Right Column: Stacked Rounded Workshop Photos -->
@@ -272,15 +270,14 @@
                                 </ul>
                             </div>
 
-                            <a href="https://api.whatsapp.com/send/?phone={{ $settings['whatsapp_number'] ?? '6285941018703' }}&text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to book the ' . $package->name . ' (' . $package->price_label . ').') }}" 
-                               target="_blank" 
-                               rel="noopener noreferrer" 
-                               class="btn-pkg-blue"
-                               style="text-decoration: none; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;"
-                               aria-label="Book {{ $package->name }} on WhatsApp">
+                            <button type="button" 
+                                    class="btn-pkg-blue" 
+                                    onclick="openBookingModal({{ $pkg->id ?? $package->id }})"
+                                    style="width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; cursor: pointer;"
+                                    aria-label="Book {{ $package->name }}">
                                 <i class="fa-brands fa-whatsapp"></i>
                                 <span>BOOK NOW</span>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 @endforeach

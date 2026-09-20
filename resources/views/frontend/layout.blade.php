@@ -3097,12 +3097,171 @@
             line-height: 1.15;
             color: #ffffff;
             margin: 0;
+        /* ==========================================================================
+           BOOKING POPUP MODAL (PIXEL PERFECT SCREENSHOT MATCH)
+           ========================================================================== */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.68);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
         }
 
-        @media (max-width: 768px) {
-            .page-hero-banner {
-                padding: 7.5rem 0 4rem 0;
-            }
+        .modal-backdrop.open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .modal-box-modern {
+            background: #ffffff;
+            color: #0f172a;
+            border-radius: 1.25rem;
+            padding: 2.25rem 2rem;
+            width: 100%;
+            max-width: 490px;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transform: scale(0.92) translateY(20px);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            max-height: 92vh;
+            overflow-y: auto;
+        }
+
+        .modal-backdrop.open .modal-box-modern {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-modern-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            width: 2.25rem;
+            height: 2.25rem;
+            background: #f1f5f9;
+            border: none;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .modal-modern-close:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+            transform: rotate(90deg);
+        }
+
+        .modal-modern-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 0.35rem;
+            letter-spacing: -0.02em;
+        }
+
+        .modal-modern-sub {
+            font-size: 0.88rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-modern-group {
+            margin-bottom: 1.15rem;
+            text-align: left;
+        }
+
+        .form-modern-label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #64748b;
+            margin-bottom: 0.45rem;
+        }
+
+        .form-modern-input,
+        .form-modern-select,
+        .form-modern-textarea {
+            width: 100%;
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 0.65rem;
+            padding: 0.75rem 0.95rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.92rem;
+            color: #0f172a;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-modern-input:focus,
+        .form-modern-select:focus,
+        .form-modern-textarea:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .form-modern-price-display {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 0.65rem;
+            padding: 0.75rem 0.95rem;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            min-height: 45px;
+        }
+
+        .form-modern-textarea {
+            resize: vertical;
+        }
+
+        .btn-modern-submit {
+            width: 100%;
+            background: #1d4ed8;
+            color: #ffffff;
+            border: none;
+            border-radius: 0.65rem;
+            padding: 0.95rem 1.5rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 10px 20px -5px rgba(29, 78, 216, 0.35);
+            margin-top: 1.5rem;
+        }
+
+        .btn-modern-submit:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px -5px rgba(29, 78, 216, 0.45);
         }
     </style>
 </head>
@@ -3129,14 +3288,9 @@
             </ul>
 
             <div class="nav-actions" style="display: flex; align-items: center; gap: 0.85rem;">
-                <a href="https://api.whatsapp.com/send/?phone={{ $settings['whatsapp_number'] ?? '6285941018703' }}&text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to join a silver making workshop.') }}" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="btn-nav-book"
-                   style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;"
-                   aria-label="Join Workshop on WhatsApp">
+                <button type="button" class="btn-nav-book" onclick="openBookingModal()" aria-label="Join Workshop">
                     <span>JOIN WORKSHOP</span>
-                </a>
+                </button>
                 <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -3160,9 +3314,9 @@
     </a>
 
     <!-- Booking Modal (Matching Screenshot) -->
-    <div class="modal-backdrop" id="bookingModal">
+    <div class="modal-backdrop" id="bookingModal" onclick="if(event.target === this) closeBookingModal()">
         <div class="modal-box-modern">
-            <button class="modal-modern-close" onclick="closeBookingModal()" aria-label="Close modal">
+            <button type="button" class="modal-modern-close" onclick="closeBookingModal()" aria-label="Close modal">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
@@ -3520,6 +3674,12 @@
                 document.body.style.overflow = '';
             }
         }
+
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBookingModal();
+            }
+        });
 
         function updatePriceCalculator() {
             const select = document.getElementById('pkgSelect');
