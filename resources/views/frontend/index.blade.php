@@ -250,7 +250,7 @@
                         <div class="pkg-card-body">
                             <div class="pkg-card-top-info">
                                 <h3 class="pkg-card-name">{{ $package->name }}</h3>
-                                <div class="pkg-card-price-lbl">{{ $package->price_label }}</div>
+                                <div class="pkg-card-price-lbl" data-idr-price="{{ $package->price }}" data-price-label="{{ $package->price_label }}">{{ $package->price_label }}</div>
                                 
                                 @if($package->description)
                                     <p class="pkg-card-desc-text">

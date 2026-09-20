@@ -3133,6 +3133,60 @@
             transform: translateY(-2px);
             box-shadow: 0 14px 24px -5px rgba(29, 78, 216, 0.45);
         }
+
+        /* Nav Action Pills (Currency & Translate) */
+        .nav-select-pill {
+            background: #f8fafc;
+            border: 1.5px solid #cbd5e1;
+            color: #0f172a;
+            font-family: var(--font-subheading);
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 0.45rem 0.65rem;
+            border-radius: 9999px;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-select-pill:hover, .nav-select-pill:focus {
+            border-color: #1347ce;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(19, 71, 206, 0.12);
+        }
+
+        /* Clean Google Translate Widget Styling */
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+        body {
+            top: 0px !important;
+        }
+        .goog-tooltip, .goog-tooltip:hover {
+            display: none !important;
+        }
+        .goog-text-highlight {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        #goog-gt-tt {
+            display: none !important;
+        }
+        .skiptranslate iframe {
+            display: none !important;
+        }
+
+        @media (max-width: 992px) {
+            .nav-select-pill {
+                font-size: 0.76rem;
+                padding: 0.35rem 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -3157,7 +3211,34 @@
                 <li><a href="{{ url('/') }}#location" class="nav-link">CONTACT US</a></li>
             </ul>
 
-            <div class="nav-actions" style="display: flex; align-items: center; gap: 0.85rem;">
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 0.65rem;">
+                <!-- Multi-Currency Selector -->
+                <div class="currency-dropdown-wrap">
+                    <select id="currencySelector" onchange="changeCurrency(this.value)" class="nav-select-pill" title="Choose Currency" aria-label="Currency Selector">
+                        <option value="IDR">🇮🇩 IDR (Rp)</option>
+                        <option value="USD">🇺🇸 USD ($)</option>
+                        <option value="AUD">🇦🇺 AUD (A$)</option>
+                        <option value="EUR">🇪🇺 EUR (€)</option>
+                    </select>
+                </div>
+
+                <!-- Multi-Language Translator Dropdown -->
+                <div class="lang-dropdown-wrap">
+                    <div id="google_translate_element" style="display: none;"></div>
+                    <select id="languageSelector" onchange="translateLanguage(this.value)" class="nav-select-pill" title="Translate Website" aria-label="Language Selector">
+                        <option value="en">🇬🇧 English</option>
+                        <option value="id">🇮🇩 Indonesia</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="ru">🇷🇺 Русский</option>
+                        <option value="ja">🇯🇵 日本語</option>
+                        <option value="zh-CN">🇨🇳 中文</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                        <option value="ko">🇰🇷 한국어</option>
+                    </select>
+                </div>
+
                 <button type="button" class="btn-nav-book" onclick="openBookingModal()" aria-label="Join Workshop">
                     <span>JOIN WORKSHOP</span>
                 </button>
@@ -3174,7 +3255,7 @@
     </main>
 
     <!-- Floating WhatsApp Quick Button -->
-    <a href="https://wa.me/{{ $settings['whatsapp_number'] ?? '6285941018703' }}?text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to inquire about booking a jewelry making session.') }}" 
+    <a href="https://wa.me/{{ $settings['whatsapp_number'] ?? '6281234567890' }}?text={{ rawurlencode('Hello SKY Ubud Silver Class! I would like to inquire about booking a jewelry making session.') }}" 
        target="_blank" 
        rel="noopener noreferrer" 
        class="floating-wa" 
@@ -3183,7 +3264,7 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Booking Modal (Matching Screenshot) -->
+    <!-- Booking Modal (Matching Screenshot with Session Slot & Multi-Currency) -->
     <div class="modal-backdrop" id="bookingModal" onclick="if(event.target === this) closeBookingModal()">
         <div class="modal-box-modern">
             <button type="button" class="modal-modern-close" onclick="closeBookingModal()" aria-label="Close modal">
@@ -3232,9 +3313,21 @@
                     </div>
                 </div>
 
-                <div class="form-modern-group">
-                    <label class="form-modern-label" for="bookDate">Booking Date</label>
-                    <input type="date" id="bookDate" name="booking_date" class="form-modern-input" min="{{ date('Y-m-d') }}" required>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem;" class="form-modern-group">
+                    <div>
+                        <label class="form-modern-label" for="bookDate">Booking Date</label>
+                        <input type="date" id="bookDate" name="booking_date" class="form-modern-input" min="{{ date('Y-m-d') }}" required>
+                    </div>
+
+                    <div>
+                        <label class="form-modern-label" for="sessionTime">Workshop Slot</label>
+                        <select id="sessionTime" name="session_time" class="form-modern-select" required>
+                            <option value="09:00 AM">🌅 09:00 AM (Morning)</option>
+                            <option value="11:00 AM" selected>☀️ 11:00 AM (Mid-Day)</option>
+                            <option value="01:30 PM">☕ 01:30 PM (Afternoon)</option>
+                            <option value="04:00 PM">🌇 04:00 PM (Sunset)</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-modern-group">
@@ -3525,7 +3618,89 @@
             setTimeout(updateTestiProgress, 100);
         })();
 
-        // Booking Modal Global Functions & Price Calculator
+        // Multi-Currency Converter System
+        var currencyRates = {
+            'IDR': { symbol: 'Rp', rate: 1, decimals: 0, sep: '.', prefix: true, code: 'IDR' },
+            'USD': { symbol: '$', rate: 1 / 15800, decimals: 0, sep: ',', prefix: true, code: 'USD' },
+            'AUD': { symbol: 'A$', rate: 1 / 10300, decimals: 0, sep: ',', prefix: true, code: 'AUD' },
+            'EUR': { symbol: '€', rate: 1 / 17100, decimals: 0, sep: ',', prefix: true, code: 'EUR' }
+        };
+
+        var currentCurrency = localStorage.getItem('selectedCurrency') || 'IDR';
+
+        function formatMoney(amountIDR, currCode = currentCurrency) {
+            var c = currencyRates[currCode] || currencyRates['IDR'];
+            var converted = amountIDR * c.rate;
+            if (currCode === 'IDR') {
+                return 'Rp ' + Number(Math.round(converted)).toLocaleString('id-ID');
+            } else {
+                var rounded = Math.round(converted);
+                return `${c.symbol}${rounded} ${c.code}`;
+            }
+        }
+
+        window.changeCurrency = function(currCode) {
+            currentCurrency = currCode;
+            localStorage.setItem('selectedCurrency', currCode);
+            
+            var sel = document.getElementById('currencySelector');
+            if (sel) sel.value = currCode;
+            
+            updatePriceCalculator();
+            
+            document.querySelectorAll('[data-idr-price]').forEach(function(el) {
+                var basePrice = parseFloat(el.getAttribute('data-idr-price'));
+                var origLabel = el.getAttribute('data-price-label') || '';
+                if (basePrice) {
+                    if (currCode === 'IDR') {
+                        el.textContent = origLabel || ('Rp ' + Number(basePrice).toLocaleString('id-ID'));
+                    } else {
+                        var parts = origLabel.split('/');
+                        var suffix = parts.length > 1 ? ' / ' + parts[1].trim() : '';
+                        el.textContent = formatMoney(basePrice, currCode) + suffix;
+                    }
+                }
+            });
+        };
+
+        // Multi-Language Google Translate Integration
+        window.translateLanguage = function(langCode) {
+            if (!langCode) return;
+            localStorage.setItem('selectedLang', langCode);
+            document.cookie = "googtrans=/en/" + langCode + "; path=/;";
+            document.cookie = "googtrans=/en/" + langCode + "; path=/; domain=" + window.location.hostname + ";";
+            
+            var select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = langCode;
+                select.dispatchEvent(new Event('change'));
+            } else {
+                window.location.reload();
+            }
+        };
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,id,fr,de,ru,ja,zh-CN,es,it,ko',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        // Initialize user preferences on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            var savedCurr = localStorage.getItem('selectedCurrency');
+            if (savedCurr && currencyRates[savedCurr]) {
+                window.changeCurrency(savedCurr);
+            }
+            var savedLang = localStorage.getItem('selectedLang');
+            if (savedLang) {
+                var langSel = document.getElementById('languageSelector');
+                if (langSel) langSel.value = savedLang;
+            }
+        });
+
+        // Booking Modal Global Functions & Dynamic Price Calculator
         var customPricePerPerson = {{ (int) ($settings['custom_price_per_person'] ?? 500000) }};
 
         window.openBookingModal = function(pkgId = null) {
@@ -3586,36 +3761,41 @@
                 var slug = opt.getAttribute('data-slug') || '';
                 var rawPrice = parseFloat(opt.getAttribute('data-price')) || customPricePerPerson;
 
-                var total = 0;
+                var totalIDR = 0;
                 var subText = '';
 
                 if (slug === 'custom') {
-                    total = customPricePerPerson * num;
-                    subText = `(Rp ${customPricePerPerson.toLocaleString('id-ID')} × ${num} Person${num > 1 ? 's' : ''})`;
+                    totalIDR = customPricePerPerson * num;
+                    subText = `(${formatMoney(customPricePerPerson)} × ${num} Person${num > 1 ? 's' : ''})`;
                 } else if (slug === 'single') {
-                    total = rawPrice * num;
-                    subText = num > 1 ? `(Rp ${rawPrice.toLocaleString('id-ID')} × ${num} Persons)` : '(1 Person)';
+                    totalIDR = rawPrice * num;
+                    subText = num > 1 ? `(${formatMoney(rawPrice)} × ${num} Persons)` : `(1 Person)`;
                 } else if (slug === 'group') {
                     if (num < 6) {
                         num = 6;
                         if (numInput) numInput.value = 6;
                     }
-                    total = rawPrice * num;
-                    subText = `(Rp ${rawPrice.toLocaleString('id-ID')} × ${num} Persons, Min. 6)`;
+                    totalIDR = rawPrice * num;
+                    subText = `(${formatMoney(rawPrice)} × ${num} Persons, Min. 6)`;
                 } else if (slug === 'couple') {
                     var coupleSets = Math.max(1, Math.ceil(num / 2));
-                    total = rawPrice * coupleSets;
+                    totalIDR = rawPrice * coupleSets;
                     subText = coupleSets > 1 ? `(${coupleSets * 2} Persons - ${coupleSets} Couple Sets)` : '(2 Persons)';
                 } else if (slug === 'family') {
                     var familySets = Math.max(1, Math.ceil(num / 4));
-                    total = rawPrice * familySets;
+                    totalIDR = rawPrice * familySets;
                     subText = familySets > 1 ? `(${familySets * 4} Persons - ${familySets} Family Sets)` : '(4 Persons)';
                 } else {
-                    total = rawPrice * num;
+                    totalIDR = rawPrice * num;
                     subText = `(${num} Person${num > 1 ? 's' : ''})`;
                 }
 
-                priceDisplay.textContent = 'Rp ' + Number(total).toLocaleString('id-ID');
+                if (currentCurrency === 'IDR') {
+                    priceDisplay.textContent = formatMoney(totalIDR, 'IDR');
+                } else {
+                    priceDisplay.textContent = `${formatMoney(totalIDR, currentCurrency)} (~ Rp ${Number(totalIDR).toLocaleString('id-ID')})`;
+                }
+
                 if (priceSub) {
                     priceSub.textContent = subText;
                 }
@@ -3638,12 +3818,13 @@
                 slug = opt.getAttribute('data-slug') || '';
             }
             var date = form.booking_date ? form.booking_date.value : '';
+            var sessionSlot = form.session_time ? form.session_time.value : '11:00 AM';
             var notes = (form.special_requests ? form.special_requests.value : '').trim();
             var priceDisplay = document.getElementById('priceDisplayText') ? document.getElementById('priceDisplayText').textContent.trim() : (document.getElementById('priceDisplay') ? document.getElementById('priceDisplay').textContent.trim() : '');
 
-            var rateNote = slug === 'custom' ? `\n- *Rate per Person:* Rp ${customPricePerPerson.toLocaleString('id-ID')}` : '';
+            var rateNote = slug === 'custom' ? `\n- *Rate per Person:* ${formatMoney(customPricePerPerson)}` : '';
 
-            var waText = `Hello SKY Ubud Silver Class!\n\nI would like to book a silver jewelry workshop session:\n- *Name:* ${name}\n- *Package:* ${pkgName}\n- *Participants:* ${num} Person(s)${rateNote}\n- *Total Price:* ${priceDisplay}\n- *Booking Date:* ${date}${notes ? `\n- *Notes:* ${notes}` : ''}\n\nPlease confirm availability. Thank you!`;
+            var waText = `Hello SKY Ubud Silver Class!\n\nI would like to book a silver jewelry workshop session:\n- *Name:* ${name}\n- *Package:* ${pkgName}\n- *Participants:* ${num} Person(s)${rateNote}\n- *Total Price:* ${priceDisplay}\n- *Date & Time Slot:* ${date} at ${sessionSlot}${notes ? `\n- *Notes:* ${notes}` : ''}\n\nPlease confirm availability. Thank you!`;
 
             var waNumber = "{{ $settings['whatsapp_number'] ?? '6281234567890' }}";
             window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`, '_blank');
@@ -3671,6 +3852,9 @@
             });
         });
     </script>
+
+    <!-- Google Translate Script (Async) -->
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
 
     <!-- AOS (Animate On Scroll) JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
