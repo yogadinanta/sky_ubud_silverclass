@@ -364,14 +364,14 @@
         }
 
         .brand-logo-badge {
-            background: #0d2875;
-            border-radius: 6px;
-            padding: 3px 6px;
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(19, 71, 206, 0.25);
-            border: 1px solid rgba(19, 71, 206, 0.3);
+            box-shadow: none;
+            border: none;
             transition: transform 0.25s ease;
         }
 
@@ -380,10 +380,10 @@
         }
 
         .brand-logo-badge img {
-            height: 36px;
+            height: 44px;
             width: auto;
             display: block;
-            border-radius: 4px;
+            object-fit: contain;
         }
 
         .nav-menu {
@@ -2426,22 +2426,23 @@
         }
 
         .footer-logo-box {
-            width: 62px;
-            height: 62px;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #1347ce;
+            width: auto;
+            height: auto;
+            max-width: 140px;
+            border-radius: 0;
+            overflow: visible;
+            background: transparent;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 1.8rem;
-            box-shadow: 0 4px 12px rgba(19, 71, 206, 0.15);
+            justify-content: flex-start;
+            margin-bottom: 1.5rem;
+            box-shadow: none;
         }
 
         .footer-logo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 52px;
+            width: auto;
+            object-fit: contain;
             display: block;
         }
 
