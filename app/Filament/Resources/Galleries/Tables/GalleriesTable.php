@@ -26,9 +26,11 @@ class GalleriesTable
                     ->badge()
                     ->color('primary'),
 
-                TextColumn::make('image_path')
-                    ->label('Image URL / Path')
-                    ->limit(40),
+                ImageColumn::make('image_path')
+                    ->label('Photo')
+                    ->disk('public')
+                    ->square()
+                    ->size(50),
 
                 IconColumn::make('is_featured')
                     ->label('Featured')

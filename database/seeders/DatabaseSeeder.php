@@ -255,6 +255,65 @@ class DatabaseSeeder extends Seeder
             );
         }
 
+        // 4b. Galleries
+        $galleries = [
+            [
+                'title' => 'Artisan Rolling Mill & Guidance',
+                'category' => 'workshop',
+                'image_path' => 'images/artisan_rolling_mill.jpg',
+                'caption' => 'Master silversmith guiding the precision silver flattening process.',
+                'is_featured' => true,
+                'sort_order' => 1,
+            ],
+            [
+                'title' => 'Sterling Silver Butterfly Ring',
+                'category' => 'ring',
+                'image_path' => 'images/butterfly_ring_ricefield.jpg',
+                'caption' => 'Handcrafted silver butterfly ring overlooking the Ubud rice terrace breeze.',
+                'is_featured' => true,
+                'sort_order' => 2,
+            ],
+            [
+                'title' => 'Hammered 925 Silver Bands',
+                'category' => 'ring',
+                'image_path' => 'images/bespoke_silver_rings.jpg',
+                'caption' => 'Custom faceted pure silver rings made during couple workshop.',
+                'is_featured' => true,
+                'sort_order' => 3,
+            ],
+            [
+                'title' => 'Smiling Jewelry Creators',
+                'category' => 'participants',
+                'image_path' => 'images/happy_creators_rings.jpg',
+                'caption' => 'Happy guests showing off their newly polished silver creations.',
+                'is_featured' => true,
+                'sort_order' => 4,
+            ],
+            [
+                'title' => 'Hands-on Silversmithing Session',
+                'category' => 'workshop',
+                'image_path' => 'images/happy_participants.jpg',
+                'caption' => 'Step-by-step guidance in our open-air tranquil Ubud studio.',
+                'is_featured' => true,
+                'sort_order' => 5,
+            ],
+            [
+                'title' => 'Cherished Ubud Masterpieces',
+                'category' => 'ring',
+                'image_path' => 'images/silver_creations_trio.jpg',
+                'caption' => 'Three bespoke finished silver pieces ready to take home.',
+                'is_featured' => true,
+                'sort_order' => 6,
+            ],
+        ];
+
+        foreach ($galleries as $g) {
+            Gallery::updateOrCreate(
+                ['title' => $g['title']],
+                $g
+            );
+        }
+
         // 5. Articles (Rich SEO Content matching screenshot)
         $articles = [
             [

@@ -25,4 +25,21 @@ class Gallery extends Model
             'sort_order' => 'integer',
         ];
     }
+
+    public function getImageUrlAttribute(): string
+    {
+        if (empty($this->image_path)) {
+            return asset('images/hero_silver_craft.jpg');
+        }
+
+        if (str_starts_with($this->image_path, 'http://') || str_starts_with($this->image_path, 'https://')) {
+            return $this->image_path;
+        }
+
+        if (str_starts_with($this->image_path, 'images/')) {
+            return asset($this->image_path);
+        }
+
+        return asset('storage/' . $this->image_path);
+    }
 }

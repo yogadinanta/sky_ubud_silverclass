@@ -6,7 +6,7 @@
 @section('canonical', url('/article/' . $article->slug))
 @section('og_title', $article->meta_title ?? $article->title)
 @section('og_description', $article->meta_description ?? $article->excerpt)
-@section('og_image', asset($article->og_image ?? $article->image ?? 'images/happy_participants.jpg'))
+@section('og_image', $article->image_url)
 @section('og_type', 'article')
 
 @section('seo_schema')
@@ -20,7 +20,7 @@
     ],
     'headline' => $article->title,
     'description' => $article->meta_description ?? $article->excerpt,
-    'image' => asset($article->image ?? 'images/happy_participants.jpg'),
+    'image' => $article->image_url,
     'author' => [
         '@type' => 'Organization',
         'name' => $article->author ?? 'Star Ubud Silver Class'
@@ -77,7 +77,7 @@
                             @foreach($moreArticles as $more)
                                 <a href="{{ route('article.show', $more->slug) }}" class="sidebar-article-card">
                                     <div class="sidebar-article-thumb-wrap">
-                                        <img src="{{ asset($more->image ?? 'images/hero_silver_craft.jpg') }}" 
+                                        <img src="{{ $more->image_url }}" 
                                              alt="{{ $more->title }}" 
                                              class="sidebar-article-thumb" 
                                              loading="lazy">

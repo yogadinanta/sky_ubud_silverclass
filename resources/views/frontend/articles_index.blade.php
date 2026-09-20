@@ -36,7 +36,7 @@
                 @foreach($articles as $index => $article)
                     <article class="article-card" data-aos="fade-up" data-aos-delay="{{ ($index % 3) * 150 + 100 }}">
                         <div class="article-img-wrap">
-                            <img src="{{ asset($article->image ?? 'images/hero_silver_craft.jpg') }}" alt="{{ $article->title }}" loading="lazy">
+                            <img src="{{ $article->image_url }}" alt="{{ $article->title }}" loading="lazy">
                         </div>
 
                         <div class="article-card-body">

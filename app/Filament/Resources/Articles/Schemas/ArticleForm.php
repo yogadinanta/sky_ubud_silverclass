@@ -24,7 +24,15 @@ class ArticleForm
                 Textarea::make('content')
                     ->columnSpanFull(),
                 FileUpload::make('image')
-                    ->image(),
+                    ->label('Featured Image')
+                    ->image()
+                    ->imageEditor()
+                    ->directory('articles')
+                    ->disk('public')
+                    ->visibility('public')
+                    ->maxSize(5120)
+                    ->helperText('Upload JPG, PNG, or WebP article cover (Max 5MB)')
+                    ->columnSpanFull(),
                 TextInput::make('author')
                     ->required()
                     ->default('Star Ubud Team'),

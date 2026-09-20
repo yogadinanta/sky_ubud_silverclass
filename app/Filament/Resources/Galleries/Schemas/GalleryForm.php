@@ -31,10 +31,17 @@ class GalleryForm
                     ->required()
                     ->default('workshop'),
 
-                TextInput::make('image_path')
-                    ->label('Image Path or URL')
-                    ->helperText('e.g. /images/hero_silver_craft.jpg or uploaded image')
-                    ->required(),
+                FileUpload::make('image_path')
+                    ->label('Upload Image')
+                    ->image()
+                    ->imageEditor()
+                    ->directory('galleries')
+                    ->disk('public')
+                    ->visibility('public')
+                    ->maxSize(5120)
+                    ->helperText('Upload JPG, PNG, or WebP photo (Max 5MB). Image editor enabled.')
+                    ->required()
+                    ->columnSpanFull(),
 
                 Textarea::make('caption')
                     ->label('Caption / Story')
