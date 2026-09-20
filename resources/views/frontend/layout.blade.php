@@ -1347,11 +1347,11 @@
             border-radius: 50%;
             overflow: hidden;
             flex-shrink: 0;
-            background: linear-gradient(135deg, #1347ce 0%, #38bdf8 100%);
+            background: #1347ce;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 8px rgba(19, 71, 206, 0.2);
         }
 
         .testi-avatar-box img {
