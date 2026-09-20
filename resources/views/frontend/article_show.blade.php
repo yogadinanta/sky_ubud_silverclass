@@ -70,23 +70,25 @@
 
                 <!-- Right Column: Sidebar "More Article" -->
                 <aside class="article-sidebar" aria-label="Related Articles">
-                    <h3 class="article-sidebar-title">More Article</h3>
+                    <div class="article-sidebar-box">
+                        <h3 class="article-sidebar-title">More Article</h3>
 
-                    <div class="sidebar-articles-list">
-                        @foreach($moreArticles as $more)
-                            <a href="{{ route('article.show', $more->slug) }}" class="sidebar-article-card">
-                                <div class="sidebar-article-thumb-wrap">
-                                    <img src="{{ asset($more->image ?? 'images/hero_silver_craft.jpg') }}" 
-                                         alt="{{ $more->title }}" 
-                                         class="sidebar-article-thumb" 
-                                         loading="lazy">
-                                </div>
-                                <h4 class="sidebar-article-card-title">{{ $more->title }}</h4>
-                                <span class="sidebar-article-date">
-                                    {{ $more->published_at ? $more->published_at->format('M d, Y') : 'MAY 25, 2026' }}
-                                </span>
-                            </a>
-                        @endforeach
+                        <div class="sidebar-articles-list">
+                            @foreach($moreArticles as $more)
+                                <a href="{{ route('article.show', $more->slug) }}" class="sidebar-article-card">
+                                    <div class="sidebar-article-thumb-wrap">
+                                        <img src="{{ asset($more->image ?? 'images/hero_silver_craft.jpg') }}" 
+                                             alt="{{ $more->title }}" 
+                                             class="sidebar-article-thumb" 
+                                             loading="lazy">
+                                    </div>
+                                    <h4 class="sidebar-article-card-title">{{ $more->title }}</h4>
+                                    <span class="sidebar-article-date">
+                                        {{ $more->published_at ? $more->published_at->format('M d, Y') : 'MAY 25, 2026' }}
+                                    </span>
+                                </a>
+                            @endforeach
+                        </div>
                     </div>
                 </aside>
 

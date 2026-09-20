@@ -327,14 +327,24 @@ class DatabaseSeeder extends Seeder
             [
                 'title' => 'A Romantic Escape in Ubud: Crafting Your Own Love Story in Silver 4',
                 'slug' => 'a-romantic-escape-in-ubud-crafting-your-own-love-story-in-silver-4',
-                'excerpt' => 'Uncover the magic of crafting personalized silver jewelry together as a couple in Ubud, surrounded by tranquil rice terraces and tropical breezes.',
-                'content' => '<p>Immerse yourself and your partner in an intimate silver crafting workshop in the heart of Bali. Take home personalized engraved silver bands crafted by your own hands.</p>',
+                'excerpt' => 'When people think of a romantic getaway to Bali, images of candlelit dinners in Seminyak or sunset walks along the beaches of Uluwatu often come to mind. However, if you and your partner are looking for something truly unique, intimate, and deeply grounded in island culture, the cultural heart of Ubud holds an unforgettable experience just waiting to be discovered.',
+                'content' => '<p>When people think of a romantic getaway to Bali, images of candlelit dinners in Seminyak or sunset walks along the beaches of Uluwatu often come to mind. However, if you and your partner are looking for something truly unique, intimate, and deeply grounded in island culture, the cultural heart of Ubud holds an unforgettable experience just waiting to be discovered.</p>
+<p class="article-quote">"Forget standard souvenirs bought from a shelf. Imagine sitting side-by-side with your partner, looking out over rolling green fields, and forging raw silver into a beautiful piece of jewelry that you will both wear forever."</p>
+<p>Away from the crowded streets, tucked into a serene spot with panoramic views, <strong>Star Ubud Silver Class</strong> offers couples the perfect blend of artistic expression, tranquil romance, and Balinese tradition.</p>
+<h3>The Vibe: Where Creativity Meets Nature</h3>
+<p>The experience begins long before you touch any tools. As you arrive at the studio, you are greeted by the authentic, peaceful atmosphere of Ubud\'s iconic green rice terraces. The gentle rustle of leaves and the crisp breeze immediately set a relaxing, romantic tone. Unlike rushed tourist workshops, the environment here is calm and welcoming, allowing you and your loved one to fully escape the hustle and bustle.</p>
+<p>To make things even sweeter, you\'ll be served complimentary mineral water, coffee, or hot tea as you settle down at your shared crafting station, ready to embark on a 1-to-2-hour creative journey.</p>
+<h3>Guided by Master Artisans</h3>
+<p>You don\'t need any prior jewelry-making skills to enjoy this. The workshop is fully guided by skilled local silversmiths with years of experience in traditional Balinese silver crafting. These patient instructors speak excellent English, ensuring that the process is easy, lighthearted, and fun.</p>
+<p>Whether you decide to make matching couple rings, an elegant pendant, unique earrings, or a personalized bracelet, the silversmiths will guide your hands through every delicate step—from melting and hammering the pure silver to shaping, soldering, and polishing it to a brilliant shine.</p>
+<h3>Featured Package: The Couple Experience</h3>
+<p>Our Couple Package is specially curated for two people. It includes 2x pure 925 silver allowances, personalized guidance from a master artisan, welcoming drinks, and a keepsake protective jewelry pouch to take home.</p>',
                 'image' => 'images/silver_creations_trio.jpg',
                 'author' => 'Star Ubud Silver Class',
                 'published_at' => '2026-05-25',
                 'is_published' => true,
                 'sort_order' => 4,
-                'meta_title' => 'Romantic Silver Workshop in Ubud Bali for Couples',
+                'meta_title' => 'A Romantic Escape in Ubud: Crafting Your Own Love Story in Silver',
                 'meta_description' => 'Discover the best couple jewelry workshop in Bali. Forge matching sterling silver rings in central Ubud.',
                 'meta_keywords' => 'couples silver workshop, romantic bali activity, handmade ring class',
                 'reading_time' => 4,
