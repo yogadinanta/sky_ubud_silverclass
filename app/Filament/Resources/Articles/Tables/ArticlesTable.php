@@ -18,9 +18,11 @@ class ArticlesTable
             ->columns([
                 TextColumn::make('title')
                     ->searchable(),
-                TextColumn::make('slug')
-                    ->searchable(),
-                ImageColumn::make('image'),
+                ImageColumn::make('image')
+                    ->label('Cover')
+                    ->state(fn ($record) => $record->image_url)
+                    ->square()
+                    ->size(50),
                 TextColumn::make('author')
                     ->searchable(),
                 TextColumn::make('published_at')

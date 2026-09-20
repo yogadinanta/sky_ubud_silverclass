@@ -28,7 +28,7 @@ class GalleriesTable
 
                 ImageColumn::make('image_path')
                     ->label('Photo')
-                    ->disk('public')
+                    ->state(fn ($record) => $record->image_url)
                     ->square()
                     ->size(50),
 
