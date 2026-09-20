@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKY Ubud Silver Class | Craft Your Memory, Wear Your Masterpiece in Bali</title>
-    <meta name="description" content="Discover traditional Balinese silver craftsmanship at SKY Ubud Silver Class on Jl. Jembawan, Ubud. Handcraft your custom 925 sterling silver ring, bracelet, or pendant.">
-    <meta name="keywords" content="silver class ubud, jewelry making bali, bali silver workshop, ubud best silver class, handmade jewelry ubud, jembawan ubud">
-    <link rel="canonical" href="{{ url('/') }}">
+    <title>@yield('title', 'SKY Ubud Silver Class | Craft Your Memory, Wear Your Masterpiece in Bali')</title>
+    <meta name="description" content="@yield('meta_description', 'Discover traditional Balinese silver craftsmanship at SKY Ubud Silver Class on Jl. Jembawan, Ubud. Handcraft your custom 925 sterling silver ring, bracelet, or pendant.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'silver class ubud, jewelry making bali, bali silver workshop, ubud best silver class, handmade jewelry ubud, jembawan ubud')">
+    <link rel="canonical" href="@yield('canonical', url()->current())">
     
     <!-- Open Graph Meta -->
-    <meta property="og:title" content="SKY Ubud Silver Class - Wear Your Masterpiece">
-    <meta property="og:description" content="A meaningful jewelry-making experience in Ubud, Bali. Craft your own 925 sterling silver ring, bracelet, or pendant.">
-    <meta property="og:image" content="{{ asset('images/sky_silver_logo.webp') }}">
-    <meta property="og:type" content="website">
+    <meta property="og:title" content="@yield('og_title', 'SKY Ubud Silver Class - Wear Your Masterpiece')">
+    <meta property="og:description" content="@yield('og_description', 'A meaningful jewelry-making experience in Ubud, Bali. Craft your own 925 sterling silver ring, bracelet, or pendant.')">
+    <meta property="og:image" content="@yield('og_image', asset('images/sky_silver_logo.webp'))">
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:url" content="{{ url()->current() }}">
+
+    @yield('meta_tags')
+    @yield('seo_schema')
 
     <!-- Performance Preloads & Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2748,6 +2752,206 @@
             }
             .cta-experience-desc {
                 font-size: 0.92rem;
+            }
+        /* =========================================================================
+           ARTICLE SINGLE / DETAIL PAGE (MATCHING SCREENSHOT)
+           ========================================================================= */
+        .article-single-section {
+            background: #ffffff;
+            padding: 8.5rem 0 6rem 0;
+            color: #1e293b;
+        }
+
+        .article-layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        /* Left Main Content */
+        .article-main-content {
+            max-width: 100%;
+        }
+
+        .article-main-title {
+            font-family: var(--font-subheading);
+            font-size: clamp(2.2rem, 3.8vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: #0d1b3e;
+            letter-spacing: -0.015em;
+            margin: 0 0 1.25rem 0;
+        }
+
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.92rem;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 2.2rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .article-meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-meta-item i {
+            color: #94a3b8;
+        }
+
+        .article-body-content {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: #334155;
+        }
+
+        .article-body-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body-content h2,
+        .article-body-content h3,
+        .article-body-content h4 {
+            font-family: var(--font-subheading);
+            font-weight: 700;
+            color: #0d1b3e;
+            margin: 2.2rem 0 1rem 0;
+            line-height: 1.3;
+        }
+
+        .article-body-content h3 {
+            font-size: 1.35rem;
+        }
+
+        .article-body-content ul {
+            margin: 1.2rem 0 1.8rem 1.5rem;
+            padding-left: 0.5rem;
+        }
+
+        .article-body-content li {
+            margin-bottom: 0.65rem;
+            line-height: 1.7;
+        }
+
+        .article-body-content strong {
+            color: #0d1b3e;
+            font-weight: 700;
+        }
+
+        .article-body-img-wrap {
+            margin: 2.2rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -6px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-body-img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Right Sidebar "More Article" */
+        .article-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .article-sidebar-title {
+            font-family: var(--font-subheading);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #1347ce;
+            text-align: center;
+            margin: 0 0 2rem 0;
+            letter-spacing: -0.01em;
+        }
+
+        .sidebar-articles-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-article-card {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .sidebar-article-thumb-wrap {
+            width: 100%;
+            height: 190px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+
+        .sidebar-article-thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .sidebar-article-card:hover .sidebar-article-thumb {
+            transform: scale(1.05);
+        }
+
+        .sidebar-article-card-title {
+            font-family: var(--font-subheading);
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #0d1b3e;
+            line-height: 1.45;
+            margin: 0;
+            transition: color 0.2s ease;
+        }
+
+        .sidebar-article-card:hover .sidebar-article-card-title {
+            color: #1347ce;
+        }
+
+        .sidebar-article-date {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #94a3b8;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 1024px) {
+            .article-layout-grid {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+            }
+
+            .article-sidebar {
+                position: static;
+                max-width: 600px;
+            }
+
+            .sidebar-articles-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .article-single-section {
+                padding: 7rem 0 4rem 0;
             }
         }
 

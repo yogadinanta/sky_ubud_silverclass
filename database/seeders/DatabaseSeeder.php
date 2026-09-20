@@ -255,40 +255,89 @@ class DatabaseSeeder extends Seeder
             );
         }
 
-        // 5. Articles
+        // 5. Articles (Rich SEO Content matching screenshot)
         $articles = [
             [
                 'title' => 'This Is Why You Must Try Star Ubud Silver Class for the Perfect Creative Experience 5',
-                'slug' => 'this-is-why-you-must-try-star-ubud-silver-class-5',
-                'excerpt' => 'Seminyak is famous for its vibrant beach clubs, high-end boutiques, and world-class dining. But when the bustling streets and beach crowds leave you craving something deeply authentic and creative, a journey to our tranquil studio in Ubud offers the perfect contrast.',
-                'content' => 'Discover how crafting your own silver jewelry in Ubud transforms your Bali vacation into an unforgettable artistic journey. Learn step-by-step techniques from master silversmiths.',
+                'slug' => 'this-is-why-you-must-try-star-ubud-silver-class-for-the-perfect-creative-experience-5',
+                'excerpt' => 'Seminyak is famous for its vibrant beach clubs, high-end boutiques, and world-class dining. But when the bustling streets and beach crowds leave you craving a deeper, more meaningful connection to Bali’s artistic soul, where should you go?',
+                'content' => '<p>Seminyak is famous for its vibrant beach clubs, high-end boutiques, and world-class dining. But when the bustling streets and beach crowds leave you craving a deeper, more meaningful connection to Bali\'s artistic soul, where should you go?</p>
+<p>The answer lies just a short drive away in the cultural heart of the island. If you are looking for the ultimate creative breakthrough on your holiday, here is why you must swap the beach for a day and experience <strong>Star Ubud Silver Class</strong>.</p>
+<div class="article-body-img-wrap"><img src="/images/hero_silver_craft.jpg" alt="Silver Class Workshop Ubud" class="article-body-img" loading="lazy"></div>
+<h3>1. Escape the Bustle for Stunning Rice Field Views</h3>
+<p>While Seminyak offers beautiful ocean horizons, nothing matches the tranquil, grounding atmosphere of authentic Ubud rice terraces. Star Ubud Silver Class is uniquely situated in a peaceful location surrounded by lush, green rice field views. The calm breeze and relaxing environment provide the perfect, undistracted backdrop to unlock your creativity and clear your mind.</p>
+<h3>2. Learn Directly from Master Balinese Silversmiths</h3>
+<p>You won\'t just be following a generic DIY kit. At our studio, you get the rare privilege of learning directly from skilled local silversmiths with years of experience in traditional Balinese silver crafting. To make your experience smooth and enjoyable, our friendly instructors communicate exceptionally well in English. They will guide you through every traditional technique—from raw material to polished art—making the class easy and fun for everyone.</p>
+<h3>3. Crafted for Everyone: Solo, Couples, and Families</h3>
+<p>Whether you are exploring Bali independently, on a romantic getaway, or traveling with your children, there is a tailored space for you.</p>
+<ul>
+<li><strong>Single Package (IDR 450K):</strong> Perfect for solo travelers seeking an immersive, meditative craft session.</li>
+<li><strong>Couple Package (IDR 900K):</strong> A romantic and memorable bonding experience designed for honeymoons and couples.</li>
+<li><strong>Family Package (IDR 1.800K):</strong> Create matching heirlooms together with dedicated artisan guidance for all ages.</li>
+<li><strong>Group Package (IDR 400K/p):</strong> Fun collaborative group workshop with shared creative memories.</li>
+</ul>
+<p>Ready to make your own jewelry? Reserve your spot today and bring home a real piece of Bali!</p>',
                 'image' => 'images/happy_participants.jpg',
-                'author' => 'Star Ubud Team',
+                'author' => 'Star Ubud Silver Class',
                 'published_at' => '2026-05-25',
                 'is_published' => true,
                 'sort_order' => 1,
+                'meta_title' => 'This Is Why You Must Try Star Ubud Silver Class for the Perfect Creative Experience',
+                'meta_description' => 'Discover why Star Ubud Silver Class is the best jewelry making workshop in Bali. Escape the bustle, learn authentic Balinese techniques, and craft pure silver rings.',
+                'meta_keywords' => 'silver class ubud, silver jewelry making bali, jewelry workshop ubud, star ubud silver class, bali artisan craft',
+                'reading_time' => 5,
             ],
             [
                 'title' => 'A Romantic Escape in Ubud: Crafting Your Own Love Story in Silver 5',
-                'slug' => 'a-romantic-escape-in-ubud-crafting-your-own-love-story-5',
-                'excerpt' => 'When people think of a romantic getaway to Bali, images of candlelit dinners in Seminyak or sunset walks along the beaches of Uluwatu often come to mind. But creating custom matching rings together creates a memory that lasts forever.',
-                'content' => 'Couples from around the world visit our Ubud silver workshop to shape, engrave, and polish each other’s rings. It is an intimate, memorable, and bonding experience like no other.',
+                'slug' => 'a-romantic-escape-in-ubud-crafting-your-own-love-story-in-silver-5',
+                'excerpt' => 'When people think of a romantic getaway to Bali, images of candlelit dinners in Seminyak or sunset walks often come to mind. But creating custom matching rings together creates a memory that lasts forever.',
+                'content' => '<p>When people think of a romantic getaway to Bali, images of candlelit dinners in Seminyak or sunset walks along the beaches of Uluwatu often come to mind. But creating custom matching rings together creates a memory that lasts forever.</p>
+<p>At Star Ubud Silver Class, couples have the opportunity to design and forge sterling silver jewelry for one another under the expert guidance of master silversmiths.</p>
+<div class="article-body-img-wrap"><img src="/images/happy_creators_rings.jpg" alt="Romantic Silver Class Couples" class="article-body-img" loading="lazy"></div>
+<h3>Handcrafting Bonds That Last</h3>
+<p>From choosing authentic Balinese carved motifs to soldering and polishing the metal to a mirror shine, each step is a moment shared together amidst the tranquil Ubud greenery.</p>',
                 'image' => 'images/happy_creators_rings.jpg',
-                'author' => 'Star Ubud Team',
+                'author' => 'Star Ubud Silver Class',
                 'published_at' => '2026-05-25',
                 'is_published' => true,
                 'sort_order' => 2,
+                'meta_title' => 'A Romantic Escape in Ubud: Crafting Your Own Love Story in Silver',
+                'meta_description' => 'Explore the ultimate romantic couples activity in Ubud: creating bespoke silver rings together in an authentic Balinese studio.',
+                'meta_keywords' => 'couples silver class ubud, romantic activities bali, make wedding rings bali, jewelry class couples',
+                'reading_time' => 4,
             ],
             [
                 'title' => 'This Is Why You Must Try Star Ubud Silver Class for the Perfect Creative Experience 4',
-                'slug' => 'this-is-why-you-must-try-star-ubud-silver-class-4',
+                'slug' => 'this-is-why-you-must-try-star-ubud-silver-class-for-the-perfect-creative-experience-4',
                 'excerpt' => 'Seminyak is famous for its vibrant beach clubs, high-end boutiques, and world-class dining. But when the bustling streets and beach crowds leave you craving hands-on craftsmanship, step into the peaceful world of traditional silver artistry.',
-                'content' => 'From melting pure 925 silver grains to hammering textured facets and setting personal gemstones, explore what makes our workshops in Ubud so beloved by travelers worldwide.',
+                'content' => '<p>From melting pure 925 silver grains to hammering textured facets and setting personal gemstones, explore what makes our workshops in Ubud so beloved by travelers worldwide.</p>
+<div class="article-body-img-wrap"><img src="/images/artisan_rolling_mill.jpg" alt="Artisan Silver Crafting" class="article-body-img" loading="lazy"></div>
+<h3>Traditional Balinese Techniques</h3>
+<p>Learn ancestral silversmith methods passed down through generations in Gianyar. Shape your raw silver into an exquisite piece you can wear every day.</p>',
                 'image' => 'images/artisan_rolling_mill.jpg',
-                'author' => 'Star Ubud Team',
+                'author' => 'Star Ubud Silver Class',
                 'published_at' => '2026-05-25',
                 'is_published' => true,
                 'sort_order' => 3,
+                'meta_title' => 'Why You Must Try Star Ubud Silver Class - Top Creative Activity',
+                'meta_description' => 'Experience authentic silver craftsmanship in Bali. Complete step-by-step masterclass with genuine 925 pure silver.',
+                'meta_keywords' => 'silver jewelry class bali, ubud workshop, balinese silversmithing',
+                'reading_time' => 5,
+            ],
+            [
+                'title' => 'A Romantic Escape in Ubud: Crafting Your Own Love Story in Silver 4',
+                'slug' => 'a-romantic-escape-in-ubud-crafting-your-own-love-story-in-silver-4',
+                'excerpt' => 'Uncover the magic of crafting personalized silver jewelry together as a couple in Ubud, surrounded by tranquil rice terraces and tropical breezes.',
+                'content' => '<p>Immerse yourself and your partner in an intimate silver crafting workshop in the heart of Bali. Take home personalized engraved silver bands crafted by your own hands.</p>',
+                'image' => 'images/silver_creations_trio.jpg',
+                'author' => 'Star Ubud Silver Class',
+                'published_at' => '2026-05-25',
+                'is_published' => true,
+                'sort_order' => 4,
+                'meta_title' => 'Romantic Silver Workshop in Ubud Bali for Couples',
+                'meta_description' => 'Discover the best couple jewelry workshop in Bali. Forge matching sterling silver rings in central Ubud.',
+                'meta_keywords' => 'couples silver workshop, romantic bali activity, handmade ring class',
+                'reading_time' => 4,
             ],
         ];
 

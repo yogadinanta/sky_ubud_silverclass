@@ -19,6 +19,12 @@ class Article extends Model
         'published_at',
         'is_published',
         'sort_order',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'canonical_url',
+        'og_image',
+        'reading_time',
     ];
 
     protected function casts(): array
@@ -27,6 +33,7 @@ class Article extends Model
             'published_at' => 'date',
             'is_published' => 'boolean',
             'sort_order' => 'integer',
+            'reading_time' => 'integer',
         ];
     }
 }

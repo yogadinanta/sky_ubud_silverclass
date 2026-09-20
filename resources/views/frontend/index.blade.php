@@ -470,14 +470,16 @@
                                     {{ $article->published_at ? $article->published_at->format('M d, Y') : 'MAY 25, 2026' }}
                                 </div>
                                 <h3 class="article-card-heading">
-                                    {{ $article->title }}
+                                    <a href="{{ route('article.show', $article->slug) }}" style="color: inherit; text-decoration: none;">
+                                        {{ $article->title }}
+                                    </a>
                                 </h3>
                                 <p class="article-card-excerpt">
                                     {{ $article->excerpt }}
                                 </p>
                             </div>
 
-                            <a href="javascript:void(0)" onclick="openBookingModal()" class="article-card-link">
+                            <a href="{{ route('article.show', $article->slug) }}" class="article-card-link">
                                 <span>Read More</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
