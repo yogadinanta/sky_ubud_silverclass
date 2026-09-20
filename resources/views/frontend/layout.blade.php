@@ -3219,6 +3219,23 @@
                         <option value="USD">🇺🇸 USD ($)</option>
                         <option value="AUD">🇦🇺 AUD (A$)</option>
                         <option value="EUR">🇪🇺 EUR (€)</option>
+                        <option value="GBP">🇬🇧 GBP (£)</option>
+                        <option value="SGD">🇸🇬 SGD (S$)</option>
+                        <option value="MYR">🇲🇾 MYR (RM)</option>
+                        <option value="JPY">🇯🇵 JPY (¥)</option>
+                        <option value="CNY">🇨🇳 CNY (¥)</option>
+                        <option value="INR">🇮🇳 INR (₹)</option>
+                        <option value="KRW">🇰🇷 KRW (₩)</option>
+                        <option value="CAD">🇨🇦 CAD (C$)</option>
+                        <option value="NZD">🇳🇿 NZD (NZ$)</option>
+                        <option value="CHF">🇨🇭 CHF (CHF)</option>
+                        <option value="AED">🇦🇪 AED (AED)</option>
+                        <option value="SAR">🇸🇦 SAR (SAR)</option>
+                        <option value="THB">🇹🇭 THB (฿)</option>
+                        <option value="VND">🇻🇳 VND (₫)</option>
+                        <option value="PHP">🇵🇭 PHP (₱)</option>
+                        <option value="TWD">🇹🇼 TWD (NT$)</option>
+                        <option value="HKD">🇭🇰 HKD (HK$)</option>
                     </select>
                 </div>
 
@@ -3227,15 +3244,31 @@
                     <div id="google_translate_element" style="display: none;"></div>
                     <select id="languageSelector" onchange="translateLanguage(this.value)" class="nav-select-pill" title="Translate Website" aria-label="Language Selector">
                         <option value="en">🇬🇧 English</option>
-                        <option value="id">🇮🇩 Indonesia</option>
+                        <option value="id">🇮🇩 Bahasa Indonesia</option>
                         <option value="fr">🇫🇷 Français</option>
                         <option value="de">🇩🇪 Deutsch</option>
+                        <option value="nl">🇳🇱 Nederlands</option>
                         <option value="ru">🇷🇺 Русский</option>
                         <option value="ja">🇯🇵 日本語</option>
-                        <option value="zh-CN">🇨🇳 中文</option>
+                        <option value="zh-CN">🇨🇳 中文 (简体)</option>
+                        <option value="zh-TW">🇹🇼 中文 (繁體)</option>
+                        <option value="ko">🇰🇷 한국어</option>
                         <option value="es">🇪🇸 Español</option>
                         <option value="it">🇮🇹 Italiano</option>
-                        <option value="ko">🇰🇷 한국어</option>
+                        <option value="pt">🇵🇹 Português</option>
+                        <option value="ar">🇸🇦 العربية</option>
+                        <option value="hi">🇮🇳 हिन्दी</option>
+                        <option value="th">🇹🇭 ไทย</option>
+                        <option value="vi">🇻🇳 Tiếng Việt</option>
+                        <option value="tl">🇵🇭 Filipino</option>
+                        <option value="ms">🇲🇾 Bahasa Melayu</option>
+                        <option value="tr">🇹🇷 Türkçe</option>
+                        <option value="sv">🇸🇪 Svenska</option>
+                        <option value="pl">🇵🇱 Polski</option>
+                        <option value="da">🇩🇰 Dansk</option>
+                        <option value="no">🇳🇴 Norsk</option>
+                        <option value="fi">🇫🇮 Suomi</option>
+                        <option value="iw">🇮🇱 עברית</option>
                     </select>
                 </div>
 
@@ -3618,12 +3651,29 @@
             setTimeout(updateTestiProgress, 100);
         })();
 
-        // Multi-Currency Converter System
+        // Comprehensive Multi-Currency Conversion Rates (Live Reference Values)
         var currencyRates = {
-            'IDR': { symbol: 'Rp', rate: 1, decimals: 0, sep: '.', prefix: true, code: 'IDR' },
-            'USD': { symbol: '$', rate: 1 / 15800, decimals: 0, sep: ',', prefix: true, code: 'USD' },
-            'AUD': { symbol: 'A$', rate: 1 / 10300, decimals: 0, sep: ',', prefix: true, code: 'AUD' },
-            'EUR': { symbol: '€', rate: 1 / 17100, decimals: 0, sep: ',', prefix: true, code: 'EUR' }
+            'IDR': { symbol: 'Rp', rate: 1, prefix: true, code: 'IDR' },
+            'USD': { symbol: '$', rate: 1 / 15800, prefix: true, code: 'USD' },
+            'AUD': { symbol: 'A$', rate: 1 / 10300, prefix: true, code: 'AUD' },
+            'EUR': { symbol: '€', rate: 1 / 17100, prefix: true, code: 'EUR' },
+            'GBP': { symbol: '£', rate: 1 / 20400, prefix: true, code: 'GBP' },
+            'SGD': { symbol: 'S$', rate: 1 / 12100, prefix: true, code: 'SGD' },
+            'MYR': { symbol: 'RM', rate: 1 / 3600, prefix: true, code: 'MYR' },
+            'JPY': { symbol: '¥', rate: 1 / 108, prefix: true, code: 'JPY' },
+            'CNY': { symbol: '¥', rate: 1 / 2200, prefix: true, code: 'CNY' },
+            'INR': { symbol: '₹', rate: 1 / 185, prefix: true, code: 'INR' },
+            'KRW': { symbol: '₩', rate: 1 / 11.5, prefix: true, code: 'KRW' },
+            'CAD': { symbol: 'C$', rate: 1 / 11400, prefix: true, code: 'CAD' },
+            'NZD': { symbol: 'NZ$', rate: 1 / 9400, prefix: true, code: 'NZD' },
+            'CHF': { symbol: 'CHF ', rate: 1 / 18200, prefix: true, code: 'CHF' },
+            'AED': { symbol: 'AED ', rate: 1 / 4300, prefix: true, code: 'AED' },
+            'SAR': { symbol: 'SAR ', rate: 1 / 4200, prefix: true, code: 'SAR' },
+            'THB': { symbol: '฿', rate: 1 / 460, prefix: true, code: 'THB' },
+            'VND': { symbol: '₫', rate: 1 / 0.63, prefix: true, code: 'VND' },
+            'PHP': { symbol: '₱', rate: 1 / 275, prefix: true, code: 'PHP' },
+            'TWD': { symbol: 'NT$', rate: 1 / 495, prefix: true, code: 'TWD' },
+            'HKD': { symbol: 'HK$', rate: 1 / 2020, prefix: true, code: 'HKD' }
         };
 
         var currentCurrency = localStorage.getItem('selectedCurrency') || 'IDR';
@@ -3633,9 +3683,12 @@
             var converted = amountIDR * c.rate;
             if (currCode === 'IDR') {
                 return 'Rp ' + Number(Math.round(converted)).toLocaleString('id-ID');
+            } else if (currCode === 'VND' || currCode === 'KRW' || currCode === 'JPY') {
+                var rounded = Math.round(converted / 10) * 10;
+                return `${c.symbol}${Number(rounded).toLocaleString('en-US')} ${c.code}`;
             } else {
                 var rounded = Math.round(converted);
-                return `${c.symbol}${rounded} ${c.code}`;
+                return `${c.symbol}${Number(rounded).toLocaleString('en-US')} ${c.code}`;
             }
         }
 
@@ -3682,7 +3735,7 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
-                includedLanguages: 'en,id,fr,de,ru,ja,zh-CN,es,it,ko',
+                includedLanguages: 'en,id,fr,de,nl,ru,ja,zh-CN,zh-TW,ko,es,it,pt,ar,hi,th,vi,tl,ms,tr,sv,pl,da,no,fi,iw',
                 autoDisplay: false
             }, 'google_translate_element');
         }
