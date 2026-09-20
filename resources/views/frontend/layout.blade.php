@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1725,23 +1725,7 @@
             color: #ffffff;
         }
 
-        /* Modal Styles */
-        .modal-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            z-index: 100;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            opacity: 0;
-            transition: opacity 0.25s ease;
-        }
+
 
         /* =========================================================================
            OUR WORKSHOP / PACKAGES BLUE SECTION (MATCHING SCREENSHOT)
@@ -2090,137 +2074,7 @@
             }
         }
 
-        /* =========================================================================
-           MODERN WHITE BOOKING MODAL (MATCHING SCREENSHOT)
-           ========================================================================= */
-        .modal-box-modern {
-            background: #ffffff;
-            border-radius: 22px;
-            max-width: 500px;
-            width: 100%;
-            max-height: 92vh;
-            overflow-y: auto;
-            padding: 2.2rem;
-            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.25);
-            position: relative;
-            transform: translateY(15px);
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            color: #1e293b;
-        }
 
-        .modal-backdrop.open .modal-box-modern {
-            transform: translateY(0);
-        }
-
-        .modal-modern-close {
-            position: absolute;
-            top: 1.25rem;
-            right: 1.25rem;
-            background: #f1f5f9;
-            border: none;
-            color: #64748b;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 0.95rem;
-        }
-
-        .modal-modern-close:hover {
-            background: #fee2e2;
-            color: #ef4444;
-        }
-
-        .modal-modern-title {
-            font-family: var(--font-subheading);
-            font-size: 1.7rem;
-            font-weight: 800;
-            color: #1347ce;
-            margin: 0 0 0.35rem 0;
-            line-height: 1.2;
-        }
-
-        .modal-modern-sub {
-            font-size: 0.92rem;
-            color: #64748b;
-            margin: 0 0 1.6rem 0;
-        }
-
-        .form-modern-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-modern-label {
-            display: block;
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: #64748b;
-            margin-bottom: 0.45rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            font-family: var(--font-subheading);
-        }
-
-        .form-modern-input, .form-modern-select, .form-modern-textarea {
-            width: 100%;
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 0.75rem 1rem;
-            color: #0f172a;
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .form-modern-input:focus, .form-modern-select:focus, .form-modern-textarea:focus {
-            outline: none;
-            border-color: #1347ce;
-            box-shadow: 0 0 0 3px rgba(19, 71, 206, 0.12);
-        }
-
-        .form-modern-price-display {
-            background: #f8fafc;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 0.75rem 1rem;
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: #0f172a;
-            font-family: var(--font-subheading);
-            display: flex;
-            align-items: center;
-            min-height: 46px;
-        }
-
-        .btn-modern-submit {
-            background: #1347ce;
-            color: #ffffff;
-            font-family: var(--font-subheading);
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 0.95rem;
-            border-radius: 10px;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1.25rem;
-        }
-
-        .btn-modern-submit:hover {
-            background: #0b2a80;
-            box-shadow: 0 6px 18px rgba(19, 71, 206, 0.3);
-            transform: translateY(-2px);
-        }
 
         /* =========================================================================
            GALLERY SECTION (GALLERY OF MOMENTS & CREATIONS)
@@ -3097,48 +2951,53 @@
             line-height: 1.15;
             color: #ffffff;
             margin: 0;
+        }
+
         /* ==========================================================================
-           BOOKING POPUP MODAL (PIXEL PERFECT SCREENSHOT MATCH)
+           BOOKING POPUP MODAL (PIXEL PERFECT SCREENSHOT MATCH - ULTRA SMOOTH & FAST)
            ========================================================================== */
         .modal-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(15, 23, 42, 0.68);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            z-index: 999999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.25rem;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+            position: fixed !important;
+            inset: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            background: rgba(15, 23, 42, 0.72) !important;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 9999999 !important;
+            display: none !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 1.25rem !important;
         }
 
         .modal-backdrop.open {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
+            display: flex !important;
         }
 
         .modal-box-modern {
-            background: #ffffff;
-            color: #0f172a;
-            border-radius: 1.25rem;
-            padding: 2.25rem 2rem;
-            width: 100%;
-            max-width: 490px;
-            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.05);
-            position: relative;
-            transform: scale(0.92) translateY(20px);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            max-height: 92vh;
-            overflow-y: auto;
+            background: #ffffff !important;
+            color: #0f172a !important;
+            border-radius: 1.25rem !important;
+            padding: 2.25rem 2rem !important;
+            width: 100% !important;
+            max-width: 480px !important;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.05) !important;
+            position: relative !important;
+            max-height: 92vh !important;
+            overflow-y: auto !important;
+            animation: modalFadePop 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        @keyframes modalFadePop {
+            0% {
+                opacity: 0;
+                transform: scale(0.92) translateY(15px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
 
         .modal-backdrop.open .modal-box-modern {
@@ -3648,12 +3507,12 @@
             setTimeout(updateTestiProgress, 100);
         })();
 
-        // Booking Modal Functions
-        function openBookingModal(pkgId = null) {
-            const modal = document.getElementById('bookingModal');
-            const select = document.getElementById('pkgSelect');
+        // Booking Modal Global Functions
+        window.openBookingModal = function(pkgId = null) {
+            var modal = document.getElementById('bookingModal');
+            var select = document.getElementById('pkgSelect');
             if (pkgId && select) {
-                for (let i = 0; i < select.options.length; i++) {
+                for (var i = 0; i < select.options.length; i++) {
                     if (select.options[i].value == pkgId) {
                         select.selectedIndex = i;
                         break;
@@ -3665,62 +3524,70 @@
                 modal.classList.add('open');
                 document.body.style.overflow = 'hidden';
             }
-        }
+        };
 
-        function closeBookingModal() {
-            const modal = document.getElementById('bookingModal');
+        window.closeBookingModal = function() {
+            var modal = document.getElementById('bookingModal');
             if (modal) {
                 modal.classList.remove('open');
                 document.body.style.overflow = '';
             }
-        }
+        };
 
         window.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                closeBookingModal();
+                window.closeBookingModal();
             }
         });
 
         function updatePriceCalculator() {
-            const select = document.getElementById('pkgSelect');
-            const priceDisplay = document.getElementById('priceDisplay');
+            var select = document.getElementById('pkgSelect');
+            var priceDisplay = document.getElementById('priceDisplay');
             if (!select || !priceDisplay) return;
-            const opt = select.options[select.selectedIndex];
-            if (opt) {
-                const label = opt.getAttribute('data-label') || ('Rp ' + Number(opt.getAttribute('data-price')).toLocaleString('id-ID'));
+            if (select.selectedIndex >= 0 && select.options[select.selectedIndex]) {
+                var opt = select.options[select.selectedIndex];
+                var label = opt.getAttribute('data-label');
+                if (!label) {
+                    var price = opt.getAttribute('data-price');
+                    label = price ? ('Rp ' + Number(price).toLocaleString('id-ID')) : 'Rp 500.000 / Person';
+                }
                 priceDisplay.textContent = label;
             }
         }
 
         function handleBookingSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const name = form.customer_name.value.trim();
-            const select = document.getElementById('pkgSelect');
-            const pkgName = select.options[select.selectedIndex].getAttribute('data-name') || select.options[select.selectedIndex].text.trim();
-            const date = form.booking_date.value;
-            const notes = form.special_requests.value.trim();
-            const priceDisplay = document.getElementById('priceDisplay').textContent.trim();
+            if (event) event.preventDefault();
+            var form = event.target || document.getElementById('reservationForm');
+            var name = (form.customer_name ? form.customer_name.value : '').trim();
+            var select = document.getElementById('pkgSelect');
+            var pkgName = 'Silver Class';
+            if (select && select.selectedIndex >= 0 && select.options[select.selectedIndex]) {
+                var opt = select.options[select.selectedIndex];
+                pkgName = opt.getAttribute('data-name') || opt.text.trim();
+            }
+            var date = form.booking_date ? form.booking_date.value : '';
+            var notes = (form.special_requests ? form.special_requests.value : '').trim();
+            var priceDisplay = document.getElementById('priceDisplay') ? document.getElementById('priceDisplay').textContent.trim() : '';
 
-            const waText = `Hello Star Ubud Silver Class!\n\nI would like to book a silver jewelry workshop session:\n- *Name:* ${name}\n- *Package:* ${pkgName}\n- *Price:* ${priceDisplay}\n- *Date:* ${date}${notes ? `\n- *Notes:* ${notes}` : ''}\n\nPlease confirm availability. Thank you!`;
+            var waText = `Hello SKY Ubud Silver Class!\n\nI would like to book a silver jewelry workshop session:\n- *Name:* ${name}\n- *Package:* ${pkgName}\n- *Price:* ${priceDisplay}\n- *Date:* ${date}${notes ? `\n- *Notes:* ${notes}` : ''}\n\nPlease confirm availability. Thank you!`;
 
-            const waNumber = "{{ $settings['whatsapp_number'] ?? '6285941018703' }}";
+            var waNumber = "{{ $settings['whatsapp_number'] ?? '6285941018703' }}";
             window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`, '_blank');
-            closeBookingModal();
+            window.closeBookingModal();
         }
 
         // Smooth Anchor Scroll with offset for sticky navbar
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var targetId = this.getAttribute('href');
                 if (!targetId || targetId === '#' || targetId.length < 2) return;
-                const targetElement = document.querySelector(targetId);
+                var targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     e.preventDefault();
-                    const nav = document.getElementById('navbar');
-                    const navHeight = nav ? nav.offsetHeight : 80;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - navHeight - 10;
+                    var nav = document.getElementById('navbar');
+                    var navHeight = nav ? nav.offsetHeight : 80;
+                    var elementPosition = targetElement.getBoundingClientRect().top;
+                    var offsetPosition = elementPosition + window.pageYOffset - navHeight - 10;
 
                     window.scrollTo({
                         top: offsetPosition,
@@ -3737,11 +3604,11 @@
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof AOS !== 'undefined') {
                 AOS.init({
-                    duration: 750,
-                    easing: 'ease-out-cubic',
+                    duration: 600,
+                    easing: 'ease-out-quad',
                     once: true,
-                    offset: 70,
-                    delay: 40,
+                    offset: 30,
+                    disableMutationObserver: true
                 });
             }
         });
