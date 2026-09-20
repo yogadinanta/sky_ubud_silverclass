@@ -35,6 +35,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6gGXYkazy/bnn9/jWBPpnMXZ4436746kJgMOZbWahUJLQRRMW7LBtwDf2AKLI44BKCuGHA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         /* ==========================================================================
            HARMONIOUS DESIGN SYSTEM & TOKENS
@@ -3635,6 +3638,43 @@
             window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`, '_blank');
             closeBookingModal();
         }
+
+        // Smooth Anchor Scroll with offset for sticky navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (!targetId || targetId === '#' || targetId.length < 2) return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    const nav = document.getElementById('navbar');
+                    const navHeight = nav ? nav.offsetHeight : 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navHeight - 10;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 750,
+                    easing: 'ease-out-cubic',
+                    once: true,
+                    offset: 70,
+                    delay: 40,
+                });
+            }
+        });
     </script>
 </body>
 </html>

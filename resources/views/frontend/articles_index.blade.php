@@ -8,7 +8,7 @@
 @section('content')
 
     <!-- Hero Banner -->
-    <div class="page-hero-banner">
+    <div class="page-hero-banner" data-aos="fade-down" data-aos-duration="600">
         <div class="container">
             <div class="page-hero-content">
                 <nav class="page-breadcrumb" aria-label="Breadcrumb">
@@ -24,7 +24,7 @@
     <!-- Articles Listing Grid -->
     <section class="articles-section" style="padding: 5.5rem 0 6.5rem 0;">
         <div class="container">
-            <div class="articles-header">
+            <div class="articles-header" data-aos="fade-up">
                 <div class="articles-badge-wrap">
                     <span class="articles-badge-text">ARTICLES</span>
                     <span class="articles-badge-line"></span>
@@ -33,8 +33,8 @@
             </div>
 
             <div class="articles-grid">
-                @foreach($articles as $article)
-                    <article class="article-card">
+                @foreach($articles as $index => $article)
+                    <article class="article-card" data-aos="fade-up" data-aos-delay="{{ ($index % 3) * 150 + 100 }}">
                         <div class="article-img-wrap">
                             <img src="{{ asset($article->image ?? 'images/hero_silver_craft.jpg') }}" alt="{{ $article->title }}" loading="lazy">
                         </div>
@@ -63,7 +63,7 @@
                 @endforeach
             </div>
 
-            <div style="margin-top: 3.5rem; display: flex; justify-content: center;">
+            <div style="margin-top: 3.5rem; display: flex; justify-content: center;" data-aos="fade-up">
                 {{ $articles->links() }}
             </div>
         </div>
@@ -72,7 +72,7 @@
     <!-- Final CTA Banner -->
     <section class="cta-experience-section" id="book-experience">
         <div class="container">
-            <div class="cta-experience-card">
+            <div class="cta-experience-card" data-aos="zoom-in" data-aos-duration="700">
                 <div class="cta-experience-content">
                     <h2 class="cta-experience-title">Book Your Experience Today</h2>
                     <p class="cta-experience-desc">

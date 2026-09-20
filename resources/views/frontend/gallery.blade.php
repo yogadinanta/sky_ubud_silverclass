@@ -8,7 +8,7 @@
     <!-- =========================================================================
          PAGE HERO BANNER (MATCHING SCREENSHOT)
          ========================================================================= -->
-    <div class="page-hero-banner">
+    <div class="page-hero-banner" data-aos="fade-down" data-aos-duration="600">
         <div class="container">
             <div class="page-hero-content">
                 <nav class="page-breadcrumb" aria-label="Breadcrumb">
@@ -26,7 +26,7 @@
          ========================================================================= -->
     <section class="gallery-section" id="gallery-content">
         <div class="container">
-            <div class="gallery-header">
+            <div class="gallery-header" data-aos="fade-up">
                 <div class="gallery-badge-wrap">
                     <span class="gallery-badge-text">GALLERY</span>
                     <span class="gallery-badge-line"></span>
@@ -37,7 +37,7 @@
             <div class="gallery-bento-grid">
                 
                 <!-- Col 1: Tall Card -->
-                <div class="gallery-col">
+                <div class="gallery-col" data-aos="fade-up" data-aos-delay="100">
                     <div class="gallery-card-tall">
                         <img src="{{ asset('images/artisan_rolling_mill.jpg') }}" alt="Silversmith Artisan Guidance Ubud" class="gallery-img" loading="lazy">
                         <div class="gallery-caption-overlay">
@@ -48,7 +48,7 @@
                 </div>
 
                 <!-- Col 2: Tall Card -->
-                <div class="gallery-col">
+                <div class="gallery-col" data-aos="fade-up" data-aos-delay="200">
                     <div class="gallery-card-tall">
                         <img src="{{ asset('images/butterfly_ring_ricefield.jpg') }}" alt="Balinese Silver Studio Window" class="gallery-img" loading="lazy">
                         <div class="gallery-caption-overlay">
@@ -59,7 +59,7 @@
                 </div>
 
                 <!-- Col 3: 2 Stacked Cards -->
-                <div class="gallery-col">
+                <div class="gallery-col" data-aos="fade-up" data-aos-delay="300">
                     <div class="gallery-card-half">
                         <img src="{{ asset('images/bespoke_silver_rings.jpg') }}" alt="Hammered 925 Pure Silver Rings" class="gallery-img" loading="lazy">
                         <div class="gallery-caption-overlay">
@@ -77,7 +77,7 @@
                 </div>
 
                 <!-- Col 4: Tall Card -->
-                <div class="gallery-col">
+                <div class="gallery-col" data-aos="fade-up" data-aos-delay="400">
                     <div class="gallery-card-tall">
                         <img src="{{ asset('images/happy_participants.jpg') }}" alt="Happy Creators at Silver Workshop" class="gallery-img" loading="lazy">
                         <div class="gallery-caption-overlay">
@@ -88,7 +88,7 @@
                 </div>
 
                 <!-- Col 5: 2 Stacked Cards -->
-                <div class="gallery-col">
+                <div class="gallery-col" data-aos="fade-up" data-aos-delay="500">
                     <div class="gallery-card-half">
                         <img src="{{ asset('images/hero_silver_craft.jpg') }}" alt="Designing Silver Jewelry Together" class="gallery-img" loading="lazy">
                         <div class="gallery-caption-overlay">
@@ -114,7 +114,7 @@
          ========================================================================= -->
     <section class="cta-experience-section" id="book-experience">
         <div class="container">
-            <div class="cta-experience-card">
+            <div class="cta-experience-card" data-aos="zoom-in" data-aos-duration="700">
                 <div class="cta-experience-content">
                     <h2 class="cta-experience-title">Book Your Experience Today</h2>
                     <p class="cta-experience-desc">

@@ -49,7 +49,7 @@
             <div class="article-layout-grid">
                 
                 <!-- Left Column: Main Article -->
-                <main class="article-main-content">
+                <main class="article-main-content" data-aos="fade-up" data-aos-duration="700">
                     <h1 class="article-main-title">{{ $article->title }}</h1>
 
                     <div class="article-meta-row">
@@ -69,7 +69,7 @@
                 </main>
 
                 <!-- Right Column: Sidebar "More Article" -->
-                <aside class="article-sidebar" aria-label="Related Articles">
+                <aside class="article-sidebar" aria-label="Related Articles" data-aos="fade-left" data-aos-duration="700" data-aos-delay="200">
                     <div class="article-sidebar-box">
                         <h3 class="article-sidebar-title">More Article</h3>
 
@@ -99,7 +99,7 @@
     <!-- Final CTA Experience Banner before Footer -->
     <section class="cta-experience-section" id="book-experience">
         <div class="container">
-            <div class="cta-experience-card">
+            <div class="cta-experience-card" data-aos="zoom-in" data-aos-duration="700">
                 <div class="cta-experience-content">
                     <h2 class="cta-experience-title">Book Your Experience Today</h2>
                     <p class="cta-experience-desc">

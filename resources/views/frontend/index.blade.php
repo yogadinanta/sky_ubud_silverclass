@@ -38,18 +38,18 @@
         <!-- Centered Main Content -->
         <div class="container" style="position: relative; z-index: 10;">
             <div class="hero-content-center">
-                <span class="hero-subtag">SKY Ubud Silver Class</span>
+                <span class="hero-subtag" data-aos="fade-down" data-aos-duration="700">SKY Ubud Silver Class</span>
 
-                <h1 class="hero-main-title">
+                <h1 class="hero-main-title" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                     Create Your Own Silver Jewelry<br>
                     in the Heart of Ubud
                 </h1>
 
-                <p class="hero-main-desc">
+                <p class="hero-main-desc" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                     Join our fun and hands-on silver jewelry making class in the heart of Ubud, Bali. Create your own unique ring, bracelet, or pendant and take home a beautiful, tangible memory from paradise!
                 </p>
 
-                <button class="btn-hero-reserve" onclick="openBookingModal()">
+                <button class="btn-hero-reserve" onclick="openBookingModal()" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
                     <span>Reserve Your Spot Now</span>
                 </button>
             </div>
@@ -65,7 +65,7 @@
             <div class="about-grid">
                 
                 <!-- Left Column: Arched Image Window with Studio Badge -->
-                <div class="about-arch-card">
+                <div class="about-arch-card" data-aos="fade-right" data-aos-duration="800">
                     <img src="{{ asset('images/butterfly_ring_ricefield.jpg') }}" alt="SKY Ubud Silver Class Studio in Ubud" loading="lazy">
                     <div class="about-arch-badge">
                         <div class="about-arch-tag">Our Studio</div>
@@ -74,7 +74,7 @@
                 </div>
 
                 <!-- Middle Column: Story, Title & Metrics -->
-                <div class="about-content">
+                <div class="about-content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                     <div class="about-tag-wrap">
                         <span class="about-tag-line"></span>
                         <span>More Than a Souvenir</span>
@@ -119,7 +119,7 @@
                 </div>
 
                 <!-- Right Column: Stacked Rounded Workshop Photos -->
-                <div class="about-photo-stack">
+                <div class="about-photo-stack" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
                     <div class="about-photo-card">
                         <img src="{{ asset('images/happy_creators_rings.jpg') }}" alt="Silver Workshop in Ubud" loading="lazy">
                     </div>
@@ -139,7 +139,7 @@
          ========================================================================= -->
     <section class="gallery-section" id="gallery">
         <div class="container">
-            <div class="gallery-header">
+            <div class="gallery-header" data-aos="fade-up" data-aos-duration="750">
                 <div class="gallery-badge-wrap">
                     <span class="gallery-badge-text">GALLERY</span>
                     <span class="gallery-badge-line"></span>
@@ -150,7 +150,7 @@
             <div class="gallery-bento-grid">
                 
                 <!-- Col 1: Tall Card -->
-                <div class="gallery-col">
+                <div class="gallery-col" data-aos="fade-up" data-aos-duration="700" data-aos-delay="50">
                     <div class="gallery-card-tall">
                         <img src="{{ asset('images/artisan_rolling_mill.jpg') }}" alt="Silversmith Artisan Guidance Ubud" class="gallery-img" loading="lazy">
                         <div class="gallery-caption-overlay">
@@ -161,7 +161,7 @@
                 </div>
 
                 <!-- Col 2: Tall Card -->
-                <div class="gallery-col">
+                <div class="gallery-col" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
                     <div class="gallery-card-tall">
                         <img src="{{ asset('images/butterfly_ring_ricefield.jpg') }}" alt="Balinese Silver Studio Window" class="gallery-img" loading="lazy">
                         <div class="gallery-caption-overlay">
@@ -172,7 +172,7 @@
                 </div>
 
                 <!-- Col 3: 2 Stacked Cards -->
-                <div class="gallery-col">
+                <div class="gallery-col" data-aos="fade-up" data-aos-duration="700" data-aos-delay="150">
                     <div class="gallery-card-half">
                         <img src="{{ asset('images/bespoke_silver_rings.jpg') }}" alt="Hammered 925 Pure Silver Rings" class="gallery-img" loading="lazy">
                         <div class="gallery-caption-overlay">
@@ -190,7 +190,7 @@
                 </div>
 
                 <!-- Col 4: Tall Card -->
-                <div class="gallery-col">
+                <div class="gallery-col" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
                     <div class="gallery-card-tall">
                         <img src="{{ asset('images/happy_participants.jpg') }}" alt="Happy Creators at Silver Workshop" class="gallery-img" loading="lazy">
                         <div class="gallery-caption-overlay">
@@ -201,7 +201,7 @@
                 </div>
 
                 <!-- Col 5: 2 Stacked Cards -->
-                <div class="gallery-col">
+                <div class="gallery-col" data-aos="fade-up" data-aos-duration="700" data-aos-delay="250">
                     <div class="gallery-card-half">
                         <img src="{{ asset('images/hero_silver_craft.jpg') }}" alt="Designing Silver Jewelry Together" class="gallery-img" loading="lazy">
                         <div class="gallery-caption-overlay">
@@ -228,14 +228,14 @@
          ========================================================================= -->
     <section class="packages-blue-section" id="packages">
         <div class="container">
-            <div class="pkg-blue-header">
+            <div class="pkg-blue-header" data-aos="fade-up" data-aos-duration="750">
                 <span class="pkg-blue-tag">— OUR WORKSHOP —</span>
                 <h2 class="pkg-blue-title">Find Your Best Packages</h2>
             </div>
 
             <div class="packages-blue-grid">
                 @foreach($packages as $package)
-                    <div class="pkg-blue-card">
+                    <div class="pkg-blue-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="{{ $loop->index * 100 }}">
                         <div class="pkg-card-img-wrap">
                             <img src="{{ asset($package->image ?? 'images/happy_participants.jpg') }}" alt="{{ $package->name }}" loading="lazy">
                         </div>
@@ -283,7 +283,7 @@
             <div class="diff-layout">
                 
                 <!-- Left Column: Sticky Title & Tag -->
-                <div class="diff-header-col">
+                <div class="diff-header-col" data-aos="fade-right" data-aos-duration="800">
                     <div class="diff-tag-wrap">
                         <span class="diff-tag-line"></span>
                         <span>WHY CHOOSE US</span>
@@ -297,7 +297,7 @@
                 <div class="diff-cards-grid">
                     
                     <!-- Card 1: Rice Field View -->
-                    <div class="diff-card">
+                    <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="50">
                         <div class="diff-card-icon">
                             <i class="fa-solid fa-seedling"></i>
                         </div>
@@ -308,7 +308,7 @@
                     </div>
 
                     <!-- Card 2: Professional Silversmith -->
-                    <div class="diff-card">
+                    <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="100">
                         <div class="diff-card-icon">
                             <i class="fa-solid fa-gem"></i>
                         </div>
@@ -319,7 +319,7 @@
                     </div>
 
                     <!-- Card 3: English-Speaking Staff -->
-                    <div class="diff-card">
+                    <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="150">
                         <div class="diff-card-icon">
                             <i class="fa-solid fa-globe"></i>
                         </div>
@@ -330,7 +330,7 @@
                     </div>
 
                     <!-- Card 4: Family & Kids Friendly -->
-                    <div class="diff-card">
+                    <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="200">
                         <div class="diff-card-icon">
                             <i class="fa-solid fa-users"></i>
                         </div>
@@ -341,7 +341,7 @@
                     </div>
 
                     <!-- Card 5: Take Home Creation -->
-                    <div class="diff-card">
+                    <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="250">
                         <div class="diff-card-icon">
                             <i class="fa-solid fa-gift"></i>
                         </div>
@@ -367,7 +367,7 @@
         <div class="container">
             
             <!-- Top Header & Social Proof Rating Bar -->
-            <div class="testi-header-row">
+            <div class="testi-header-row" data-aos="fade-up" data-aos-duration="800">
                 <div class="testi-badge-wrap">
                     <span class="testi-badge-text">TESTIMONIALS</span>
                     <span class="testi-badge-line"></span>
@@ -392,7 +392,7 @@
             <div class="testi-showcase-grid">
                 
                 <!-- Left Sidebar: Quote Icon + Title + Progress & Arrow Controls -->
-                <div class="testi-left-sidebar">
+                <div class="testi-left-sidebar" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
                     <div class="testi-quote-icon">
                         <svg width="46" height="36" viewBox="0 0 46 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.5 36C4.7 36 0 31.26 0 25.41C0 15.34 7.35 4.3 19.18 0L21.22 3.44C13.06 6.45 10.22 13.33 10.22 18.06C11.45 18.06 13.08 18.06 15.13 19.35C18.52 21.5 20.46 25.37 20.46 29.24C20.46 33.04 17.52 36 13.92 36H10.5ZM35.04 36C29.24 36 24.54 31.26 24.54 25.41C24.54 15.34 31.89 4.3 43.72 0L45.76 3.44C37.6 6.45 34.76 13.33 34.76 18.06C35.99 18.06 37.62 18.06 39.67 19.35C43.06 21.5 45 25.37 45 29.24C45 33.04 42.06 36 38.46 36H35.04Z" fill="#94A3B8"/>
@@ -422,7 +422,7 @@
                 </div>
 
                 <!-- Right Side: Speech-Bubble Testimonial Cards Slider -->
-                <div class="testi-slider-viewport" id="testiViewport">
+                <div class="testi-slider-viewport" id="testiViewport" data-aos="fade-left" data-aos-duration="800" data-aos-delay="150">
                     <div class="testi-cards-track" id="testiTrack">
                         @foreach($testimonials as $t)
                             <div class="testi-card-item">
@@ -477,7 +477,7 @@
          ========================================================================= -->
     <section class="articles-section" id="articles">
         <div class="container">
-            <div class="articles-header">
+            <div class="articles-header" data-aos="fade-up" data-aos-duration="750">
                 <div class="articles-badge-wrap">
                     <span class="articles-badge-text">ARTICLES</span>
                     <span class="articles-badge-line"></span>
@@ -487,7 +487,7 @@
 
             <div class="articles-grid">
                 @foreach($articles as $article)
-                    <article class="article-card">
+                    <article class="article-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="{{ $loop->index * 120 }}">
                         <div class="article-img-wrap">
                             <img src="{{ asset($article->image ?? 'images/hero_silver_craft.jpg') }}" alt="{{ $article->title }}" loading="lazy">
                         </div>
@@ -525,7 +525,7 @@
          ========================================================================= -->
     <section class="location-section" id="location">
         <div class="container">
-            <div class="location-header">
+            <div class="location-header" data-aos="fade-up" data-aos-duration="750">
                 <div class="location-badge-wrap">
                     <span class="location-badge-text">LOCATION</span>
                     <span class="location-badge-line"></span>
@@ -533,7 +533,7 @@
                 <h2 class="location-title">Visit Our Workshop</h2>
             </div>
 
-            <div class="location-map-card">
+            <div class="location-map-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d132381.7316933275!2d115.21685333147833!3d-8.538906103397036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23def608af5b3%3A0xf0ecf62059e6b4e4!2sSky%20Ubud%20Silver%20Class!5e0!3m2!1sid!2sid!4v1789894743092!5m2!1sid!2sid" 
                     width="100%" 
@@ -553,7 +553,7 @@
          ========================================================================= -->
     <section class="cta-experience-section" id="book-experience">
         <div class="container">
-            <div class="cta-experience-card">
+            <div class="cta-experience-card" data-aos="zoom-in" data-aos-duration="800">
                 <div class="cta-experience-content">
                     <h2 class="cta-experience-title">Book Your Experience Today</h2>
                     <p class="cta-experience-desc">
