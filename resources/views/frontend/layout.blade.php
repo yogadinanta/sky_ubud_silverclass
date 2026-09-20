@@ -1818,56 +1818,164 @@
             color: #ffffff;
         }
 
-        /* Footer */
+        /* =========================================================================
+           CLEAN WHITE LUXURY FOOTER (MATCHING USER'S DESIGN)
+           ========================================================================= */
         .footer {
-            background: #040810;
-            border-top: 1px solid var(--border-subtle);
-            padding: 4.5rem 0 2rem 0;
+            background: #ffffff;
+            color: #475569;
+            border-top: 1px solid #eef2f6;
+            padding: 5rem 0 2rem 0;
             content-visibility: auto;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 2.75rem;
-            margin-bottom: 3.25rem;
+            grid-template-columns: 1.3fr 1fr 1.1fr 1.6fr;
+            gap: 3.5rem;
+            margin-bottom: 3.5rem;
+            align-items: flex-start;
         }
 
-        .footer-col h4 {
-            font-size: 1.05rem;
-            color: #ffffff;
-            margin-bottom: 1.15rem;
+        .footer-logo-box {
+            width: 62px;
+            height: 62px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #1347ce;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(19, 71, 206, 0.15);
+        }
+
+        .footer-logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .footer-social-label {
             font-family: var(--font-subheading);
-            font-weight: 600;
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: #0d1b3e;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.9rem;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .footer-social-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: #1347ce;
+            color: #ffffff !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .footer-social-btn:hover {
+            background: #0b2a80;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(19, 71, 206, 0.3);
+        }
+
+        .footer-col-title {
+            font-family: var(--font-subheading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0d1b3e;
+            margin: 0 0 0.4rem 0;
+            line-height: 1.3;
+        }
+
+        .footer-accent-line {
+            width: 42px;
+            height: 2.5px;
+            background: #1347ce;
+            border-radius: 2px;
+            margin-bottom: 1.5rem;
         }
 
         .footer-links {
             list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.6rem;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
         }
 
         .footer-links a {
-            color: var(--silver-400);
+            color: #475569;
             text-decoration: none;
-            font-size: 0.88rem;
-            transition: color 0.2s;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
         }
 
         .footer-links a:hover {
-            color: var(--sky-400);
+            color: #1347ce;
+            transform: translateX(3px);
+        }
+
+        .footer-contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            font-size: 0.94rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .footer-contact-item i {
+            color: #0d1b3e;
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-item a {
+            color: #475569;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-contact-item a:hover {
+            color: #1347ce;
         }
 
         .footer-bottom {
-            padding-top: 1.75rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 0.82rem;
-            color: var(--silver-500);
+            padding-top: 2.5rem;
+            border-top: 1px solid #f1f5f9;
+            text-align: center;
+        }
+
+        .footer-copyright {
+            font-size: 0.88rem;
+            color: #64748b;
+            margin: 0;
+            font-weight: 500;
         }
 
         @media (max-width: 992px) {
@@ -2004,13 +2112,13 @@
     </main>
 
     <!-- Floating WhatsApp Quick Button -->
-    <a href="https://wa.me/{{ $settings['whatsapp_number'] ?? '6281234567890' }}?text={{ rawurlencode('Hello SKY Ubud Silver Class! I would like to inquire about booking a jewelry making session.') }}" 
+    <a href="https://wa.me/{{ $settings['whatsapp_number'] ?? '6285941018703' }}?text={{ rawurlencode('Hello Star Ubud Silver Class! I would like to inquire about booking a jewelry making session.') }}" 
        target="_blank" 
        rel="noopener noreferrer" 
        class="floating-wa" 
-       title="Chat with our Silversmith team on WhatsApp">
-        <i class="fa-brands fa-whatsapp fa-xl"></i>
-        <span>Chat on WhatsApp</span>
+       title="Chat with us on WhatsApp"
+       aria-label="Chat with us on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <!-- Booking Modal -->
@@ -2120,72 +2228,89 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
+                
+                <!-- Col 1: Logo & Social Media -->
                 <div class="footer-col">
-                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem;">
+                    <div class="footer-logo-box">
                         <picture>
                             <source srcset="{{ asset('images/sky_silver_logo.webp') }}" type="image/webp">
-                            <img src="{{ asset('images/sky_silver_logo.jpg') }}" alt="SKY Ubud Logo" width="44" height="44" style="border-radius: 8px;" loading="lazy" decoding="async">
+                            <img src="{{ asset('images/sky_silver_logo.jpg') }}" alt="Silver Class Logo" width="62" height="62" loading="lazy" decoding="async">
                         </picture>
-                        <span style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: #ffffff;">SKY UBUD SILVER CLASS</span>
                     </div>
-                    <p style="color: var(--silver-400); font-size: 0.88rem; margin-bottom: 1.25rem; max-width: 320px;">
-                        CREATE YOUR STORY. CRAFT YOUR MEMORY. WEAR YOUR MASTERPIECE. Traditional Balinese silver craftsmanship in the heart of Ubud.
-                    </p>
-                    <div style="display: flex; gap: 0.65rem;">
-                        <a href="{{ $settings['instagram'] ?? 'https://instagram.com/skyubudsilverclass' }}" target="_blank" class="btn-outline" style="padding: 0.45rem 0.9rem; font-size: 0.82rem;">
-                            <i class="fa-brands fa-instagram"></i> Instagram
+
+                    <div class="footer-social-label">SOCIAL MEDIA :</div>
+                    <div class="footer-social-icons">
+                        <a href="https://wa.me/{{ $settings['whatsapp_number'] ?? '6285941018703' }}" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
                         </a>
-                        <a href="https://wa.me/{{ $settings['whatsapp_number'] ?? '6281234567890' }}" target="_blank" class="btn-outline" style="padding: 0.45rem 0.9rem; font-size: 0.82rem;">
-                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                        <a href="{{ $settings['instagram'] ?? 'https://instagram.com/skyubudsilverclass' }}" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="{{ $settings['facebook'] ?? 'https://facebook.com' }}" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://maps.google.com/maps?q={{ urlencode($settings['address'] ?? 'Jl. Tirta Tawar, Petulu, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571') }}" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Google Maps Location">
+                            <i class="fa-solid fa-map-location-dot"></i>
                         </a>
                     </div>
                 </div>
 
+                <!-- Col 2: Quick Links -->
                 <div class="footer-col">
-                    <h4>Experience</h4>
+                    <h4 class="footer-col-title">Quick Links</h4>
+                    <div class="footer-accent-line"></div>
                     <ul class="footer-links">
-                        <li><a href="#creations">Silver Rings</a></li>
-                        <li><a href="#creations">Silver Bracelets</a></li>
-                        <li><a href="#creations">Silver Pendants</a></li>
-                        <li><a href="#journey">Crafting Process</a></li>
-                        <li><a href="#packages">Pricing Packages</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="#philosophy">Our Workshop</a></li>
+                        <li><a href="#stories">Articles</a></li>
+                        <li><a href="#creations">Gallery</a></li>
+                        <li><a href="#location">Contact Us</a></li>
                     </ul>
                 </div>
 
+                <!-- Col 3: Our Workshop -->
                 <div class="footer-col">
-                    <h4>Information</h4>
+                    <h4 class="footer-col-title">Our Workshop</h4>
+                    <div class="footer-accent-line"></div>
                     <ul class="footer-links">
-                        <li><a href="#why-us">About SKY Ubud</a></li>
-                        <li><a href="#faqs">Frequently Asked</a></li>
-                        <li><a href="#location">Studio Location</a></li>
-                        <li><a href="{{ url('/admin') }}" target="_blank">Admin Portal</a></li>
+                        <li><a href="#packages" onclick="openBookingModal(1)">Single Package</a></li>
+                        <li><a href="#packages" onclick="openBookingModal(2)">Couple Package</a></li>
+                        <li><a href="#packages" onclick="openBookingModal(3)">Family Package</a></li>
+                        <li><a href="#packages" onclick="openBookingModal(4)">Group Package</a></li>
                     </ul>
                 </div>
 
+                <!-- Col 4: Contact Us -->
                 <div class="footer-col">
-                    <h4>Visit Studio</h4>
-                    <p style="color: var(--silver-300); font-size: 0.88rem; margin-bottom: 0.65rem;">
-                        <i class="fa-solid fa-location-dot" style="color: var(--sky-400); margin-right: 0.4rem;"></i>
-                        {{ $settings['address'] ?? 'Jl. Jembawan, Ubud, Bali' }}
-                    </p>
-                    <p style="color: var(--silver-300); font-size: 0.88rem; margin-bottom: 0.65rem;">
-                        <i class="fa-solid fa-clock" style="color: var(--sky-400); margin-right: 0.4rem;"></i>
-                        {{ $settings['opening_hours'] ?? 'Daily: 09:00 AM – 07:00 PM' }}
-                    </p>
-                    <p style="color: var(--silver-300); font-size: 0.88rem;">
-                        <i class="fa-solid fa-envelope" style="color: var(--sky-400); margin-right: 0.4rem;"></i>
-                        {{ $settings['email'] ?? 'info@ubudbestsilverclass.com' }}
-                    </p>
+                    <h4 class="footer-col-title">Contact Us</h4>
+                    <div class="footer-accent-line"></div>
+                    <div class="footer-contact-list">
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:{{ $settings['whatsapp_number'] ?? '+6285941018703' }}">
+                                {{ $settings['whatsapp_display'] ?? '+62 859-4101-8703' }}
+                            </a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fa-regular fa-envelope"></i>
+                            <a href="mailto:{{ $settings['email'] ?? 'starubud@gmail.com' }}">
+                                {{ $settings['email'] ?? 'starubud@gmail.com' }}
+                            </a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>{{ $settings['address'] ?? 'Jl. Tirta Tawar, Petulu, Kecamatan Ubud, Kabupaten Gianyar, Bali 80571' }}</span>
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
+            <!-- Bottom Copyright Bar -->
             <div class="footer-bottom">
-                <div>
-                    &copy; {{ date('Y') }} SKY Ubud Silver Class ({{ $settings['domain_name'] ?? 'ubudbestsilverclass.com' }}). All Rights Reserved.
-                </div>
-                <div>
-                    Designed for authentic Balinese jewelry heritage & modern luxury.
-                </div>
+                <p class="footer-copyright">
+                    Star Ubud Silver Class &copy; {{ date('Y') }}
+                </p>
             </div>
         </div>
     </footer>
