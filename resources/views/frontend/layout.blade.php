@@ -2657,6 +2657,99 @@
                 padding: 0.85rem;
                 bottom: 1.25rem;
                 right: 1.25rem;
+            }
+        }
+
+        /* =========================================================================
+           CTA BOOK YOUR EXPERIENCE TODAY (MATCHING SCREENSHOT)
+           ========================================================================= */
+        .cta-experience-section {
+            background: #ffffff;
+            padding: 2.5rem 0 5.5rem 0;
+            position: relative;
+        }
+
+        .cta-experience-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background-color: #1347ce;
+            background-image: linear-gradient(135deg, rgba(20, 60, 170, 0.82) 0%, rgba(30, 80, 200, 0.86) 100%), url('{{ asset('images/hero_silver_craft.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            padding: 4.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 16px 36px -8px rgba(19, 71, 206, 0.22);
+            color: #ffffff;
+        }
+
+        .cta-experience-content {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta-experience-title {
+            font-family: var(--font-subheading);
+            font-size: clamp(2rem, 3.6vw, 2.75rem);
+            font-weight: 800;
+            letter-spacing: -0.015em;
+            line-height: 1.2;
+            color: #ffffff;
+            margin: 0 0 1.15rem 0;
+        }
+
+        .cta-experience-desc {
+            font-size: clamp(0.95rem, 1.25vw, 1.05rem);
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.92);
+            margin: 0 0 2rem 0;
+            max-width: 780px;
+        }
+
+        .btn-cta-wa {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            background: #ffffff;
+            color: #1347ce;
+            font-family: var(--font-subheading);
+            font-size: 0.98rem;
+            font-weight: 700;
+            padding: 0.9rem 2.2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-cta-wa i {
+            font-size: 1.2rem;
+            color: #1347ce;
+        }
+
+        .btn-cta-wa:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+            background: #f8fafc;
+            color: #0d1b3e;
+        }
+
+        @media (max-width: 768px) {
+            .cta-experience-card {
+                padding: 3.5rem 1.5rem;
+                border-radius: 18px;
+            }
+            .cta-experience-desc {
+                font-size: 0.92rem;
+            }
+        }
+
         /* =========================================================================
            INNER PAGE HERO BANNER (MATCHING SCREENSHOT)
            ========================================================================= */

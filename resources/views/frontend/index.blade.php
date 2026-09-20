@@ -574,22 +574,26 @@
 
 
     <!-- =========================================================================
-         FINAL CTA BANNER
+         FINAL CTA: BOOK YOUR EXPERIENCE TODAY (MATCHING SCREENSHOT)
          ========================================================================= -->
-    <section class="section" style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.22) 0%, var(--bg-base) 100%); border-top: 1px solid var(--border-subtle); text-align: center; padding: 6rem 0;">
-        <div class="container" style="max-width: 760px;">
-            <h2 class="section-title" style="margin-bottom: 1.15rem;">
-                Create Your Own Masterpiece. <br>
-                <span class="gold-gradient-text">Your Bali Memory Starts Here.</span>
-            </h2>
-            <p style="color: var(--silver-300); font-size: 1.08rem; margin-bottom: 2.4rem; line-height: 1.8;">
-                Come and discover the art of silver-making at SKY Ubud Silver Class.<br>
-                <strong>Create something personal. Learn something traditional. Take home something meaningful.</strong>
-            </p>
-            <button class="btn-primary" style="font-size: 1.05rem; padding: 1rem 2.6rem;" onclick="openBookingModal()">
-                <i class="fa-solid fa-calendar-check"></i>
-                <span>BOOK YOUR SILVER CLASS</span>
-            </button>
+    <section class="cta-experience-section" id="book-experience">
+        <div class="container">
+            <div class="cta-experience-card">
+                <div class="cta-experience-content">
+                    <h2 class="cta-experience-title">Book Your Experience Today</h2>
+                    <p class="cta-experience-desc">
+                        Reserve your silver class quickly and easily through WhatsApp. Step into our studio and enjoy a private, relaxing, and unforgettable silver-making experience in Ubud. Ready to create your own custom ring, pendant, earrings, or bracelet? Our expert silversmiths are waiting to guide you.
+                    </p>
+                    <a href="https://api.whatsapp.com/send/?phone=6285941018703&text={{ rawurlencode('Hello Star Ubud Silver Class, I want to book a class.') }}" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="btn-cta-wa"
+                       aria-label="Easy Booking via WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>Easy Booking via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 

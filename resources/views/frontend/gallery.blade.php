@@ -81,4 +81,28 @@
         </div>
     </section>
 
+    <!-- =========================================================================
+         CTA: BOOK YOUR EXPERIENCE TODAY
+         ========================================================================= -->
+    <section class="cta-experience-section" id="book-experience">
+        <div class="container">
+            <div class="cta-experience-card">
+                <div class="cta-experience-content">
+                    <h2 class="cta-experience-title">Book Your Experience Today</h2>
+                    <p class="cta-experience-desc">
+                        Reserve your silver class quickly and easily through WhatsApp. Step into our studio and enjoy a private, relaxing, and unforgettable silver-making experience in Ubud. Ready to create your own custom ring, pendant, earrings, or bracelet? Our expert silversmiths are waiting to guide you.
+                    </p>
+                    <a href="https://api.whatsapp.com/send/?phone=6285941018703&text={{ rawurlencode('Hello Star Ubud Silver Class, I want to book a class.') }}" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="btn-cta-wa"
+                       aria-label="Easy Booking via WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>Easy Booking via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 @endsection
