@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Articles\Schemas;
 
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
@@ -20,8 +21,9 @@ class ArticleForm
                 TextInput::make('slug')
                     ->required(),
                 Textarea::make('excerpt')
+                    ->rows(3)
                     ->columnSpanFull(),
-                Textarea::make('content')
+                RichEditor::make('content')
                     ->columnSpanFull(),
                 FileUpload::make('image')
                     ->label('Featured Image')
