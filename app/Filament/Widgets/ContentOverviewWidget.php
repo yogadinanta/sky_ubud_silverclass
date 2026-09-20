@@ -3,7 +3,6 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Article;
-use App\Models\Faq;
 use App\Models\Gallery;
 use App\Models\Package;
 use App\Models\Testimonial;

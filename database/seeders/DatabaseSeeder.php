@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Article;
 use App\Models\Booking;
-use App\Models\Faq;
 use App\Models\Gallery;
 use App\Models\Package;
 use App\Models\SiteSetting;
@@ -140,63 +139,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // 3. FAQs
-        $faqs = [
-            [
-                'question' => 'How long does the silver class take?',
-                'answer' => 'The experience takes approximately 1–2 hours from initial design sketching, shaping, soldering, polishing to the final sparkling masterpiece.',
-                'sort_order' => 1,
-            ],
-            [
-                'question' => 'Do I need previous experience?',
-                'answer' => 'No prior experience is required! Our skilled master Balinese silversmiths provide gentle step-by-step guidance suitable for complete beginners, couples, and children.',
-                'sort_order' => 2,
-            ],
-            [
-                'question' => 'What jewelry can I make?',
-                'answer' => 'You can choose to craft a sterling silver ring, bracelet, or pendant necklace, depending on your chosen package and silver allowance.',
-                'sort_order' => 3,
-            ],
-            [
-                'question' => 'Can I create my own design?',
-                'answer' => 'Yes! You can choose from our curated studio catalog of traditional & modern Balinese motifs, or bring your own sketch/inspirational photo, and our artisans will guide you in bringing it to life.',
-                'sort_order' => 4,
-            ],
-            [
-                'question' => 'Is the silver included?',
-                'answer' => 'Yes. Each package includes authentic certified 925 pure silver (1–5g per person for Single & Group, 2–10g for Couple, and 4–20g for Family). Extra silver is available on request at nominal cost.',
-                'sort_order' => 5,
-            ],
-            [
-                'question' => 'Can I take my jewelry home?',
-                'answer' => 'Yes! Your finished, polished jewelry is 100% yours to wear and take home right after the session in an elegant protective jewelry pouch.',
-                'sort_order' => 6,
-            ],
-            [
-                'question' => 'Where are you located?',
-                'answer' => 'We are conveniently located on Jl. Jembawan, Ubud, Bali — just minutes from central Ubud, surrounded by tranquil tropical lush greenery.',
-                'sort_order' => 7,
-            ],
-            [
-                'question' => 'How can I book?',
-                'answer' => 'You can book directly via our online instant booking form on this website, or reach out to us directly through WhatsApp for immediate reservation confirmation.',
-                'sort_order' => 8,
-            ],
-        ];
-
-        foreach ($faqs as $faq) {
-            Faq::updateOrCreate(
-                ['question' => $faq['question']],
-                [
-                    'answer' => $faq['answer'],
-                    'category' => 'General',
-                    'sort_order' => $faq['sort_order'],
-                    'is_active' => true,
-                ]
-            );
-        }
-
-        // 4. Testimonials
+        // 3. Testimonials
         $testimonials = [
             [
                 'customer_name' => 'Ryan Almeida',
