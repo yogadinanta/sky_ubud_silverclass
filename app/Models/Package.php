@@ -39,6 +39,17 @@ class Package extends Model
         ];
     }
 
+    public function getImageAttribute(): string
+    {
+        return match($this->slug) {
+            'single' => 'images/happy_participants.jpg',
+            'couple' => 'images/happy_creators_rings.jpg',
+            'family' => 'images/silver_creations_trio.jpg',
+            'group' => 'images/hero_silver_craft.jpg',
+            default => 'images/happy_participants.jpg',
+        };
+    }
+
     public function bookings(): HasMany
     {
         return $this->hasMany(Booking::class);

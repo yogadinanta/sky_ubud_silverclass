@@ -1736,37 +1736,382 @@
             transition: opacity 0.25s ease;
         }
 
-        .modal-backdrop.open {
-            display: flex;
-            opacity: 1;
+        /* =========================================================================
+           OUR WORKSHOP / PACKAGES BLUE SECTION (MATCHING SCREENSHOT)
+           ========================================================================= */
+        .packages-blue-section {
+            background: #1347ce;
+            color: #ffffff;
+            padding: 6.5rem 0 7rem 0;
+            position: relative;
         }
 
-        .modal-box {
-            background: var(--bg-surface-2);
-            border: 1px solid rgba(56, 189, 248, 0.35);
-            border-radius: var(--radius-xl);
-            max-width: 580px;
+        .pkg-blue-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3.5rem auto;
+        }
+
+        .pkg-blue-tag {
+            font-family: var(--font-subheading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.6rem;
+            display: inline-block;
+        }
+
+        .pkg-blue-title {
+            font-family: var(--font-subheading);
+            font-size: clamp(2.2rem, 3.8vw, 3rem);
+            font-weight: 800;
+            line-height: 1.18;
+            color: #ffffff;
+            letter-spacing: -0.015em;
+            margin: 0;
+        }
+
+        .packages-blue-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        .pkg-blue-card {
+            background: #ffffff;
+            color: #1e293b;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+
+        .pkg-blue-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+        }
+
+        .pkg-card-img-wrap {
+            height: 195px;
+            overflow: hidden;
+            position: relative;
+            background: #e2e8f0;
+        }
+
+        .pkg-card-img-wrap img {
             width: 100%;
-            max-height: 90vh;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .pkg-blue-card:hover .pkg-card-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .pkg-card-body {
+            padding: 1.5rem 1.35rem 1.6rem 1.35rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .pkg-card-top-info {
+            margin-bottom: 1.25rem;
+        }
+
+        .pkg-card-name {
+            font-family: var(--font-subheading);
+            font-size: 1.18rem;
+            font-weight: 800;
+            color: #0d1b3e;
+            text-align: center;
+            margin: 0 0 0.35rem 0;
+            line-height: 1.3;
+        }
+
+        .pkg-card-price-lbl {
+            font-family: var(--font-subheading);
+            font-size: 0.98rem;
+            font-weight: 800;
+            color: #1347ce;
+            text-align: center;
+            margin-bottom: 0.9rem;
+        }
+
+        .pkg-card-desc-text {
+            font-size: 0.84rem;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 1.15rem;
+        }
+
+        .pkg-card-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .pkg-card-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.55rem;
+            font-size: 0.82rem;
+            color: #334155;
+            line-height: 1.45;
+        }
+
+        .pkg-card-checklist li i {
+            color: #1347ce;
+            font-size: 0.85rem;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        .btn-pkg-blue {
+            background: #1347ce;
+            color: #ffffff !important;
+            font-family: var(--font-subheading);
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+
+        .btn-pkg-blue:hover {
+            background: #0b2a80;
+            box-shadow: 0 4px 14px rgba(19, 71, 206, 0.35);
+        }
+
+        @media (max-width: 1100px) {
+            .packages-blue-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .packages-blue-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* =========================================================================
+           ARTICLES / BLOG SECTION (MATCHING SCREENSHOT)
+           ========================================================================= */
+        .articles-section {
+            background: #ffffff;
+            color: #1e293b;
+            padding: 6.5rem 0 7rem 0;
+            position: relative;
+        }
+
+        .articles-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 3.5rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .articles-badge-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #1347ce;
+            font-family: var(--font-subheading);
+        }
+
+        .articles-badge-line {
+            width: 28px;
+            height: 2.5px;
+            background: #1347ce;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .articles-section-title {
+            font-family: var(--font-subheading);
+            font-size: clamp(2.2rem, 3.8vw, 3rem);
+            font-weight: 800;
+            line-height: 1.18;
+            color: #0d1b3e;
+            letter-spacing: -0.015em;
+            margin: 0;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .article-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 36px -6px rgba(19, 71, 206, 0.12);
+            border-color: rgba(19, 71, 206, 0.3);
+        }
+
+        .article-img-wrap {
+            height: 220px;
+            overflow: hidden;
+            background: #f1f5f9;
+            position: relative;
+        }
+
+        .article-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .article-card:hover .article-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .article-card-body {
+            padding: 1.6rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .article-card-date {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.6rem;
+        }
+
+        .article-card-heading {
+            font-family: var(--font-subheading);
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #0d1b3e;
+            line-height: 1.42;
+            margin: 0 0 0.85rem 0;
+            transition: color 0.2s ease;
+        }
+
+        .article-card:hover .article-card-heading {
+            color: #1347ce;
+        }
+
+        .article-card-excerpt {
+            font-size: 0.88rem;
+            color: #64748b;
+            line-height: 1.65;
+            margin: 0 0 1.35rem 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .article-card-link {
+            color: #1347ce;
+            font-family: var(--font-subheading);
+            font-size: 0.92rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: transform 0.2s ease, color 0.2s ease;
+            margin-top: auto;
+        }
+
+        .article-card-link:hover {
+            color: #0b2a80;
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 992px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* =========================================================================
+           MODERN WHITE BOOKING MODAL (MATCHING SCREENSHOT)
+           ========================================================================= */
+        .modal-box-modern {
+            background: #ffffff;
+            border-radius: 22px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 92vh;
             overflow-y: auto;
-            padding: 2rem;
-            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85);
+            padding: 2.2rem;
+            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.25);
             position: relative;
             transform: translateY(15px);
-            transition: transform 0.25s ease;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            color: #1e293b;
         }
 
-        .modal-backdrop.open .modal-box {
+        .modal-backdrop.open .modal-box-modern {
             transform: translateY(0);
         }
 
-        .modal-close {
+        .modal-modern-close {
             position: absolute;
-            top: 1.15rem;
-            right: 1.15rem;
-            background: rgba(255, 255, 255, 0.1);
+            top: 1.25rem;
+            right: 1.25rem;
+            background: #f1f5f9;
             border: none;
-            color: #ffffff;
+            color: #64748b;
             width: 34px;
             height: 34px;
             border-radius: 50%;
@@ -1774,48 +2119,100 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            font-size: 0.95rem;
         }
 
-        .modal-close:hover {
-            background: rgba(239, 68, 68, 0.8);
+        .modal-modern-close:hover {
+            background: #fee2e2;
+            color: #ef4444;
         }
 
-        .form-group {
-            margin-bottom: 1.1rem;
+        .modal-modern-title {
+            font-family: var(--font-subheading);
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #1347ce;
+            margin: 0 0 0.35rem 0;
+            line-height: 1.2;
         }
 
-        .form-label {
-            display: block;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--silver-300);
-            margin-bottom: 0.35rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .form-input, .form-select, .form-textarea {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: var(--radius-md);
-            padding: 0.7rem 0.95rem;
-            color: #ffffff;
-            font-family: inherit;
+        .modal-modern-sub {
             font-size: 0.92rem;
-            transition: border-color 0.2s;
+            color: #64748b;
+            margin: 0 0 1.6rem 0;
         }
 
-        .form-input:focus, .form-select:focus, .form-textarea:focus {
+        .form-modern-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-modern-label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #64748b;
+            margin-bottom: 0.45rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-family: var(--font-subheading);
+        }
+
+        .form-modern-input, .form-modern-select, .form-modern-textarea {
+            width: 100%;
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            color: #0f172a;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-modern-input:focus, .form-modern-select:focus, .form-modern-textarea:focus {
             outline: none;
-            border-color: var(--sky-400);
-            background: rgba(255, 255, 255, 0.08);
+            border-color: #1347ce;
+            box-shadow: 0 0 0 3px rgba(19, 71, 206, 0.12);
         }
 
-        .form-select option {
-            background: #0f172a;
+        .form-modern-price-display {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #0f172a;
+            font-family: var(--font-subheading);
+            display: flex;
+            align-items: center;
+            min-height: 46px;
+        }
+
+        .btn-modern-submit {
+            background: #1347ce;
             color: #ffffff;
+            font-family: var(--font-subheading);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.95rem;
+            border-radius: 10px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+        }
+
+        .btn-modern-submit:hover {
+            background: #0b2a80;
+            box-shadow: 0 6px 18px rgba(19, 71, 206, 0.3);
+            transform: translateY(-2px);
         }
 
         /* =========================================================================
@@ -2196,104 +2593,61 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Booking Modal -->
+    <!-- Booking Modal (Matching Screenshot) -->
     <div class="modal-backdrop" id="bookingModal">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closeBookingModal()" aria-label="Close modal">
+        <div class="modal-box-modern">
+            <button class="modal-modern-close" onclick="closeBookingModal()" aria-label="Close modal">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
-            <div style="text-align: center; margin-bottom: 1.5rem;">
-                <span class="badge-pill">Reserve Your Workshop</span>
-                <h3 style="font-size: 1.5rem; color: #ffffff; margin-top: 0.5rem;" class="font-heading">SKY Ubud Silver Class</h3>
-                <p style="font-size: 0.88rem; color: var(--silver-400);">Craft your memory on Jl. Jembawan, Ubud, Bali</p>
-            </div>
+            <h3 class="modal-modern-title">Book Your Class</h3>
+            <p class="modal-modern-sub">Complete the form to send booking via WhatsApp</p>
 
             <form id="reservationForm" onsubmit="handleBookingSubmit(event)">
                 @csrf
-                <div class="form-group">
-                    <label class="form-label" for="pkgSelect">Select Experience Package *</label>
-                    <select id="pkgSelect" name="package_id" class="form-select" onchange="updatePriceCalculator()" required>
-                        @foreach($packages as $pkg)
-                            <option value="{{ $pkg->id }}" 
-                                    data-price="{{ $pkg->price }}" 
-                                    data-slug="{{ $pkg->slug }}"
-                                    data-min="{{ $pkg->min_persons }}"
-                                    data-name="{{ $pkg->name }}"
-                                    {{ $loop->first ? 'selected' : '' }}>
-                                {{ $pkg->name }} — {{ $pkg->price_label }} ({{ $pkg->silver_grams }})
-                            </option>
-                        @endforeach
-                    </select>
+                <div class="form-modern-group">
+                    <label class="form-modern-label" for="custName">Full Name</label>
+                    <input type="text" id="custName" name="customer_name" class="form-modern-input" placeholder="Enter your name" required>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem;">
-                    <div class="form-group">
-                        <label class="form-label" for="custName">Your Full Name *</label>
-                        <input type="text" id="custName" name="customer_name" class="form-input" placeholder="e.g. Liam Smith" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="custPhone">WhatsApp / Phone *</label>
-                        <input type="tel" id="custPhone" name="customer_phone" class="form-input" placeholder="+61 412 345 678" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="custEmail">Email Address *</label>
-                    <input type="email" id="custEmail" name="customer_email" class="form-input" placeholder="liam@example.com" required>
-                </div>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem;">
-                    <div class="form-group">
-                        <label class="form-label" for="bookDate">Date *</label>
-                        <input type="date" id="bookDate" name="booking_date" class="form-input" min="{{ date('Y-m-d') }}" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="sessionTime">Session Time *</label>
-                        <select id="sessionTime" name="session_time" class="form-select" required>
-                            <option value="09:00 AM">09:00 AM – Morning Session</option>
-                            <option value="11:30 AM" selected>11:30 AM – Mid-day Session</option>
-                            <option value="02:00 PM">02:00 PM – Afternoon Session</option>
-                            <option value="04:30 PM">04:30 PM – Sunset Session</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem;">
-                    <div class="form-group">
-                        <label class="form-label" for="numPeople">Participants *</label>
-                        <input type="number" id="numPeople" name="num_people" class="form-input" value="1" min="1" oninput="updatePriceCalculator()" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="jewelryChoice">Jewelry Choice *</label>
-                        <select id="jewelryChoice" name="jewelry_choice" class="form-select" required>
-                            <option value="Silver Ring">Silver Ring</option>
-                            <option value="Silver Bracelet">Silver Bracelet</option>
-                            <option value="Silver Pendant">Silver Pendant</option>
-                            <option value="Custom / Undecided">Undecided / Mixed Pieces</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="specialReq">Special Notes / Design Ideas</label>
-                    <textarea id="specialReq" name="special_requests" class="form-textarea" rows="2" placeholder="Tell us if you have any special occasion, engraving, or design preference..."></textarea>
-                </div>
-
-                <!-- Price Preview Box -->
-                <div style="background: rgba(14, 165, 233, 0.1); border: 1px dashed rgba(56, 189, 248, 0.4); border-radius: var(--radius-md); padding: 0.85rem 1.1rem; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.95rem;" class="form-modern-group">
                     <div>
-                        <span style="font-size: 0.75rem; color: var(--silver-400); text-transform: uppercase;">Estimated Total:</span>
-                        <div id="priceDisplay" style="font-size: 1.25rem; font-weight: 700; color: var(--sky-400);" class="font-subheading">IDR 500,000</div>
+                        <label class="form-modern-label" for="pkgSelect">Package</label>
+                        <select id="pkgSelect" name="package_id" class="form-modern-select" onchange="updatePriceCalculator()" required>
+                            @foreach($packages as $pkg)
+                                <option value="{{ $pkg->id }}" 
+                                        data-price="{{ $pkg->price }}" 
+                                        data-slug="{{ $pkg->slug }}"
+                                        data-min="{{ $pkg->min_persons }}"
+                                        data-label="{{ $pkg->price_label }}"
+                                        data-name="{{ $pkg->name }}"
+                                        {{ $loop->first ? 'selected' : '' }}>
+                                    {{ $pkg->name }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
-                    <div style="font-size: 0.78rem; color: var(--silver-300); text-align: right;">
-                        <i class="fa-solid fa-gem text-sky-400"></i> Pure 925 Silver Included
+
+                    <div>
+                        <label class="form-modern-label">Total Price</label>
+                        <div class="form-modern-price-display" id="priceDisplay">
+                            Rp 500.000 / Person
+                        </div>
                     </div>
                 </div>
 
-                <button type="submit" id="submitBtn" class="btn-primary" style="width: 100%; font-size: 0.95rem;">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>Confirm & Book via WhatsApp</span>
+                <div class="form-modern-group">
+                    <label class="form-modern-label" for="bookDate">Booking Date</label>
+                    <input type="date" id="bookDate" name="booking_date" class="form-modern-input" min="{{ date('Y-m-d') }}" required>
+                </div>
+
+                <div class="form-modern-group">
+                    <label class="form-modern-label" for="specialReq">Notes (Optional)</label>
+                    <textarea id="specialReq" name="special_requests" class="form-modern-textarea" rows="3" placeholder="Special requests..."></textarea>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn-modern-submit">
+                    <span>Send to WhatsApp</span>
                 </button>
             </form>
         </div>
@@ -2668,6 +3022,61 @@
             window.addEventListener('resize', updateTestiProgress);
             setTimeout(updateTestiProgress, 100);
         })();
+
+        // Booking Modal Functions
+        function openBookingModal(pkgId = null) {
+            const modal = document.getElementById('bookingModal');
+            const select = document.getElementById('pkgSelect');
+            if (pkgId && select) {
+                for (let i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value == pkgId) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            updatePriceCalculator();
+            if (modal) {
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            if (modal) {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function updatePriceCalculator() {
+            const select = document.getElementById('pkgSelect');
+            const priceDisplay = document.getElementById('priceDisplay');
+            if (!select || !priceDisplay) return;
+            const opt = select.options[select.selectedIndex];
+            if (opt) {
+                const label = opt.getAttribute('data-label') || ('Rp ' + Number(opt.getAttribute('data-price')).toLocaleString('id-ID'));
+                priceDisplay.textContent = label;
+            }
+        }
+
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const name = form.customer_name.value.trim();
+            const select = document.getElementById('pkgSelect');
+            const pkgName = select.options[select.selectedIndex].getAttribute('data-name') || select.options[select.selectedIndex].text.trim();
+            const date = form.booking_date.value;
+            const notes = form.special_requests.value.trim();
+            const priceDisplay = document.getElementById('priceDisplay').textContent.trim();
+
+            const waText = `Hello Star Ubud Silver Class!\n\nI would like to book a silver jewelry workshop session:\n- *Name:* ${name}\n- *Package:* ${pkgName}\n- *Price:* ${priceDisplay}\n- *Date:* ${date}${notes ? `\n- *Notes:* ${notes}` : ''}\n\nPlease confirm availability. Thank you!`;
+
+            const waNumber = "{{ $settings['whatsapp_number'] ?? '6285941018703' }}";
+            window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`, '_blank');
+            closeBookingModal();
+        }
     </script>
 </body>
 </html>

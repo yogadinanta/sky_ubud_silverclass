@@ -220,70 +220,52 @@
 
 
     <!-- =========================================================================
-         PACKAGES & PRICING GRID
+         OUR WORKSHOP / PACKAGES BLUE SECTION (MATCHING SCREENSHOT)
          ========================================================================= -->
-    <section class="section" id="packages">
+    <section class="packages-blue-section" id="packages">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Choose Your Experience</span>
-                <h2 class="section-title">
-                    Find the Perfect Package for <span class="gold-gradient-text">Your Journey</span>
-                </h2>
-                <p class="section-desc">
-                    Whether you are traveling solo, sharing a special moment with someone you love, or enjoying Bali with family and friends, we have a package for you.
-                </p>
+            <div class="pkg-blue-header">
+                <span class="pkg-blue-tag">— OUR WORKSHOP —</span>
+                <h2 class="pkg-blue-title">Find Your Best Packages</h2>
             </div>
 
-            <div class="packages-grid">
-                
+            <div class="packages-blue-grid">
                 @foreach($packages as $package)
-                    <div class="package-card {{ $package->is_featured ? 'featured' : '' }}">
-                        @if($package->badge)
-                            <div class="pkg-badge {{ $package->is_featured ? 'gold' : '' }}">
-                                {{ $package->badge }}
-                            </div>
-                        @endif
-
-                        <div>
-                            <div class="pkg-header">
-                                <h3 class="pkg-name">{{ $package->name }}</h3>
-                                <div class="pkg-price-display">{{ $package->price_label }}</div>
-                                @if($package->tagline)
-                                    <div class="pkg-tagline">{{ $package->tagline }}</div>
-                                @endif
-                            </div>
-
-                            @if($package->description)
-                                <p style="font-size: 0.88rem; color: var(--silver-300); margin-bottom: 1.25rem; line-height: 1.6;">
-                                    {{ $package->description }}
-                                </p>
-                            @endif
-
-                            <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--sky-400); margin-bottom: 0.85rem; letter-spacing: 0.08em; font-family: var(--font-subheading);">
-                                INCLUDED IN PACKAGE:
-                            </div>
-
-                            <ul class="pkg-inclusions">
-                                @if(is_array($package->inclusions))
-                                    @foreach($package->inclusions as $inc)
-                                        <li>
-                                            <i class="fa-solid fa-circle-check"></i>
-                                            <span>{{ $inc }}</span>
-                                        </li>
-                                    @endforeach
-                                @endif
-                            </ul>
+                    <div class="pkg-blue-card">
+                        <div class="pkg-card-img-wrap">
+                            <img src="{{ asset($package->image ?? 'images/happy_participants.jpg') }}" alt="{{ $package->name }}" loading="lazy">
                         </div>
 
-                        <div>
-                            <button class="{{ $package->is_featured ? 'btn-gold' : 'btn-primary' }}" style="width: 100%;" onclick="openBookingModal({{ $package->id }})">
-                                <i class="fa-regular fa-calendar-check"></i>
-                                <span>Book {{ $package->name }}</span>
+                        <div class="pkg-card-body">
+                            <div class="pkg-card-top-info">
+                                <h3 class="pkg-card-name">{{ $package->name }}</h3>
+                                <div class="pkg-card-price-lbl">{{ $package->price_label }}</div>
+                                
+                                @if($package->description)
+                                    <p class="pkg-card-desc-text">
+                                        {{ $package->description }}
+                                    </p>
+                                @endif
+
+                                <ul class="pkg-card-checklist">
+                                    @if(is_array($package->inclusions))
+                                        @foreach($package->inclusions as $inc)
+                                            <li>
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>{{ $inc }}</span>
+                                            </li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                            </div>
+
+                            <button type="button" class="btn-pkg-blue" onclick="openBookingModal({{ $package->id }})">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <span>BOOK NOW</span>
                             </button>
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </section>
@@ -505,6 +487,51 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================================================================
+         ARTICLES / BLOG SECTION (EXPLORE OUR LATEST ARTICLES)
+         ========================================================================= -->
+    <section class="articles-section" id="articles">
+        <div class="container">
+            <div class="articles-header">
+                <div class="articles-badge-wrap">
+                    <span class="articles-badge-text">ARTICLES</span>
+                    <span class="articles-badge-line"></span>
+                </div>
+                <h2 class="articles-section-title">Explore Our Latest Articles</h2>
+            </div>
+
+            <div class="articles-grid">
+                @foreach($articles as $article)
+                    <article class="article-card">
+                        <div class="article-img-wrap">
+                            <img src="{{ asset($article->image ?? 'images/hero_silver_craft.jpg') }}" alt="{{ $article->title }}" loading="lazy">
+                        </div>
+
+                        <div class="article-card-body">
+                            <div>
+                                <div class="article-card-date">
+                                    {{ $article->published_at ? $article->published_at->format('M d, Y') : 'MAY 25, 2026' }}
+                                </div>
+                                <h3 class="article-card-heading">
+                                    {{ $article->title }}
+                                </h3>
+                                <p class="article-card-excerpt">
+                                    {{ $article->excerpt }}
+                                </p>
+                            </div>
+
+                            <a href="javascript:void(0)" onclick="openBookingModal()" class="article-card-link">
+                                <span>Read More</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                @endforeach
             </div>
         </div>
     </section>

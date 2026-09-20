@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use App\Models\Booking;
 use App\Models\Faq;
 use App\Models\Gallery;
@@ -33,24 +34,23 @@ class DatabaseSeeder extends Seeder
         $single = Package::updateOrCreate(
             ['slug' => 'single'],
             [
-                'name' => 'SINGLE',
+                'name' => 'Single Package',
                 'price' => 500000,
-                'price_label' => 'IDR 500K / PERSON',
+                'price_label' => 'Rp500.000/Person',
                 'min_persons' => 1,
                 'silver_grams' => '1–5 grams of pure silver',
                 'duration' => '1–2 hours',
                 'tagline' => 'A personal creative experience.',
-                'description' => 'Create your own silver ring, bracelet, or pendant and discover the joy of making something with your own hands.',
+                'description' => 'Perfect for solo travelers and individual experiences.',
                 'inclusions' => [
-                    '1–5 grams of pure silver',
-                    'Ring, bracelet, or pendant',
-                    'Simple design of your choice',
-                    'Guidance from an experienced silversmith',
-                    'Traditional Balinese silver-making techniques',
-                    'Finished jewelry to take home',
-                    '1–2 hours of experience',
+                    'Pure silver 1–5 grams',
+                    'Professional silversmith guidance',
+                    'Mineral water',
+                    'Coffee or Tea',
+                    'Your handmade silver jewelry to take home',
+                    'Class duration: 1–2 hours.',
                 ],
-                'badge' => 'Personal Favorite',
+                'badge' => 'Personal Choice',
                 'is_featured' => false,
                 'sort_order' => 1,
                 'is_active' => true,
@@ -60,23 +60,22 @@ class DatabaseSeeder extends Seeder
         $couple = Package::updateOrCreate(
             ['slug' => 'couple'],
             [
-                'name' => 'COUPLE',
+                'name' => 'Couple Package',
                 'price' => 950000,
-                'price_label' => 'IDR 950K / 2 PEOPLE',
+                'price_label' => 'Rp950.000/2 Persons',
                 'min_persons' => 2,
-                'silver_grams' => '2–10 grams of pure silver in total',
+                'silver_grams' => '1–10 grams of pure silver in total',
                 'duration' => '1–2 hours',
                 'tagline' => 'Two people. Two creations. One beautiful memory.',
-                'description' => 'Share a meaningful experience with someone special and create your own handmade silver jewelry together.',
+                'description' => 'Perfect for honeymooners and couples visiting Bali.',
                 'inclusions' => [
-                    '2–10 grams of pure silver in total',
-                    'One jewelry piece per person',
-                    'Ring, bracelet, or pendant',
-                    'Simple designs of your choice',
-                    'Guidance from an experienced silversmith',
-                    'Traditional Balinese silver-making techniques',
-                    'Finished jewelry to take home',
-                    '1–2 hours of experience',
+                    'Pure silver 1–10 grams',
+                    'Professional silversmith guidance',
+                    'Mineral water',
+                    'Coffee or Tea',
+                    'Your handmade silver jewelry to take home',
+                    'Class duration: 1–2 hours.',
+                    'Romantic and memorable experience for couples',
                 ],
                 'badge' => 'Most Popular',
                 'is_featured' => true,
@@ -88,23 +87,23 @@ class DatabaseSeeder extends Seeder
         $family = Package::updateOrCreate(
             ['slug' => 'family'],
             [
-                'name' => 'FAMILY',
+                'name' => 'Family Package',
                 'price' => 1900000,
-                'price_label' => 'IDR 1,900K / 4 PEOPLE',
+                'price_label' => 'Rp1.900.000/4 Persons',
                 'min_persons' => 4,
-                'silver_grams' => '4–20 grams of pure silver in total',
+                'silver_grams' => '1–20 grams of pure silver in total',
                 'duration' => '1–2 hours',
                 'tagline' => 'Create memories together.',
-                'description' => 'Enjoy a creative family activity where everyone can make their own silver jewelry and take home a special reminder of your time in Bali.',
+                'description' => 'Special package for families who want to enjoy quality time together while creating silver jewelry. Please contact us for family package arrangements.',
                 'inclusions' => [
-                    '4–20 grams of pure silver in total',
-                    'One jewelry piece per person',
-                    'Ring, bracelet, or pendant',
-                    'Simple designs of your choice',
-                    'Guidance from an experienced silversmith',
-                    'Traditional Balinese silver-making techniques',
-                    'Finished jewelry to take home',
-                    '1–2 hours of experience',
+                    'Pure silver 1–20 grams',
+                    'Professional silversmith guidance',
+                    'Mineral water',
+                    'Coffee or Tea',
+                    'Class duration: 1–2 hours.',
+                    'Comfortable for children',
+                    'Family-friendly atmosphere',
+                    'Your handmade silver jewelry to take home',
                 ],
                 'badge' => 'Family Choice',
                 'is_featured' => false,
@@ -116,22 +115,23 @@ class DatabaseSeeder extends Seeder
         $group = Package::updateOrCreate(
             ['slug' => 'group'],
             [
-                'name' => 'GROUP',
+                'name' => 'Group Package',
                 'price' => 450000,
-                'price_label' => 'IDR 450K / PERSON',
-                'min_persons' => 7,
-                'silver_grams' => '1–5 grams of pure silver per person',
+                'price_label' => 'Rp450.000/Person (Min. 6)',
+                'min_persons' => 6,
+                'silver_grams' => 'Pure silver materials',
                 'duration' => '1–2 hours',
                 'tagline' => 'Create together. Remember together.',
-                'description' => 'A fun and meaningful experience for friends, celebrations, tour groups, and special occasions. (Minimum 7 people)',
+                'description' => 'Perfect for group tours, company trips, student groups, and friends traveling together.',
                 'inclusions' => [
-                    '1–5 grams of pure silver per person',
-                    'Ring, bracelet, or pendant',
-                    'Simple design of your choice',
-                    'Guidance from an experienced silversmith',
-                    'Traditional Balinese silver-making techniques',
-                    'Finished jewelry to take home',
-                    '1–2 hours of experience',
+                    'Pure silver materials',
+                    'Professional silversmith guidance',
+                    'Mineral water',
+                    'Your handmade silver jewelry to take home',
+                    'Class duration: 1–2 hours.',
+                    'Comfortable group setting.',
+                    'Coffee or Tea',
+                    'Take-home jewelry',
                 ],
                 'badge' => 'Best For Groups',
                 'is_featured' => false,
@@ -255,7 +255,51 @@ class DatabaseSeeder extends Seeder
             );
         }
 
-        // 5. Site Settings
+        // 5. Articles
+        $articles = [
+            [
+                'title' => 'This Is Why You Must Try Star Ubud Silver Class for the Perfect Creative Experience 5',
+                'slug' => 'this-is-why-you-must-try-star-ubud-silver-class-5',
+                'excerpt' => 'Seminyak is famous for its vibrant beach clubs, high-end boutiques, and world-class dining. But when the bustling streets and beach crowds leave you craving something deeply authentic and creative, a journey to our tranquil studio in Ubud offers the perfect contrast.',
+                'content' => 'Discover how crafting your own silver jewelry in Ubud transforms your Bali vacation into an unforgettable artistic journey. Learn step-by-step techniques from master silversmiths.',
+                'image' => 'images/happy_participants.jpg',
+                'author' => 'Star Ubud Team',
+                'published_at' => '2026-05-25',
+                'is_published' => true,
+                'sort_order' => 1,
+            ],
+            [
+                'title' => 'A Romantic Escape in Ubud: Crafting Your Own Love Story in Silver 5',
+                'slug' => 'a-romantic-escape-in-ubud-crafting-your-own-love-story-5',
+                'excerpt' => 'When people think of a romantic getaway to Bali, images of candlelit dinners in Seminyak or sunset walks along the beaches of Uluwatu often come to mind. But creating custom matching rings together creates a memory that lasts forever.',
+                'content' => 'Couples from around the world visit our Ubud silver workshop to shape, engrave, and polish each other’s rings. It is an intimate, memorable, and bonding experience like no other.',
+                'image' => 'images/happy_creators_rings.jpg',
+                'author' => 'Star Ubud Team',
+                'published_at' => '2026-05-25',
+                'is_published' => true,
+                'sort_order' => 2,
+            ],
+            [
+                'title' => 'This Is Why You Must Try Star Ubud Silver Class for the Perfect Creative Experience 4',
+                'slug' => 'this-is-why-you-must-try-star-ubud-silver-class-4',
+                'excerpt' => 'Seminyak is famous for its vibrant beach clubs, high-end boutiques, and world-class dining. But when the bustling streets and beach crowds leave you craving hands-on craftsmanship, step into the peaceful world of traditional silver artistry.',
+                'content' => 'From melting pure 925 silver grains to hammering textured facets and setting personal gemstones, explore what makes our workshops in Ubud so beloved by travelers worldwide.',
+                'image' => 'images/artisan_rolling_mill.jpg',
+                'author' => 'Star Ubud Team',
+                'published_at' => '2026-05-25',
+                'is_published' => true,
+                'sort_order' => 3,
+            ],
+        ];
+
+        foreach ($articles as $a) {
+            Article::updateOrCreate(
+                ['slug' => $a['slug']],
+                $a
+            );
+        }
+
+        // 6. Site Settings
         $settings = [
             ['key' => 'site_title', 'label' => 'Site Title', 'value' => 'SKY Ubud Silver Class', 'group' => 'general'],
             ['key' => 'tagline', 'label' => 'Tagline', 'value' => 'CREATE YOUR STORY. CRAFT YOUR MEMORY. WEAR YOUR MASTERPIECE.', 'group' => 'general'],
