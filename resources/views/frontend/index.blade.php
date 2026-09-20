@@ -513,37 +513,6 @@
     </section>
 
 
-    <!-- =========================================================================
-         FAQ ACCORDION
-         ========================================================================= -->
-    <section class="section" id="faqs">
-        <div class="container" style="max-width: 850px;">
-            <div class="section-header">
-                <span class="section-tag">Got Questions?</span>
-                <h2 class="section-title">
-                    Frequently Asked <span class="silver-gradient-text">Questions</span>
-                </h2>
-                <p class="section-desc">
-                    Everything you need to know before joining your silver crafting session.
-                </p>
-            </div>
-
-            <div class="faq-list">
-                @foreach($faqs as $faq)
-                    <div class="faq-item {{ $loop->first ? 'active' : '' }}">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            <span>{{ $faq->question }}</span>
-                            <i class="fa-solid fa-chevron-down faq-icon"></i>
-                        </div>
-                        <div class="faq-answer">
-                            {{ $faq->answer }}
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
 
     <!-- =========================================================================
          VISIT OUR WORKSHOP / LOCATION MAP
