@@ -330,30 +330,6 @@
     </section>
 
 
-    <!-- =========================================================================
-         EMOTIONAL NARRATIVE CALLOUT
-         ========================================================================= -->
-    <section class="section" style="background: radial-gradient(circle at center, rgba(14,165,233,0.16) 0%, var(--bg-base) 80%); text-align: center;">
-        <div class="container" style="max-width: 820px;">
-            <span class="badge-pill badge-pill-gold">
-                <i class="fa-solid fa-sparkles"></i> Unforgettable Bali Moment
-            </span>
-            <h2 class="section-title" style="margin-top: 1.1rem;">
-                Your Time in Bali Deserves <br>
-                <span class="gold-gradient-text">Something Special</span>
-            </h2>
-            <p style="font-size: 1.22rem; color: #ffffff; font-weight: 600; margin-bottom: 1.5rem;" class="font-subheading">
-                Not Just a Souvenir. A Story You Can Wear.
-            </p>
-            <p style="font-size: 1.05rem; color: var(--silver-400); line-height: 1.8; margin-bottom: 2.2rem;">
-                Imagine returning home with a piece of jewelry that you did not simply purchase, but created yourself. A ring shaped by your hands. A bracelet made during a special journey. A pendant that carries a memory. This is your opportunity to create something meaningful in Bali.
-            </p>
-            <button class="btn-gold" style="font-size: 1.02rem;" onclick="openBookingModal()">
-                <i class="fa-solid fa-sparkles"></i>
-                <span>Book Your Silver Class Now</span>
-            </button>
-        </div>
-    </section>
 
 
     <!-- =========================================================================
