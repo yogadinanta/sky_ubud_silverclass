@@ -33,6 +33,12 @@ class ArticleForm
                     ->disk('public')
                     ->visibility('public')
                     ->maxSize(5120)
+                    ->formatStateUsing(function ($state) {
+                        if (empty($state) || str_starts_with($state, 'images/') || str_starts_with($state, 'http')) {
+                            return null;
+                        }
+                        return $state;
+                    })
                     ->helperText('Upload JPG, PNG, or WebP article cover (Max 5MB)')
                     ->columnSpanFull(),
                 TextInput::make('author')

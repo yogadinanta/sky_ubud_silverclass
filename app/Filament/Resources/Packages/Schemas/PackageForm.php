@@ -60,6 +60,12 @@ class PackageForm
                     ->disk('public')
                     ->visibility('public')
                     ->maxSize(5120)
+                    ->formatStateUsing(function ($state) {
+                        if (empty($state) || str_starts_with($state, 'images/') || str_starts_with($state, 'http')) {
+                            return null;
+                        }
+                        return $state;
+                    })
                     ->helperText('Upload JPG, PNG, or WebP cover image (Max 5MB). If left empty, default package photo will be used.')
                     ->columnSpanFull(),
 

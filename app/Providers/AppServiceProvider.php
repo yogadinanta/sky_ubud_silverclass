@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Package;
 use App\Models\SiteSetting;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if ($this->app->environment('production') || str_starts_with(config('app.url'), 'https://') || request()->server('HTTP_X_FORWARDED_PROTO') === 'https') {
+            URL::forceScheme('https');
+        }
+
         // Share packages and settings across all frontend views
         View::composer('frontend.*', function ($view) {
             try {
