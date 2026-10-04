@@ -51,7 +51,13 @@ class Package extends Model
                 return asset($this->image);
             }
 
-            return asset('storage/' . $this->image);
+            try {
+                if (\Illuminate\Support\Facades\Storage::disk('public')->exists($this->image) || file_exists(public_path('storage/' . $this->image)) || file_exists(storage_path('app/public/' . $this->image))) {
+                    return asset('storage/' . $this->image);
+                }
+            } catch (\Throwable $e) {
+                // Ignore
+            }
         }
 
         return match($this->slug) {

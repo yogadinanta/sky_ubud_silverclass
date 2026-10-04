@@ -68,6 +68,13 @@ class PackageForm
                         if (empty($state) || str_starts_with($state, 'images/') || str_starts_with($state, 'http')) {
                             return null;
                         }
+                        try {
+                            if (!\Illuminate\Support\Facades\Storage::disk('public')->exists($state) && !file_exists(public_path('storage/' . $state)) && !file_exists(storage_path('app/public/' . $state))) {
+                                return null;
+                            }
+                        } catch (\Throwable $e) {
+                            return null;
+                        }
                         return $state;
                     })
                     ->helperText('Upload JPG, PNG, or WebP cover image (Max 5MB). If left empty, default package photo will be used.')
