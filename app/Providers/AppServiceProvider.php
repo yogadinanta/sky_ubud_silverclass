@@ -28,6 +28,25 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
 
+        // Ensure storage and temporary upload directories exist with proper permissions
+        $storageDirs = [
+            storage_path('app/public/packages'),
+            storage_path('app/public/articles'),
+            storage_path('app/public/galleries'),
+            storage_path('app/public/livewire-tmp'),
+            storage_path('app/private/livewire-tmp'),
+            storage_path('app/livewire-tmp'),
+            storage_path('framework/sessions'),
+            storage_path('framework/views'),
+            storage_path('framework/cache'),
+        ];
+
+        foreach ($storageDirs as $dir) {
+            if (!is_dir($dir)) {
+                @mkdir($dir, 0775, true);
+            }
+        }
+
         // Share packages and settings across all frontend views
         View::composer('frontend.*', function ($view) {
             try {
