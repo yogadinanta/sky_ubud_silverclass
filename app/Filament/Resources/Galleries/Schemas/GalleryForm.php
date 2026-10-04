@@ -34,7 +34,11 @@ class GalleryForm
                 FileUpload::make('image_path')
                     ->label('Upload Image')
                     ->image()
-                    ->imageEditor()
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/jpg'])
+                    ->imageResizeMode('cover')
+                    ->imageResizeTargetWidth('1200')
+                    ->imageResizeTargetHeight('800')
+                    ->imageResizeUpscale(false)
                     ->directory('galleries')
                     ->disk('public')
                     ->visibility('public')
@@ -45,7 +49,7 @@ class GalleryForm
                         }
                         return $state;
                     })
-                    ->helperText('Upload JPG, PNG, or WebP photo (Max 5MB). Image editor enabled.')
+                    ->helperText('Upload JPG, PNG, or WebP photo (Max 5MB).')
                     ->required()
                     ->columnSpanFull(),
 
