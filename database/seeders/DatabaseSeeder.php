@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             ['slug' => 'single'],
             [
                 'name' => 'Single Package',
+                'image' => 'images/happy_participants.jpg',
                 'price' => 500000,
                 'price_label' => 'Rp500.000/Person',
                 'min_persons' => 1,
@@ -60,6 +61,7 @@ class DatabaseSeeder extends Seeder
             ['slug' => 'couple'],
             [
                 'name' => 'Couple Package',
+                'image' => 'images/happy_creators_rings.jpg',
                 'price' => 950000,
                 'price_label' => 'Rp950.000/2 Persons',
                 'min_persons' => 2,
@@ -87,6 +89,7 @@ class DatabaseSeeder extends Seeder
             ['slug' => 'family'],
             [
                 'name' => 'Family Package',
+                'image' => 'images/silver_creations_trio.jpg',
                 'price' => 1900000,
                 'price_label' => 'Rp1.900.000/4 Persons',
                 'min_persons' => 4,
@@ -115,6 +118,7 @@ class DatabaseSeeder extends Seeder
             ['slug' => 'group'],
             [
                 'name' => 'Group Package',
+                'image' => 'images/hero_silver_craft.jpg',
                 'price' => 450000,
                 'price_label' => 'Rp450.000/Person (Min. 6)',
                 'min_persons' => 6,
@@ -143,6 +147,7 @@ class DatabaseSeeder extends Seeder
             ['slug' => 'custom'],
             [
                 'name' => 'Custom Package',
+                'image' => 'images/happy_participants.jpg',
                 'price' => 500000,
                 'price_label' => 'Rp500.000/Person (Custom)',
                 'min_persons' => 1,

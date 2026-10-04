@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Packages\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -50,6 +51,17 @@ class PackageForm
 
                 TextInput::make('badge')
                     ->label('Badge Highlight (e.g. Most Popular, Family Choice)'),
+
+                FileUpload::make('image')
+                    ->label('Cover Image (Photo displayed at the top of the package card)')
+                    ->image()
+                    ->imageEditor()
+                    ->directory('packages')
+                    ->disk('public')
+                    ->visibility('public')
+                    ->maxSize(5120)
+                    ->helperText('Upload JPG, PNG, or WebP cover image (Max 5MB). If left empty, default package photo will be used.')
+                    ->columnSpanFull(),
 
                 TextInput::make('tagline')
                     ->label('Short Catchy Tagline')

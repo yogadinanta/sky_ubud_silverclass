@@ -13,6 +13,7 @@ class Package extends Model
     protected $fillable = [
         'name',
         'slug',
+        'image',
         'price',
         'price_label',
         'min_persons',
@@ -39,14 +40,27 @@ class Package extends Model
         ];
     }
 
-    public function getImageAttribute(): string
+    public function getImageUrlAttribute(): string
     {
+        if (!empty($this->image)) {
+            if (str_starts_with($this->image, 'http://') || str_starts_with($this->image, 'https://')) {
+                return $this->image;
+            }
+
+            if (str_starts_with($this->image, 'images/')) {
+                return asset($this->image);
+            }
+
+            return asset('storage/' . $this->image);
+        }
+
         return match($this->slug) {
-            'single' => 'images/happy_participants.jpg',
-            'couple' => 'images/happy_creators_rings.jpg',
-            'family' => 'images/silver_creations_trio.jpg',
-            'group' => 'images/hero_silver_craft.jpg',
-            default => 'images/happy_participants.jpg',
+            'single' => asset('images/happy_participants.jpg'),
+            'couple' => asset('images/happy_creators_rings.jpg'),
+            'family' => asset('images/silver_creations_trio.jpg'),
+            'group' => asset('images/hero_silver_craft.jpg'),
+            'custom' => asset('images/happy_participants.jpg'),
+            default => asset('images/happy_participants.jpg'),
         };
     }
 

@@ -244,7 +244,7 @@
                 @foreach($packages as $package)
                     <div class="pkg-blue-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="{{ $loop->index * 100 }}">
                         <div class="pkg-card-img-wrap">
-                            <img src="{{ asset($package->image ?? 'images/happy_participants.jpg') }}" alt="{{ $package->name }}" loading="lazy">
+                            <img src="{{ $package->image_url }}" alt="{{ $package->name }}" loading="lazy">
                         </div>
 
                         <div class="pkg-card-body">
@@ -304,22 +304,11 @@
                     </h2>
                 </div>
 
-                <!-- Right Column: 5 Feature Cards Grid -->
+                <!-- Right Column: 4 Feature Cards Grid -->
                 <div class="diff-cards-grid">
                     
-                    <!-- Card 1: Rice Field View -->
+                    <!-- Card 1: Professional Silversmith -->
                     <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="50">
-                        <div class="diff-card-icon">
-                            <i class="fa-solid fa-seedling"></i>
-                        </div>
-                        <h3 class="diff-card-title">Beautiful Rice Field View in Ubud</h3>
-                        <p class="diff-card-desc">
-                            Enjoy the relaxing and peaceful atmosphere of authentic Ubud rice terraces while creating your own silver jewelry masterpiece.
-                        </p>
-                    </div>
-
-                    <!-- Card 2: Professional Silversmith -->
-                    <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="100">
                         <div class="diff-card-icon">
                             <i class="fa-solid fa-gem"></i>
                         </div>
@@ -329,8 +318,8 @@
                         </p>
                     </div>
 
-                    <!-- Card 3: English-Speaking Staff -->
-                    <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="150">
+                    <!-- Card 2: English-Speaking Staff -->
+                    <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="100">
                         <div class="diff-card-icon">
                             <i class="fa-solid fa-globe"></i>
                         </div>
@@ -340,8 +329,8 @@
                         </p>
                     </div>
 
-                    <!-- Card 4: Family & Kids Friendly -->
-                    <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="200">
+                    <!-- Card 3: Family & Kids Friendly -->
+                    <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="150">
                         <div class="diff-card-icon">
                             <i class="fa-solid fa-users"></i>
                         </div>
@@ -351,8 +340,8 @@
                         </p>
                     </div>
 
-                    <!-- Card 5: Take Home Creation -->
-                    <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="250">
+                    <!-- Card 4: Take Home Creation -->
+                    <div class="diff-card" data-aos="fade-up" data-aos-duration="750" data-aos-delay="200">
                         <div class="diff-card-icon">
                             <i class="fa-solid fa-gift"></i>
                         </div>
