@@ -272,7 +272,7 @@
 
                             <button type="button" 
                                     class="btn-pkg-blue" 
-                                    onclick="openBookingModal({{ $pkg->id ?? $package->id }})"
+                                    onclick="openBookingModal({{ $package->id }})"
                                     style="width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; cursor: pointer;"
                                     aria-label="Book {{ $package->name }}">
                                 <i class="fa-brands fa-whatsapp"></i>

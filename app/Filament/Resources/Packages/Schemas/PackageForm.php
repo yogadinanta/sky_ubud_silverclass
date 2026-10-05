@@ -3,11 +3,13 @@
 namespace App\Filament\Resources\Packages\Schemas;
 
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
+use Illuminate\Support\HtmlString;
 
 class PackageForm
 {
@@ -52,32 +54,44 @@ class PackageForm
                 TextInput::make('badge')
                     ->label('Badge Highlight (e.g. Most Popular, Family Choice)'),
 
+                Placeholder::make('current_image_preview')
+                    ->label('Status & Preview Foto')
+                    ->content(function ($record) {
+                        $imageUrl = $record ? $record->image_url : asset('images/default_package.jpg');
+                        $hasCustom = $record && !empty($record->image);
+
+                        return new HtmlString('
+                            <div style="display: flex; align-items: center; gap: 16px; padding: 14px; border-radius: 10px; background: rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.08);">
+                                <img src="' . e($imageUrl) . '" alt="Preview Foto" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); flex-shrink: 0;" />
+                                <div>
+                                    <div style="margin-bottom: 6px;">
+                                        <span style="font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 9999px; ' . ($hasCustom ? 'background: #dcfce7; color: #166534; border: 1px solid #bbf7d0;' : 'background: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb;') . '">
+                                            ' . ($hasCustom ? '✓ Foto Kustom Aktif' : 'ℹ Menggunakan Foto Default') . '
+                                        </span>
+                                    </div>
+                                    <div style="font-size: 12px; color: #6b7280; line-height: 1.4;">
+                                        ' . ($hasCustom 
+                                            ? 'Paket ini menggunakan foto kustom. Untuk mengganti, upload foto baru. Untuk menghapus dan kembali ke default, klik ikon tempat sampah (X) pada kotak upload di bawah.' 
+                                            : 'Paket ini belum memiliki foto kustom (menggunakan default sistem). Upload file baru di bawah jika ingin menggantinya.') . '
+                                    </div>
+                                </div>
+                            </div>
+                        ');
+                    })
+                    ->columnSpanFull(),
+
                 FileUpload::make('image')
-                    ->label('Cover Image (Photo displayed at the top of the package card)')
+                    ->label('Upload / Ganti Foto Cover')
                     ->image()
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/jpg'])
-                    ->imageResizeMode('cover')
-                    ->imageResizeTargetWidth('1200')
-                    ->imageResizeTargetHeight('800')
-                    ->imageResizeUpscale(false)
                     ->directory('packages')
                     ->disk('public')
                     ->visibility('public')
-                    ->maxSize(5120)
-                    ->formatStateUsing(function ($state) {
-                        if (empty($state) || str_starts_with($state, 'images/') || str_starts_with($state, 'http')) {
-                            return null;
-                        }
-                        try {
-                            if (!\Illuminate\Support\Facades\Storage::disk('public')->exists($state) && !file_exists(public_path('storage/' . $state)) && !file_exists(storage_path('app/public/' . $state))) {
-                                return null;
-                            }
-                        } catch (\Throwable $e) {
-                            return null;
-                        }
-                        return $state;
-                    })
-                    ->helperText('Upload JPG, PNG, or WebP cover image (Max 5MB). If left empty, default package photo will be used.')
+                    ->maxSize(10240)
+                    ->openable()
+                    ->downloadable()
+                    ->deletable(true)
+                    ->helperText('Pilih atau tarik (drag) file foto baru untuk mengganti gambar. Untuk menghapus foto kustom dan kembali ke default, klik tanda silang (X) atau ikon tempat sampah pada file.')
                     ->columnSpanFull(),
 
                 TextInput::make('tagline')

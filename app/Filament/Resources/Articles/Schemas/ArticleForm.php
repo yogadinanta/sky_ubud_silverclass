@@ -29,28 +29,14 @@ class ArticleForm
                     ->label('Featured Image')
                     ->image()
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/jpg'])
-                    ->imageResizeMode('cover')
-                    ->imageResizeTargetWidth('1200')
-                    ->imageResizeTargetHeight('800')
-                    ->imageResizeUpscale(false)
                     ->directory('articles')
                     ->disk('public')
                     ->visibility('public')
-                    ->maxSize(5120)
-                    ->formatStateUsing(function ($state) {
-                        if (empty($state) || str_starts_with($state, 'images/') || str_starts_with($state, 'http')) {
-                            return null;
-                        }
-                        try {
-                            if (!\Illuminate\Support\Facades\Storage::disk('public')->exists($state) && !file_exists(public_path('storage/' . $state)) && !file_exists(storage_path('app/public/' . $state))) {
-                                return null;
-                            }
-                        } catch (\Throwable $e) {
-                            return null;
-                        }
-                        return $state;
-                    })
-                    ->helperText('Upload JPG, PNG, or WebP article cover (Max 5MB)')
+                    ->maxSize(10240)
+                    ->openable()
+                    ->downloadable()
+                    ->deletable(true)
+                    ->helperText('Upload JPG, PNG, atau WebP cover artikel (Maks 10MB)')
                     ->columnSpanFull(),
                 TextInput::make('author')
                     ->required()

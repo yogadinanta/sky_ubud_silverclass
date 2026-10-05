@@ -61,12 +61,14 @@ class Package extends Model
         }
 
         return match($this->slug) {
-            'single' => asset('images/happy_participants.jpg'),
-            'couple' => asset('images/happy_creators_rings.jpg'),
-            'family' => asset('images/silver_creations_trio.jpg'),
-            'group' => asset('images/hero_silver_craft.jpg'),
-            'custom' => asset('images/happy_participants.jpg'),
-            default => asset('images/happy_participants.jpg'),
+            'single' => asset('images/single_package.jpg'),
+            'couple' => asset('images/couple_package.jpg'),
+            'family' => asset('images/family_package.jpg'),
+            'group' => asset('images/group_package.jpg'),
+            'custom' => asset('images/custom_package.jpg'),
+            default => file_exists(public_path('images/default_package.jpg')) 
+                ? asset('images/default_package.jpg') 
+                : asset('images/single_package.jpg'),
         };
     }
 
