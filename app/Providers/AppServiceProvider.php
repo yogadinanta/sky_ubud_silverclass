@@ -47,6 +47,19 @@ class AppServiceProvider extends ServiceProvider
             }
         }
 
+        // Auto-heal storage symlink for cPanel / production environments
+        try {
+            $publicStorage = public_path('storage');
+            if (is_link($publicStorage) && !file_exists($publicStorage)) {
+                @unlink($publicStorage);
+            }
+            if (!file_exists($publicStorage) && !is_link($publicStorage)) {
+                @symlink(storage_path('app/public'), $publicStorage);
+            }
+        } catch (\Throwable $e) {
+            // Ignore if symlink is restricted on shared hosting
+        }
+
         // Share packages and settings across all frontend views
         View::composer('frontend.*', function ($view) {
             try {

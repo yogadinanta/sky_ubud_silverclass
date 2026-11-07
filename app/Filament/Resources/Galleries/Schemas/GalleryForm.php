@@ -62,6 +62,19 @@ class GalleryForm
                     ->openable()
                     ->downloadable()
                     ->deletable(true)
+                    ->formatStateUsing(function ($state) {
+                        if (empty($state) || str_starts_with($state, 'images/') || str_starts_with($state, 'http')) {
+                            return null;
+                        }
+                        try {
+                            if (!file_exists(storage_path('app/public/' . $state)) && !file_exists(public_path('storage/' . $state))) {
+                                return null;
+                            }
+                        } catch (\Throwable $e) {
+                            return null;
+                        }
+                        return $state;
+                    })
                     ->helperText('Pilih atau tarik foto baru (JPG, PNG, atau WebP maks 10MB) untuk mengganti gambar.')
                     ->required(fn (string $operation): bool => $operation === 'create')
                     ->columnSpanFull(),

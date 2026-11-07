@@ -91,6 +91,19 @@ class PackageForm
                     ->openable()
                     ->downloadable()
                     ->deletable(true)
+                    ->formatStateUsing(function ($state) {
+                        if (empty($state) || str_starts_with($state, 'images/') || str_starts_with($state, 'http')) {
+                            return null;
+                        }
+                        try {
+                            if (!file_exists(storage_path('app/public/' . $state)) && !file_exists(public_path('storage/' . $state))) {
+                                return null;
+                            }
+                        } catch (\Throwable $e) {
+                            return null;
+                        }
+                        return $state;
+                    })
                     ->helperText('Pilih atau tarik (drag) file foto baru untuk mengganti gambar. Untuk menghapus foto kustom dan kembali ke default, klik tanda silang (X) atau ikon tempat sampah pada file.')
                     ->columnSpanFull(),
 
